@@ -1,16 +1,33 @@
 PODS:
-  - FSStockComponets (0.1.0)
+  - FSStockComponets (0.1.0):
+    - Masonry
+    - MJExtension
+    - YYCategories
+  - Masonry (1.1.0)
+  - MJExtension (3.4.1)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - FSStockComponets (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - MJExtension
+    - YYCategories
 
 EXTERNAL SOURCES:
   FSStockComponets:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FSStockComponets: 095300d20796a97214107df093227ff5b8c15141
+  FSStockComponets: f9e687e484602b5d2c6e3c7605ca8d45e9bb898f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 370c6e71612ced86ceea9d3cc22c84f8999ed30d
+PODFILE CHECKSUM: 5b57c57a3618e02f9655703ed794b78dac7f7762
 
 COCOAPODS: 1.12.1

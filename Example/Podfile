@@ -3,6 +3,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'FSStockComponets_Example' do
+  inhibit_all_warnings!
+  
   pod 'FSStockComponets', :path => '../'
 
   target 'FSStockComponets_Tests' do
