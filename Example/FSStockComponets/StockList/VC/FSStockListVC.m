@@ -11,6 +11,7 @@
 #import "FSStockListCell.h"
 //Helper
 #import "FSColorMacro.h"
+#import "EVLanguage.h"
 
 @interface FSStockListVC ()<UITableViewDataSource, UITableViewDelegate, QuotationListDelegate>
 
@@ -28,18 +29,27 @@
 {
     [super viewDidLoad];
     [self setupSubviews];
+    [self setupConstraints];
 }
 
 #pragma mark - Private Methods
 
 - (void)setupSubviews
 {
+    self.tableView.frame = self.view.bounds;
     self.tableView.backgroundColor = HEX_RGB(0xF5F6FA);
-//    self.title = EVLanguage(@"自选股");
+    self.title = EVLanguage(@"自选股");
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:self.tableView];
 }
 
+- (void)setupConstraints
+{
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.right.equalTo(self.view);
+    }];
+}
 
 #pragma mark - <QuotationListDelegate>
 
