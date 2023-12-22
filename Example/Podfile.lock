@@ -1,0 +1,16 @@
+PODS:
+  - FSStockComponets (0.1.0)
+
+DEPENDENCIES:
+  - FSStockComponets (from `../`)
+
+EXTERNAL SOURCES:
+  FSStockComponets:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FSStockComponets: 095300d20796a97214107df093227ff5b8c15141
+
+PODFILE CHECKSUM: 370c6e71612ced86ceea9d3cc22c84f8999ed30d
+
+COCOAPODS: 1.12.1

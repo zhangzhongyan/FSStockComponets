@@ -1,0 +1,22 @@
+{
+  "name": "FSStockComponets",
+  "version": "0.1.0",
+  "summary": "A short description of FSStockComponets.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/张忠燕/FSStockComponets",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张忠燕": "749994100@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/张忠燕/FSStockComponets.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "FSStockComponets/Classes/**/*"
+}

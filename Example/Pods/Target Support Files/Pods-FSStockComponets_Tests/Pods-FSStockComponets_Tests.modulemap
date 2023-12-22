@@ -1,0 +1,6 @@
+framework module Pods_FSStockComponets_Tests {
+  umbrella header "Pods-FSStockComponets_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
