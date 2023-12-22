@@ -6,6 +6,7 @@ target 'FSStockComponets_Example' do
   inhibit_all_warnings!
   
   pod 'FSStockComponets', :path => '../'
+  pod 'PINCache', '2.3'
 
   target 'FSStockComponets_Tests' do
     inherit! :search_paths

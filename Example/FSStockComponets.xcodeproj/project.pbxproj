@@ -26,6 +26,12 @@
 		E17987702B356B6700B072AD /* FSStockListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E179876F2B356B6700B072AD /* FSStockListVC.m */; };
 		E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987722B356C3300B072AD /* FSStockDetailVC.m */; };
 		E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987752B356CFF00B072AD /* FSTabBarVC.m */; };
+		E179877C2B3574D500B072AD /* FSStockListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E179877B2B3574D500B072AD /* FSStockListCell.m */; };
+		E179877F2B3575F800B072AD /* FSStockListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E179877E2B3575F800B072AD /* FSStockListVM.m */; };
+		E179878B2B35791F00B072AD /* EVBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987852B35791F00B072AD /* EVBundle.m */; };
+		E179878C2B35791F00B072AD /* NSBundle+EVLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987862B35791F00B072AD /* NSBundle+EVLanguage.m */; };
+		E179878D2B35791F00B072AD /* EVLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987872B35791F00B072AD /* EVLanguage.m */; };
+		E17987912B357B7A00B072AD /* EVCacheUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987902B357B7A00B072AD /* EVCacheUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,19 @@
 		E17987722B356C3300B072AD /* FSStockDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailVC.m; sourceTree = "<group>"; };
 		E17987742B356CFF00B072AD /* FSTabBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSTabBarVC.h; sourceTree = "<group>"; };
 		E17987752B356CFF00B072AD /* FSTabBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSTabBarVC.m; sourceTree = "<group>"; };
+		E179877A2B3574D500B072AD /* FSStockListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockListCell.h; sourceTree = "<group>"; };
+		E179877B2B3574D500B072AD /* FSStockListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockListCell.m; sourceTree = "<group>"; };
+		E179877D2B3575F800B072AD /* FSStockListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockListVM.h; sourceTree = "<group>"; };
+		E179877E2B3575F800B072AD /* FSStockListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockListVM.m; sourceTree = "<group>"; };
+		E17987812B35777500B072AD /* FSColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSColorMacro.h; sourceTree = "<group>"; };
+		E17987852B35791F00B072AD /* EVBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVBundle.m; sourceTree = "<group>"; };
+		E17987862B35791F00B072AD /* NSBundle+EVLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+EVLanguage.m"; sourceTree = "<group>"; };
+		E17987872B35791F00B072AD /* EVLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVLanguage.m; sourceTree = "<group>"; };
+		E17987882B35791F00B072AD /* NSBundle+EVLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+EVLanguage.h"; sourceTree = "<group>"; };
+		E17987892B35791F00B072AD /* EVBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVBundle.h; sourceTree = "<group>"; };
+		E179878A2B35791F00B072AD /* EVLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVLanguage.h; sourceTree = "<group>"; };
+		E179878F2B357B7A00B072AD /* EVCacheUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVCacheUtils.h; sourceTree = "<group>"; };
+		E17987902B357B7A00B072AD /* EVCacheUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVCacheUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +157,8 @@
 		6003F593195388D20070C39A /* Example for FSStockComponets */ = {
 			isa = PBXGroup;
 			children = (
+				E17987822B35790F00B072AD /* General */,
+				E17987802B35774100B072AD /* Macro */,
 				E179876C2B356B4F00B072AD /* StockDetail */,
 				E179876D2B356B4F00B072AD /* StockList */,
 				6003F59C195388D20070C39A /* FSAppDelegate.h */,
@@ -205,10 +226,77 @@
 		E179876D2B356B4F00B072AD /* StockList */ = {
 			isa = PBXGroup;
 			children = (
+				E17987772B35749500B072AD /* View */,
+				E17987792B3574A700B072AD /* VM */,
+				E17987782B35749F00B072AD /* VC */,
+			);
+			path = StockList;
+			sourceTree = "<group>";
+		};
+		E17987772B35749500B072AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E179877A2B3574D500B072AD /* FSStockListCell.h */,
+				E179877B2B3574D500B072AD /* FSStockListCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E17987782B35749F00B072AD /* VC */ = {
+			isa = PBXGroup;
+			children = (
 				E179876E2B356B6700B072AD /* FSStockListVC.h */,
 				E179876F2B356B6700B072AD /* FSStockListVC.m */,
 			);
-			path = StockList;
+			path = VC;
+			sourceTree = "<group>";
+		};
+		E17987792B3574A700B072AD /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				E179877D2B3575F800B072AD /* FSStockListVM.h */,
+				E179877E2B3575F800B072AD /* FSStockListVM.m */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		E17987802B35774100B072AD /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				E17987812B35777500B072AD /* FSColorMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		E17987822B35790F00B072AD /* General */ = {
+			isa = PBXGroup;
+			children = (
+				E179878E2B357B6C00B072AD /* EVCacheUtils */,
+				E17987842B35791F00B072AD /* EVLanguage */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		E17987842B35791F00B072AD /* EVLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				E17987892B35791F00B072AD /* EVBundle.h */,
+				E17987852B35791F00B072AD /* EVBundle.m */,
+				E179878A2B35791F00B072AD /* EVLanguage.h */,
+				E17987872B35791F00B072AD /* EVLanguage.m */,
+				E17987882B35791F00B072AD /* NSBundle+EVLanguage.h */,
+				E17987862B35791F00B072AD /* NSBundle+EVLanguage.m */,
+			);
+			path = EVLanguage;
+			sourceTree = "<group>";
+		};
+		E179878E2B357B6C00B072AD /* EVCacheUtils */ = {
+			isa = PBXGroup;
+			children = (
+				E179878F2B357B7A00B072AD /* EVCacheUtils.h */,
+				E17987902B357B7A00B072AD /* EVCacheUtils.m */,
+			);
+			path = EVCacheUtils;
 			sourceTree = "<group>";
 		};
 		EADF3B2F1E2832FCAE5A9A8C /* Pods */ = {
@@ -375,6 +463,7 @@
 				"${BUILT_PRODUCTS_DIR}/FSStockComponets/FSStockComponets.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -382,6 +471,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSStockComponets.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,11 +486,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E179877C2B3574D500B072AD /* FSStockListCell.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
+				E179878B2B35791F00B072AD /* EVBundle.m in Sources */,
 				E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E17987912B357B7A00B072AD /* EVCacheUtils.m in Sources */,
 				E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */,
+				E179878D2B35791F00B072AD /* EVLanguage.m in Sources */,
+				E179877F2B3575F800B072AD /* FSStockListVM.m in Sources */,
 				E17987702B356B6700B072AD /* FSStockListVC.m in Sources */,
+				E179878C2B35791F00B072AD /* NSBundle+EVLanguage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
