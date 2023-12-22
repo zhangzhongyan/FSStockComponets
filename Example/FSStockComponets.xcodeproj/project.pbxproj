@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* FSAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* FSViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -24,6 +23,9 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		A946505B4AA6202BE991EDF3 /* Pods_FSStockComponets_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885E8641393ED37403FC36A2 /* Pods_FSStockComponets_Tests.framework */; };
 		CBDEEF91E21F0167407BAA98 /* Pods_FSStockComponets_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91E8E776684AC29F5FC9CFC /* Pods_FSStockComponets_Example.framework */; };
+		E17987702B356B6700B072AD /* FSStockListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E179876F2B356B6700B072AD /* FSStockListVC.m */; };
+		E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987722B356C3300B072AD /* FSStockDetailVC.m */; };
+		E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987752B356CFF00B072AD /* FSTabBarVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +52,6 @@
 		6003F59B195388D20070C39A /* FSStockComponets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FSStockComponets-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* FSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* FSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* FSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* FSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* FSStockComponets_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSStockComponets_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -67,6 +67,12 @@
 		A93EB434E6B1855230BA38CE /* Pods-FSStockComponets_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSStockComponets_Example.debug.xcconfig"; path = "Target Support Files/Pods-FSStockComponets_Example/Pods-FSStockComponets_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BBDA4642E393321B64D158A8 /* FSStockComponets.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSStockComponets.podspec; path = ../FSStockComponets.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C074B740C3DBDDF8E3B94480 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E179876E2B356B6700B072AD /* FSStockListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockListVC.h; sourceTree = "<group>"; };
+		E179876F2B356B6700B072AD /* FSStockListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockListVC.m; sourceTree = "<group>"; };
+		E17987712B356C3300B072AD /* FSStockDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockDetailVC.h; sourceTree = "<group>"; };
+		E17987722B356C3300B072AD /* FSStockDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailVC.m; sourceTree = "<group>"; };
+		E17987742B356CFF00B072AD /* FSTabBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSTabBarVC.h; sourceTree = "<group>"; };
+		E17987752B356CFF00B072AD /* FSTabBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSTabBarVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +138,13 @@
 		6003F593195388D20070C39A /* Example for FSStockComponets */ = {
 			isa = PBXGroup;
 			children = (
+				E179876C2B356B4F00B072AD /* StockDetail */,
+				E179876D2B356B4F00B072AD /* StockList */,
 				6003F59C195388D20070C39A /* FSAppDelegate.h */,
 				6003F59D195388D20070C39A /* FSAppDelegate.m */,
+				E17987742B356CFF00B072AD /* FSTabBarVC.h */,
+				E17987752B356CFF00B072AD /* FSTabBarVC.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* FSViewController.h */,
-				6003F5A6195388D20070C39A /* FSViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -183,6 +191,24 @@
 				C074B740C3DBDDF8E3B94480 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		E179876C2B356B4F00B072AD /* StockDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E17987712B356C3300B072AD /* FSStockDetailVC.h */,
+				E17987722B356C3300B072AD /* FSStockDetailVC.m */,
+			);
+			path = StockDetail;
+			sourceTree = "<group>";
+		};
+		E179876D2B356B4F00B072AD /* StockList */ = {
+			isa = PBXGroup;
+			children = (
+				E179876E2B356B6700B072AD /* FSStockListVC.h */,
+				E179876F2B356B6700B072AD /* FSStockListVC.m */,
+			);
+			path = StockList;
 			sourceTree = "<group>";
 		};
 		EADF3B2F1E2832FCAE5A9A8C /* Pods */ = {
@@ -371,8 +397,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
+				E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */,
+				E17987702B356B6700B072AD /* FSStockListVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

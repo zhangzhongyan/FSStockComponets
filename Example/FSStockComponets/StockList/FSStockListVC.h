@@ -1,5 +1,5 @@
 //
-//  FSViewController.h
+//  FSStockListVC.h
 //  FSStockComponets
 //
 //  Created by 张忠燕 on 12/22/2023.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface FSViewController : UIViewController
+@interface FSStockListVC : UIViewController
 
 @end

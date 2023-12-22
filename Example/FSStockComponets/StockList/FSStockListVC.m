@@ -1,18 +1,18 @@
 //
-//  FSViewController.m
+//  FSStockListVC.m
 //  FSStockComponets
 //
 //  Created by 张忠燕 on 12/22/2023.
 //  Copyright (c) 2023 张忠燕. All rights reserved.
 //
 
-#import "FSViewController.h"
+#import "FSStockListVC.h"
 
-@interface FSViewController ()
+@interface FSStockListVC ()
 
 @end
 
-@implementation FSViewController
+@implementation FSStockListVC
 
 - (void)viewDidLoad
 {
