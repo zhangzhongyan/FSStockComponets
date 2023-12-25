@@ -32,9 +32,8 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'FSStockComponets/Classes/**/*'
   
-  s.resource_bundles = {
-    'FSStockComponets' => ['FSStockComponets/Assets/*.png']
-  }
+  s.resource = 'FSStockComponets/Assets/FSStockComponents.bundle'
+  s.requires_arc = true
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

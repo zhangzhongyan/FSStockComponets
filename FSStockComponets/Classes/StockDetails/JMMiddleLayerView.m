@@ -15,6 +15,8 @@
 #import "YYKlineConstant.h"
 #import "JMChatManager.h"
 #import "PopTimeMenuView.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMMiddleLayerView ()<PopTimeMenuViewDelegate>
 
@@ -209,8 +211,8 @@
  */
 - (void)updateMoreBtnStateWithSelected:(BOOL)selected {
     
-    UIImage *image = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")];
-    UIImage *image_s = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_s.png")];
+    UIImage *image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
+    UIImage *image_s = [NSBundle fsStockUI_imageName:@"expand_s.png"];
     
     if (selected) {
         [self.moreBtn setTitleColor:UIColor.delayPromptTextColor forState:UIControlStateNormal];
@@ -605,7 +607,7 @@
 - (UIImageView *)nullDataImageView {
     if (!_nullDataImageView) {
         _nullDataImageView = [[UIImageView alloc] init];
-        _nullDataImageView.image = [UIImage imageWithContentsOfFile:kImageNamed(@"null_data.png")];
+        _nullDataImageView.image = [NSBundle fsStockUI_imageName:@"null_data.png"];
     }
     return _nullDataImageView;
 }
@@ -627,8 +629,8 @@
         [_moreBtn setTitle:@"1分" forState:UIControlStateNormal];
         [_moreBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_moreBtn.titleLabel setFont:kFont_Regular(14.f)];
-        [_moreBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")] forState:UIControlStateNormal];
-        [_moreBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_s.png")] forState:UIControlStateSelected];
+        [_moreBtn setImage:[NSBundle fsStockUI_imageName:@"expand_n.png"] forState:UIControlStateNormal];
+        [_moreBtn setImage:[NSBundle fsStockUI_imageName:@"expand_s.png"] forState:UIControlStateSelected];
         [_moreBtn setLayoutType:KJButtonContentLayoutStyleLeftImageRight];
         [_moreBtn setPadding:2.f];
         [_moreBtn setPeriphery:0.f];

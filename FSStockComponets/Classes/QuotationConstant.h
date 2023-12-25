@@ -83,9 +83,6 @@
 /** 设置图片 */
 //#define kImageNamed(__imageName) [UIImage imageNamed:__imageName]
 
-#define kBundle [NSBundle bundleForClass:self.class]
-#define kImageNamed(name) [kBundle pathForResource:name ofType:nil inDirectory:@"FSStockComponets.bundle"]
-
 /** 弱引用 */
 #define WEAK_SELF(weakSelf)  __weak __typeof(self)weakSelf = self;
 

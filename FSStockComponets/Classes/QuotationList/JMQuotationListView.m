@@ -13,6 +13,8 @@
 #import "JMDelayPromptView.h"
 #import "JMQuotationListHeadView.h"
 #import "WOCrashProtectorManager.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 typedef NS_ENUM(NSInteger, SortState) {
     SortStateDefault,
@@ -579,7 +581,7 @@ typedef NS_ENUM(NSInteger, SortState) {
         
     }];
     deleteAction.backgroundColor = UIColor.upColor;
-    deleteAction.image = [UIImage imageWithContentsOfFile:kImageNamed(@"delete.png")];
+    deleteAction.image = [NSBundle fsStockUI_imageName:@"delete.png"];
     
     UISwipeActionsConfiguration *Configuration = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
     Configuration.performsFirstActionWithFullSwipe = NO;
@@ -613,17 +615,17 @@ typedef NS_ENUM(NSInteger, SortState) {
     switch (self.sortQuoteState) {
         case SortStateDefault:
             self.sortQuoteState = SortStateAscending;
-            [self.sortQuoteChangeBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort_s.png")] forState:UIControlStateNormal];
+            [self.sortQuoteChangeBtn setImage:[NSBundle fsStockUI_imageName:@"sort_s.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateAscending SortType:2];
             break;
         case SortStateAscending:
             self.sortQuoteState = SortStateDescending;
-            [self.sortQuoteChangeBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort_n.png")] forState:UIControlStateNormal];
+            [self.sortQuoteChangeBtn setImage:[NSBundle fsStockUI_imageName:@"sort_n.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateDescending SortType:2];
             break;
         case SortStateDescending:
             self.sortQuoteState = SortStateDefault;
-            [self.sortQuoteChangeBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort.png")] forState:UIControlStateNormal];
+            [self.sortQuoteChangeBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateDefault SortType:2];
             break;
         default:
@@ -638,17 +640,17 @@ typedef NS_ENUM(NSInteger, SortState) {
     switch (self.sortPriceState) {
         case SortStateDefault:
             self.sortPriceState = SortStateAscending;
-            [self.sortPriceBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort_s.png")] forState:UIControlStateNormal];
+            [self.sortPriceBtn setImage:[NSBundle fsStockUI_imageName:@"sort_s.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateAscending SortType:1];
             break;
         case SortStateAscending:
             self.sortPriceState = SortStateDescending;
-            [self.sortPriceBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort_n.png")] forState:UIControlStateNormal];
+            [self.sortPriceBtn setImage:[NSBundle fsStockUI_imageName:@"sort_n.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateDescending SortType:1];
             break;
         case SortStateDescending:
             self.sortPriceState = SortStateDefault;
-            [self.sortPriceBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort.png")] forState:UIControlStateNormal];
+            [self.sortPriceBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
             [self setDataSortingMethodWithSortState:SortStateDefault SortType:1];
             break;
         default:
@@ -717,7 +719,7 @@ typedef NS_ENUM(NSInteger, SortState) {
     if (!_sortQuoteChangeBtn) {
         _sortQuoteChangeBtn = [[UIButton alloc] init];
         
-        [_sortQuoteChangeBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort.png")] forState:UIControlStateNormal];
+        [_sortQuoteChangeBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
         [_sortQuoteChangeBtn setTitle:@"涨跌幅" forState:UIControlStateNormal];
         [_sortQuoteChangeBtn setTitleColor:UIColor.quotesListHeadTitleColor forState:UIControlStateNormal];
         [_sortQuoteChangeBtn.titleLabel setFont:kFont_Regular(12)];
@@ -732,7 +734,7 @@ typedef NS_ENUM(NSInteger, SortState) {
 - (UIButton *)sortPriceBtn {
     if (!_sortPriceBtn) {
         _sortPriceBtn = [[UIButton alloc] init];
-        [_sortPriceBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"sort.png")] forState:UIControlStateNormal];
+        [_sortPriceBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
         [_sortPriceBtn setTitle:@"最新价格" forState:UIControlStateNormal];
         [_sortPriceBtn setTitleColor:UIColor.quotesListHeadTitleColor forState:UIControlStateNormal];
         [_sortPriceBtn.titleLabel setFont:kFont_Regular(12)];
@@ -783,7 +785,7 @@ typedef NS_ENUM(NSInteger, SortState) {
 - (UIImageView *)nullDataImageView {
     if (!_nullDataImageView) {
         _nullDataImageView = [[UIImageView alloc] init];
-        _nullDataImageView.image = [UIImage imageWithContentsOfFile:kImageNamed(@"null_data.png")];
+        _nullDataImageView.image = [NSBundle fsStockUI_imageName:@"null_data.png"];
     }
     return _nullDataImageView;
 }

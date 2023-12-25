@@ -7,6 +7,8 @@
 //
 
 #import "JMQuotationListTableViewCell.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMQuotationListTableViewCell ()
 
@@ -154,19 +156,19 @@
     //市场类型
     switch (quotationListModel.stockMarketType) {
         case StockMarketType_HK:{
-            self.stockMarketIcon.image = [UIImage imageWithContentsOfFile:kImageNamed(@"stockMarketIcon_HK.png")];
+            self.stockMarketIcon.image = [NSBundle fsStockUI_imageName:@"stockMarketIcon_HK.png"];
         }
             break;
         case StockMarketType_US:{
-            self.stockMarketIcon.image = [UIImage imageWithContentsOfFile:kImageNamed(@"stockMarketIcon_US.png")];
+            self.stockMarketIcon.image = [NSBundle fsStockUI_imageName:@"stockMarketIcon_US.png"];
         }
             break;
         case StockMarketType_SH:{
-            self.stockMarketIcon.image = [UIImage imageWithContentsOfFile:kImageNamed(@"stockMarketIcon_SH.png")];
+            self.stockMarketIcon.image = [NSBundle fsStockUI_imageName:@"stockMarketIcon_SH.png"];
         }
             break;
         case StockMarketType_SZ:{
-            self.stockMarketIcon.image = [UIImage imageWithContentsOfFile:kImageNamed(@"stockMarketIcon_SZ.png")];
+            self.stockMarketIcon.image = [NSBundle fsStockUI_imageName:@"stockMarketIcon_SZ.png"];
         }
             break;
         default:

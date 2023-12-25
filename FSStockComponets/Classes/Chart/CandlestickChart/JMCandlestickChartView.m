@@ -7,10 +7,11 @@
 //
 
 #import "JMCandlestickChartView.h"
-
 #import "QuotationConstant.h"
 #import "JMMoveDetailInfoView.h"
 #import "JMIndicatorView.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMCandlestickChartView ()<UIScrollViewDelegate>
 
@@ -662,7 +663,7 @@ static void dispatch_main_async_safe(dispatch_block_t block) {
     
     // 回调函数
     WEAK_SELF(weakSelf);
-    UIImage *image = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")];
+    UIImage *image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
     [self.selectorView setSelectionIndicatorsBlock:^(NSString * _Nonnull title, NSInteger idx) {
         [weakSelf.switchIndexBtn setImage:image forState:UIControlStateNormal];
         [weakSelf.switchIndexBtn setTitle:title forState:UIControlStateNormal];
@@ -780,7 +781,7 @@ static void dispatch_main_async_safe(dispatch_block_t block) {
 - (UIButton *)switchIndexBtn {
     if (!_switchIndexBtn) {
         _switchIndexBtn = [[UIButton alloc] init];
-        [_switchIndexBtn setImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")] forState:UIControlStateNormal];
+        [_switchIndexBtn setImage:[NSBundle fsStockUI_imageName:@"expand_n.png"] forState:UIControlStateNormal];
         [_switchIndexBtn setTitle:@"MA" forState:UIControlStateNormal];
         [_switchIndexBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_switchIndexBtn.titleLabel setFont:[UIFont systemFontOfSize:10.f]];

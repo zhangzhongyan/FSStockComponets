@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FSStockComponets: f9e687e484602b5d2c6e3c7605ca8d45e9bb898f
+  FSStockComponets: 53013b44ff69ee9ce8e3eabd12005704dd15e39f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2

@@ -8,6 +8,7 @@
 
 #import "JMDelayPromptView.h"
 #import "QuotationConstant.h"
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMDelayPromptView ()
 
@@ -63,7 +64,7 @@
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
         _closeBtn = [[UIButton alloc] init];
-        [_closeBtn setBackgroundImage:[UIImage imageWithContentsOfFile:kImageNamed(@"close.png")] forState:UIControlStateNormal];
+        [_closeBtn setBackgroundImage:[NSBundle fsStockUI_imageName:@"close.png"] forState:UIControlStateNormal];
         [_closeBtn addTarget:self action:@selector(CloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _closeBtn;

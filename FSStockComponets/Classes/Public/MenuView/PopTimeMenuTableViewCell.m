@@ -8,6 +8,7 @@
 #import "PopTimeMenuTableViewCell.h"
 #import "QuotationConstant.h"
 #import <Masonry/Masonry.h>
+#import "NSBundle+FSStockComponents.h"
 
 @implementation PopTimeMenuTableViewCell
 
@@ -53,7 +54,7 @@
 - (UIImageView *)selectionIcon {
     if (!_selectionIcon) {
         _selectionIcon = [[UIImageView alloc] init];
-        _selectionIcon.image = [UIImage imageWithContentsOfFile:kImageNamed(@"xzjt.png")];
+        _selectionIcon.image = [NSBundle fsStockUI_imageName:@"xzjt.png"];
     }
     return _selectionIcon;
 }

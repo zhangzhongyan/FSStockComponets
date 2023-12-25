@@ -8,6 +8,7 @@
 
 #import "JMQuotationListHeadView.h"
 #import "QuotationConstant.h"
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMQuotationListHeadView ()
 
@@ -58,8 +59,9 @@
     self.buttonTitles = @[@"全部", @"港股", @"美股"];
     self.buttons = [[NSMutableArray alloc] init];
     
-    UIImage *imgae_n = [UIImage imageWithContentsOfFile:kImageNamed(@"marketTypeBtnBG_n.png")];
-    UIImage *imgae_s = [UIImage imageWithContentsOfFile:kImageNamed(@"marketTypeBtnBG_s.png")];
+    
+    UIImage *imgae_n = [NSBundle fsStockUI_imageName:@"marketTypeBtnBG_n.png"];
+    UIImage *imgae_s = [NSBundle fsStockUI_imageName:@"marketTypeBtnBG_s.png"];
     
     // Create buttons
     [self.buttonTitles enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {

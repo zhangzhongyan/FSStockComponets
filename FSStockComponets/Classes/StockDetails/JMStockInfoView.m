@@ -9,6 +9,8 @@
 #import "JMStockInfoView.h"
 #import "QuotationConstant.h"
 #import "JMHandicapInfoCollectionViewCell.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMStockInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -103,12 +105,12 @@
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_offset(kHeightScale(8*20));
         }];
-        self.expandImageView.image = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_s.png")];
+        self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_s.png"];
     } else {
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_offset(kHeightScale(3*20));
         }];
-        self.expandImageView.image = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")];
+        self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
     }
     
     if ([self.delegate respondsToSelector:@selector(setIsExpand:)]) {
@@ -205,9 +207,9 @@
 - (UIButton *)expandBtn {
     if (!_expandBtn) {
         _expandBtn = [[UIButton alloc] init];
-//        [_expandBtn setBackgroundImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")] forState:UIControlStateNormal];
-//        [_expandBtn setBackgroundImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_s.png")] forState:UIControlStateHighlighted];
-//        [_expandBtn setBackgroundImage:[UIImage imageWithContentsOfFile:kImageNamed(@"expand_s.png")] forState:UIControlStateSelected];
+//        [_expandBtn setBackgroundImage:[NSBundle fsStockUI_imageName:@"expand_n.png")] forState:UIControlStateNormal];
+//        [_expandBtn setBackgroundImage:[NSBundle fsStockUI_imageName:@"expand_s.png")] forState:UIControlStateHighlighted];
+//        [_expandBtn setBackgroundImage:[NSBundle fsStockUI_imageName:@"expand_s.png")] forState:UIControlStateSelected];
 //        [_expandBtn setTouchAreaInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
         [_expandBtn addTarget:self action:@selector(ExpandBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -217,7 +219,7 @@
 - (UIImageView *)expandImageView {
     if (!_expandImageView) {
         _expandImageView = [[UIImageView alloc] init];
-        _expandImageView.image = [UIImage imageWithContentsOfFile:kImageNamed(@"expand_n.png")];
+        _expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
     }
     return _expandImageView;
 }
