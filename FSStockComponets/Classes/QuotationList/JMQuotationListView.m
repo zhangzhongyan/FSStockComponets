@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger, SortState) {
     [self addSubview:self.delayPromptView];
     [self.delayPromptView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(self);
-        make.height.mas_offset(kHeightScale(24));
+        make.height.equalTo(@([JMDelayPromptView viewHeight]));
     }];
     
     [self addSubview:self.quotationListHeadView];

@@ -8,7 +8,9 @@
 
 #import "JMDelayPromptView.h"
 #import "QuotationConstant.h"
+//Helper
 #import "NSBundle+FSStockComponents.h"
+#import <FSOCCategories/NSString+FSSize.h>
 
 @interface JMDelayPromptView ()
 
@@ -34,13 +36,12 @@
 
 + (CGFloat)viewHeight
 {
-    
-    
-    
-    return kHeightScale(24);
+    NSString *text = FSLanguage(@"应港交所要求，行情延时至少15分钟");
+    CGFloat height = [text getUICeilSize:kFont_Regular(12.f) limitWidth:kWidthScale(320)].height;
+    return height + 8;
 }
 
-#pragma mark — Private method
+#pragma mark - Private Methods
 
 - (void)CloseBtnClick {
     if ([self.delegate respondsToSelector:@selector(closePrompt)]) {
@@ -57,7 +58,8 @@
     [self addSubview:self.titleLab];
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(16);
-        make.centerY.mas_equalTo(self);
+        make.right.mas_equalTo(-16 - kWidthScale(20));
+        make.top.bottom.mas_equalTo(self);
     }];
     
     [self addSubview:self.closeBtn];
@@ -86,6 +88,7 @@
         _titleLab.text = FSLanguage(@"应港交所要求，行情延时至少15分钟");
         _titleLab.font = kFont_Regular(12.f);
         _titleLab.textColor = UIColor.delayPromptTextColor;
+        _titleLab.numberOfLines = 2;
     }
     return _titleLab;
 }

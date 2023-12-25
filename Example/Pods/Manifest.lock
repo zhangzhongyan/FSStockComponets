@@ -1,6 +1,7 @@
 PODS:
   - "FSOCCategories/NSString+FSSize (1.0.5)"
   - FSStockComponets (0.1.0):
+    - "FSOCCategories/NSString+FSSize"
     - Masonry
     - MJExtension
     - YYCategories
@@ -12,7 +13,6 @@ PODS:
   - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
-  - "FSOCCategories/NSString+FSSize (= 1.0.5)"
   - FSStockComponets (from `../`)
   - PINCache (= 2.3)
 
@@ -31,12 +31,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FSOCCategories: c91e043aad2517a24015f8fa94453141fe30d8a9
-  FSStockComponets: 53013b44ff69ee9ce8e3eabd12005704dd15e39f
+  FSStockComponets: 5d5ac012e7fbf824e2d810f4513ac16bf8f17969
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: c15fd9c7b5e4c9a571d7702af6d9783efcccab5c
+PODFILE CHECKSUM: e3908055c43d8fe87d966f8cc14d3709cee844ed
 
 COCOAPODS: 1.12.1

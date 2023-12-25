@@ -41,4 +41,6 @@ TODO: Add long description of the pod here.
   s.dependency 'Masonry'
   s.dependency 'YYCategories'
   s.dependency 'MJExtension'
+  s.dependency 'FSOCCategories/NSString+FSSize'
+
 end

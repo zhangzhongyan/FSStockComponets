@@ -93,7 +93,7 @@
         make.left.mas_equalTo(self.scrollView.mas_left);
 //        make.right.mas_equalTo(self.scrollView.mas_right);
         make.width.equalTo(self.scrollView.mas_width);
-        make.height.mas_offset(kHeightScale(24));
+        make.height.equalTo(@([JMDelayPromptView viewHeight]));
     }];
 
     [self.scrollView addSubview:self.stockInfoView];
