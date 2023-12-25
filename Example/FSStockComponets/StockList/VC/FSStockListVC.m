@@ -19,6 +19,10 @@
 
 @property (nonatomic, strong) FSStockListCell *watchlistCell;
 
+@property (nonatomic, strong, nullable) NSMutableArray *jsonList;
+
+@property (nonatomic, strong, nullable) NSDictionary *mqttJson;
+
 @end
 
 @implementation FSStockListVC
@@ -28,8 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupData];
     [self setupSubviews];
     [self setupConstraints];
+    [self.watchlistCell.quotationListView setDataJsonList:self.jsonList];
 }
 
 #pragma mark - Private Methods
@@ -49,6 +55,28 @@
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self.view);
     }];
+}
+
+- (void)setupData
+{
+    NSDictionary *jsonListDict = [FSStockListVC jsonObjectWithResource:@"hqlist" type:@"json"];
+    NSArray *jsonList = [jsonListDict objectForKey:@"datas"];
+    self.jsonList = [jsonList isKindOfClass:NSArray.class]? [NSMutableArray arrayWithArray:jsonList]: nil;
+    
+    NSDictionary *mqttJson = [FSStockListVC jsonObjectWithResource:@"mqtt_pk_hk_0" type:@"json"];
+    self.mqttJson = [mqttJson isKindOfClass:NSDictionary.class]? mqttJson: nil;
+}
+
++ (nullable id)jsonObjectWithResource:(NSString *)resource type:(NSString *)type
+{
+    // 获取 JSON 文件的路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:resource ofType:type];
+    // 读取 JSON 文件数据
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    // 将 JSON 数据转换为 Objective-C 对象
+    NSError *error = nil;
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    return jsonObject;
 }
 
 #pragma mark - <QuotationListDelegate>
