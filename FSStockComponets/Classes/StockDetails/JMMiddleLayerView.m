@@ -597,7 +597,7 @@
 - (UILabel *)nullDataLab {
     if (!_nullDataLab) {
         _nullDataLab = [[UILabel alloc] init];
-        _nullDataLab.text = @"暂无数据";
+        _nullDataLab.text = FSLanguage(@"暂无数据(详情页)");
         _nullDataLab.textColor = UIColor.nullDataTextColor;
         _nullDataLab.font = kFont_Regular(14.f);
     }

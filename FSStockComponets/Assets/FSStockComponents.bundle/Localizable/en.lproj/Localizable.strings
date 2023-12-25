@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  EVCRMApp
+
+  Created by 张忠燕 on 2021/9/10.
+  
+*/
+
+
+/*-----------列表页-----------*/
+"全部"="All";
+"港股"="HK";
+"美股"="US";
+"名称代码"="Name";
+"最新价格"="Price";
+"涨跌幅"="%Chg";
+"暂无数据(列表)"="No watchlist";
+"暂无数据(详情页)"="No Data";
+"应港交所要求，行情延时至少15分钟"="At the request of the Hong Kong Stock Exchange, quotes are at least 15 minutes delayed.";

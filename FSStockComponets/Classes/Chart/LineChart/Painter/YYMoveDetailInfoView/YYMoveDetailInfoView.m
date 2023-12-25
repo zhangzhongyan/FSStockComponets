@@ -8,6 +8,8 @@
 #import "YYMoveDetailInfoView.h"
 #import "QuotationConstant.h"
 #import "JMChatManager.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface YYMoveDetailInfoView ()
 
@@ -302,7 +304,7 @@
 - (UILabel *)fluctuationRangeTitleLab {
     if (!_fluctuationRangeTitleLab) {
         _fluctuationRangeTitleLab = [[UILabel alloc] init];
-        _fluctuationRangeTitleLab.text = @"涨跌幅";
+        _fluctuationRangeTitleLab.text = FSLanguage(@"涨跌幅");
         _fluctuationRangeTitleLab.textColor = UIColor.secondaryTextColor;
         _fluctuationRangeTitleLab.font = [UIFont systemFontOfSize:10.f];
     }

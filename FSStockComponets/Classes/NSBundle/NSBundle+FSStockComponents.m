@@ -24,7 +24,7 @@
 
 + (nullable UIImage *)fsStockUI_imageName:(NSString *)name
 {
-    NSString *path = [[NSBundle fs_stockComponentsBundle] pathForResource:name ofType:nil];
+    NSString *path = [[NSBundle fs_stockComponentsBundle] pathForResource:name ofType:nil inDirectory:@"images"];;
     return path.length? [UIImage imageWithContentsOfFile:path]: nil;
 }
 
@@ -52,7 +52,7 @@
         }
         
         // 从MJRefresh.bundle中查找资源
-        bundle = [NSBundle bundleWithPath:[[NSBundle fs_stockComponentsBundle] pathForResource:language ofType:@"lproj"]];
+        bundle = [NSBundle bundleWithPath:[[NSBundle fs_stockComponentsBundle] pathForResource:language ofType:@"lproj" inDirectory:@"Localizable"]];
     }
     value = [bundle localizedStringForKey:key value:value table:nil];
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];

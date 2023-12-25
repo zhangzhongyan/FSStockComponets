@@ -73,7 +73,7 @@
 - (UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
-        _titleLab.text = @"应港交所要求，行情延时至少15分钟";
+        _titleLab.text = FSLanguage(@"应港交所要求，行情延时至少15分钟");
         _titleLab.font = kFont_Regular(12.f);
         _titleLab.textColor = UIColor.delayPromptTextColor;
     }

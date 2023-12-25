@@ -11,6 +11,8 @@
 //#import "NSDate+Extension.h"
 #import "JMChatManager.h"
 #import <YYCategories/YYCategories.h>
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @interface JMMoveDetailInfoView ()
 
@@ -417,7 +419,7 @@
 - (UILabel *)fluctuationRangeTitleLab {
     if (!_fluctuationRangeTitleLab) {
         _fluctuationRangeTitleLab = [[UILabel alloc] init];
-        _fluctuationRangeTitleLab.text = @"涨跌幅";
+        _fluctuationRangeTitleLab.text = FSLanguage(@"涨跌幅");
         _fluctuationRangeTitleLab.textColor = UIColor.secondaryTextColor;
         _fluctuationRangeTitleLab.font = [UIFont systemFontOfSize:9.f];
     }

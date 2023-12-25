@@ -56,7 +56,7 @@
 
 - (void)createMarketCategoriesUI {
     
-    self.buttonTitles = @[@"全部", @"港股", @"美股"];
+    self.buttonTitles = @[FSLanguage(@"全部"), FSLanguage(@"港股"), FSLanguage(@"美股")];
     self.buttons = [[NSMutableArray alloc] init];
     
     

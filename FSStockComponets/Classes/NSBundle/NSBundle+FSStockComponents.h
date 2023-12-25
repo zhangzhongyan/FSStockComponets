@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define FSLanguage(key) [NSBundle fsStockUI_localizedStringForKey:key]
+
 @interface NSBundle (FSStockComponents)
 
 + (instancetype)fs_stockComponentsBundle;
