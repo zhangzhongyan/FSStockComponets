@@ -1,4 +1,5 @@
 use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 
@@ -6,6 +7,7 @@ target 'FSStockComponets_Example' do
   inhibit_all_warnings!
   
   pod 'FSStockComponets', :path => '../'
+  pod 'FSOCCategories/NSString+FSSize', '1.0.5'
   pod 'PINCache', '2.3'
 
   target 'FSStockComponets_Tests' do

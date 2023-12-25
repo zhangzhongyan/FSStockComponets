@@ -30,6 +30,16 @@
     return self;
 }
 
+#pragma mark - Public Methods
+
++ (CGFloat)viewHeight
+{
+    
+    
+    
+    return kHeightScale(24);
+}
+
 #pragma mark — Private method
 
 - (void)CloseBtnClick {

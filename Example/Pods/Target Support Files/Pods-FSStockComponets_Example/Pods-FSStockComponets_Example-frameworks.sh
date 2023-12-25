@@ -176,6 +176,7 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FSOCCategories/FSOCCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSStockComponets/FSStockComponets.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
@@ -183,6 +184,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FSOCCategories/FSOCCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSStockComponets/FSStockComponets.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
