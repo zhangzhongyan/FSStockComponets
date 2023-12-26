@@ -15,13 +15,15 @@
 #import "FSColorMacro.h"
 #import <Masonry/Masonry.h>
 
-@interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate>
+@interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate, StockDetailsViewDelegate>
 
 @property (nonatomic, strong) FSStockDetailTitleView *titleView;
 
 @property (nonatomic, strong) FSStockDetailToolBarView *toolBarView;
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) FSStockDetailCell *detailCell;
 
 @property (nonatomic, strong) FSStockDetailVM *viewModel;
 
@@ -46,7 +48,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self setupConstraints];
-    [self refleshToolBarView];
+    [self refleshView];
 }
 
 
@@ -87,9 +89,122 @@
     }];
 }
 
+- (void)refleshView
+{
+    self.tableView.hidden = NO;
+    [self.tableView reloadData];
+    [self.detailCell.stockDetailsView setDataWithHandicapJson:self.viewModel.handicapJson KLineJson:self.viewModel.kLineJson ChartTyep:self.viewModel.kLineChartType];
+//    [self refleshHoldingViewIfNeed];
+    [self refleshToolBarView];
+}
+
 - (void)refleshToolBarView
 {
     [self.toolBarView setContentWithVM:self.viewModel.toolBarVM];
+}
+
+#pragma mark - <StockDetailsViewDelegate>
+
+/**
+ *  K线时间选择回调
+ *  index: 时间周期 0.盘前 1.盘中 2.盘后 3.分时 4.五日 5.日K 6.周K 7.月K 8.年K 9.1分 10.5分 11.15分 12.30分 13.60分
+ *  type: 接口需要                                                           5.D 6.W 7.M 8.Y 9.Minute1 10.Minute5 11.Minute15 12.Minute30 13.Minute60
+ */
+- (void)KLineTimeSelectionWithIndex:(NSInteger)index
+                               Type:(NSString *)type;
+{
+//    //注意它这个index不是index的意思
+//    @weakify(self);
+//    self.viewModel.allowLoadMore = NO;
+//    [self.viewModel setKLineChartType:index];
+//    [EVHUDUtils showLoadingOnView:self.view];
+//    [self.viewModel sendKLineJsonRequestWithCompletionBlock:^(FSNetworkData * _Nonnull data, __kindof FSBaseRequest * _Nonnull request) {
+//        @strongify(self);
+//        [EVHUDUtils hideLoadingOnView:self.view];
+//        if (!data.isSuccess) {
+//            [EVHUDUtils showTextOnView:self.view text:data.errMsg];
+//        }
+//        //切换了页面必须设置数据
+//        [self.detailCell.stockDetailsView updateKLineDataWithJson:self.viewModel.kLineJson ChartTyep:index Weights:self.viewModel.currentWeightText More:NO];
+//    }];
+}
+
+/**
+ *  K线权重选择回调
+ *  type: 权重 F: 前复权 B: 后复权 N: 除权
+ */
+- (void)KLineWeightsSelectionWithType:(NSString *)type
+{
+//    @weakify(self);
+//    self.viewModel.allowLoadMore = NO;
+//    if ([type isEqualToString:@"F"]) {
+//        [self.viewModel setKLineWeightType:EVKLineWeightTypeFront];
+//    }
+//    else if ([type isEqualToString:@"B"]) {
+//        [self.viewModel setKLineWeightType:EVKLineWeightTypeBack];
+//    }
+//    else if ([type isEqualToString:@"N"]) {
+//        [self.viewModel setKLineWeightType:EVKLineWeightTypeNote];
+//    }
+//    [EVHUDUtils showLoadingOnView:self.view];
+//    [self.viewModel sendKLineJsonRequestWithCompletionBlock:^(FSNetworkData * _Nonnull data, __kindof FSBaseRequest * _Nonnull request) {
+//        @strongify(self);
+//        [EVHUDUtils hideLoadingOnView:self.view];
+//        if (!data.isSuccess) {
+//            [EVHUDUtils showTextOnView:self.view text:data.errMsg];
+//        }
+//        //切换了页面必须设置数据
+//        [self.detailCell.stockDetailsView updateKLineDataWithJson:self.viewModel.kLineJson ChartTyep:self.viewModel.kLineChartType Weights:self.viewModel.currentWeightText More:NO];
+//    }];
+}
+
+/**
+ *  获取更多K线数据
+ *  timestamp:  时间戳
+ */
+- (void)GetMoreKLineDataWithTimestamp:(NSString *)timestamp
+{
+//    @weakify(self);
+//    self.viewModel.allowLoadMore = YES;
+//    [self.viewModel sendMoreKLineJsonRequestWithTimeStamp:@(timestamp.integerValue * 1000) completionBlock:^(FSNetworkData * _Nonnull data, __kindof FSBaseRequest * _Nonnull request) {
+//        @strongify(self);
+//        //只有成功、并且是之前页面时(防止切换页面)
+//        if (data.isSuccess && self.viewModel.allowLoadMore) {
+//            NSDictionary *kLineJson = [request.responseJSONObject isKindOfClass:NSDictionary.class]? request.responseJSONObject: @{};
+//            [self.detailCell.stockDetailsView updateKLineDataWithJson:kLineJson ChartTyep:self.viewModel.kLineChartType Weights:self.viewModel.currentWeightText More:YES];
+//        }
+//    }];
+}
+
+#pragma mark - <UITableViewDataSource>
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.tableView.hidden? 0: 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.detailCell;
+}
+
+#pragma mark - <UITableViewDelegate>
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.tableView.frame.size.height;
+//    if (self.viewModel.canHandleHoldingView) {
+//        switch (self.viewModel.holdingVM.status) {
+//            case EVStockDetailHoldingStatusPicking:
+//            case EVStockDetailHoldingStatusPickDown:
+//                return self.tableView.frame.size.height - EVStockDetailHoldingView.minContent;
+//            case EVStockDetailHoldingStatusPickUp:
+//                return self.tableView.frame.size.height - [EVStockDetailHoldingView maxContentWithVM:self.viewModel.holdingVM];
+//        }
+//    } else {
+//        return self.tableView.frame.size.height - EVStockDetailHoldingEmptyView.viewHeight;
+//    }
 }
 
 #pragma mark - Property
@@ -135,6 +250,14 @@
 //        [_toolBarView.orderButton addTarget:self action:@selector(clickOrderButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _toolBarView;
+}
+
+- (FSStockDetailCell *)detailCell {
+    if (!_detailCell) {
+        _detailCell = [[FSStockDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(FSStockDetailCell.class)];
+        _detailCell.stockDetailsView.delegate = self;
+    }
+    return _detailCell;
 }
 
 @end

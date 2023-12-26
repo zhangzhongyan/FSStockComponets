@@ -26,6 +26,8 @@
 @property (nonatomic, strong, nullable) NSDictionary *kLineMinute30RespJson;
 @property (nonatomic, strong, nullable) NSDictionary *kLineMinute60RespJson;
 
+@property (nonatomic, assign) BOOL containHolding;
+
 @end
 
 @implementation FSStockDetailVM
@@ -39,8 +41,60 @@
         _stockModel = stockModel;
         _kLineChartType = kLineChartType;
         _kLineWeightType = kLineWeightType;
+        [self setupData];
     }
     return self;
+}
+
+- (void)setupData
+{
+    
+}
+
+#pragma mark - Public Methods
+
+- (NSDictionary *)handicapJson
+{
+    return self.handicapRespJson ?: @{};
+}
+
+- (NSDictionary *)kLineJson
+{
+    switch (self.kLineChartType) {
+        case EVKLineChartTypeBefore:
+        case EVKLineChartTypeBetween:
+        case EVKLineChartTypeAfter:
+        case EVKLineChartTypeMinuteHour:
+            return self.kLineTimeShareRespJson ?: @{};
+        case EVKLineChartTypeFiveDay:
+            return self.kLineFiveDaysRespJson ?: @{};
+        case EVKLineChartTypeDayK:
+            return self.kLineDaysRespJson ?: @{};
+        case EVKLineChartTypeWeekK:
+            return self.kLineWeeksRespJson ?: @{};
+        case EVKLineChartTypeMonthK:
+            return self.kLineMonthsRespJson?: @{};
+        case EVKLineChartTypeYearK:
+            return self.kLineYearsRespJson?: @{};
+        case EVKLineChartTypeOneMinute:
+            return self.kLineMinute1RespJson?: @{};
+        case EVKLineChartTypefiveMinute:
+            return self.kLineMinute5RespJson?: @{};
+        case EVKLineChartTypefifteenMinute:
+            return self.kLineMinute15RespJson?: @{};
+        case EVKLineChartTypethirtyMinute:
+            return self.kLineMinute30RespJson?: @{};
+        case EVKLineChartTypesixtyMinute:
+            return self.kLineMinute60RespJson?: @{};
+    }
+    
+    return @{};
+}
+
+
+- (BOOL)canHandleHoldingView
+{
+    return self.containHolding;
 }
 
 #pragma mark - property

@@ -71,6 +71,12 @@ typedef NS_ENUM(NSInteger, EVKLineWeightType) {
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
+- (NSDictionary *)handicapJson;
+
+- (NSDictionary *)kLineJson;
+
+- (BOOL)canHandleHoldingView;
+
 @end
 
 NS_ASSUME_NONNULL_END

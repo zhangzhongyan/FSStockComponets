@@ -41,6 +41,7 @@
 		E17987AC2B3A7C5600B072AD /* FSStockDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */; };
 		E17987AF2B3A819300B072AD /* FSStockDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AD2B3A819200B072AD /* FSStockDetailToolBarView.m */; };
 		E17987B22B3A81D400B072AD /* FSStockDetailToolBarVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */; };
+		E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B42B3AC7C300B072AD /* handicapRespJson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		E17987B02B3A81D300B072AD /* FSStockDetailToolBarVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailToolBarVM.h; sourceTree = "<group>"; };
 		E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailToolBarVM.m; sourceTree = "<group>"; };
 		E17987B32B3ABF5D00B072AD /* FSFontMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSFontMacro.h; sourceTree = "<group>"; };
+		E17987B42B3AC7C300B072AD /* handicapRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = handicapRespJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 		E17987922B391F2900B072AD /* MonitorData */ = {
 			isa = PBXGroup;
 			children = (
+				E17987B42B3AC7C300B072AD /* handicapRespJson.json */,
 				E17987992B39221F00B072AD /* hqlist.json */,
 				E17987932B391F3500B072AD /* mqtt_pk_hk_0.json */,
 				E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */,
@@ -470,6 +473,7 @@
 				E17987962B391F3500B072AD /* mqtt_pk_hk_0.json in Resources */,
 				E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
