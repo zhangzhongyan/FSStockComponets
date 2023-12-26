@@ -32,7 +32,7 @@
 		E179878C2B35791F00B072AD /* NSBundle+EVLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987862B35791F00B072AD /* NSBundle+EVLanguage.m */; };
 		E179878D2B35791F00B072AD /* EVLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987872B35791F00B072AD /* EVLanguage.m */; };
 		E17987912B357B7A00B072AD /* EVCacheUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987902B357B7A00B072AD /* EVCacheUtils.m */; };
-		E17987962B391F3500B072AD /* mqtt_pk_hk_0.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987932B391F3500B072AD /* mqtt_pk_hk_0.json */; };
+		E17987962B391F3500B072AD /* kLineTimeShareRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */; };
 		E17987972B391F3600B072AD /* mqtt_pk_hk_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */; };
 		E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */; };
 		E179879A2B39221F00B072AD /* hqlist.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987992B39221F00B072AD /* hqlist.json */; };
@@ -102,7 +102,7 @@
 		E179878A2B35791F00B072AD /* EVLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVLanguage.h; sourceTree = "<group>"; };
 		E179878F2B357B7A00B072AD /* EVCacheUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVCacheUtils.h; sourceTree = "<group>"; };
 		E17987902B357B7A00B072AD /* EVCacheUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVCacheUtils.m; sourceTree = "<group>"; };
-		E17987932B391F3500B072AD /* mqtt_pk_hk_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_0.json; sourceTree = "<group>"; };
+		E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineTimeShareRespJson.json; sourceTree = "<group>"; };
 		E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_1.json; sourceTree = "<group>"; };
 		E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_2.json; sourceTree = "<group>"; };
 		E17987992B39221F00B072AD /* hqlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hqlist.json; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 			children = (
 				E17987B42B3AC7C300B072AD /* handicapRespJson.json */,
 				E17987992B39221F00B072AD /* hqlist.json */,
-				E17987932B391F3500B072AD /* mqtt_pk_hk_0.json */,
+				E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */,
 				E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */,
 				E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */,
 			);
@@ -470,7 +470,7 @@
 				E17987972B391F3600B072AD /* mqtt_pk_hk_1.json in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				E17987962B391F3500B072AD /* mqtt_pk_hk_0.json in Resources */,
+				E17987962B391F3500B072AD /* kLineTimeShareRespJson.json in Resources */,
 				E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */,

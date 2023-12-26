@@ -53,6 +53,11 @@
     NSDictionary *jsonListDict = [FSStockDetailVM jsonObjectWithResource:@"handicapRespJson" type:@"json"];
     NSArray *result = [jsonListDict objectForKey:@"result"];
     self.handicapRespJson = [result.firstObject isKindOfClass:NSDictionary.class]? result.firstObject: @{};
+    
+    
+    NSDictionary *kLineTimeShareRespJson = [FSStockDetailVM jsonObjectWithResource:@"kLineTimeShareRespJson" type:@"json"];
+    self.kLineTimeShareRespJson = [kLineTimeShareRespJson isKindOfClass:NSDictionary.class]? kLineTimeShareRespJson: @{};
+
 }
 
 + (nullable id)jsonObjectWithResource:(NSString *)resource type:(NSString *)type

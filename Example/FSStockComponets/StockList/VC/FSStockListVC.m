@@ -23,8 +23,6 @@
 
 @property (nonatomic, strong, nullable) NSMutableArray *jsonList;
 
-@property (nonatomic, strong, nullable) NSDictionary *mqttJson;
-
 @end
 
 @implementation FSStockListVC
@@ -64,9 +62,6 @@
     NSDictionary *jsonListDict = [FSStockListVC jsonObjectWithResource:@"hqlist" type:@"json"];
     NSArray *jsonList = [jsonListDict objectForKey:@"datas"];
     self.jsonList = [jsonList isKindOfClass:NSArray.class]? [NSMutableArray arrayWithArray:jsonList]: nil;
-    
-    NSDictionary *mqttJson = [FSStockListVC jsonObjectWithResource:@"mqtt_pk_hk_0" type:@"json"];
-    self.mqttJson = [mqttJson isKindOfClass:NSDictionary.class]? mqttJson: nil;
 }
 
 + (nullable id)jsonObjectWithResource:(NSString *)resource type:(NSString *)type
