@@ -11,6 +11,7 @@
 #endif
 
 #import "NSString+FSSize.h"
+#import "UIButton+FSHitEdgeInsets.h"
 
 FOUNDATION_EXPORT double FSOCCategoriesVersionNumber;
 FOUNDATION_EXPORT const unsigned char FSOCCategoriesVersionString[];

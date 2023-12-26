@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FSDeviceUtils.h"
 #import "FSSizeScaleUtils.h"
 
 FOUNDATION_EXPORT double FSOCUtilsVersionNumber;

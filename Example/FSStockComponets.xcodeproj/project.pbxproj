@@ -39,6 +39,8 @@
 		E17987A62B3A6F1900B072AD /* FSStockDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */; };
 		E17987A92B3A7A8D00B072AD /* FSStockDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */; };
 		E17987AC2B3A7C5600B072AD /* FSStockDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */; };
+		E17987AF2B3A819300B072AD /* FSStockDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AD2B3A819200B072AD /* FSStockDetailToolBarView.m */; };
+		E17987B22B3A81D400B072AD /* FSStockDetailToolBarVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,11 @@
 		E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailTitleView.m; sourceTree = "<group>"; };
 		E17987AA2B3A7C5600B072AD /* FSStockDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailCell.h; sourceTree = "<group>"; };
 		E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailCell.m; sourceTree = "<group>"; };
+		E17987AD2B3A819200B072AD /* FSStockDetailToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailToolBarView.m; sourceTree = "<group>"; };
+		E17987AE2B3A819200B072AD /* FSStockDetailToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailToolBarView.h; sourceTree = "<group>"; };
+		E17987B02B3A81D300B072AD /* FSStockDetailToolBarVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailToolBarVM.h; sourceTree = "<group>"; };
+		E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailToolBarVM.m; sourceTree = "<group>"; };
+		E17987B32B3ABF5D00B072AD /* FSFontMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSFontMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				E17987812B35777500B072AD /* FSColorMacro.h */,
+				E17987B32B3ABF5D00B072AD /* FSFontMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -343,6 +351,8 @@
 			children = (
 				E17987A42B3A6F1900B072AD /* FSStockDetailVM.h */,
 				E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */,
+				E17987B02B3A81D300B072AD /* FSStockDetailToolBarVM.h */,
+				E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -354,6 +364,8 @@
 				E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */,
 				E17987A72B3A7A8C00B072AD /* FSStockDetailTitleView.h */,
 				E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */,
+				E17987AE2B3A819200B072AD /* FSStockDetailToolBarView.h */,
+				E17987AD2B3A819200B072AD /* FSStockDetailToolBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -555,6 +567,7 @@
 			files = (
 				E179877C2B3574D500B072AD /* FSStockListCell.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
+				E17987AF2B3A819300B072AD /* FSStockDetailToolBarView.m in Sources */,
 				E179878B2B35791F00B072AD /* EVBundle.m in Sources */,
 				E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */,
 				E17987A92B3A7A8D00B072AD /* FSStockDetailTitleView.m in Sources */,
@@ -563,6 +576,7 @@
 				E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */,
 				E17987AC2B3A7C5600B072AD /* FSStockDetailCell.m in Sources */,
 				E179878D2B35791F00B072AD /* EVLanguage.m in Sources */,
+				E17987B22B3A81D400B072AD /* FSStockDetailToolBarVM.m in Sources */,
 				E179877F2B3575F800B072AD /* FSStockListVM.m in Sources */,
 				E17987702B356B6700B072AD /* FSStockListVC.m in Sources */,
 				E179878C2B35791F00B072AD /* NSBundle+EVLanguage.m in Sources */,

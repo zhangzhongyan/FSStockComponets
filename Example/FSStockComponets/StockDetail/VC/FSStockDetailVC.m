@@ -68,7 +68,7 @@
 {
 //    [self.toolBarView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.left.right.bottom.equalTo(self.view);
-//        make.height.equalTo(@([EVStockDetailToolBarView viewHeight]));
+//        make.height.equalTo(@([FSStockDetailToolBarView viewHeight]));
 //    }];
 //
 //    [self.holdingEmptyView mas_remakeConstraints:^(MASConstraintMaker *make) {
