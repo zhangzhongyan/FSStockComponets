@@ -33,8 +33,6 @@
 		E179878D2B35791F00B072AD /* EVLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987872B35791F00B072AD /* EVLanguage.m */; };
 		E17987912B357B7A00B072AD /* EVCacheUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987902B357B7A00B072AD /* EVCacheUtils.m */; };
 		E17987962B391F3500B072AD /* kLineTimeShareRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */; };
-		E17987972B391F3600B072AD /* mqtt_pk_hk_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */; };
-		E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */; };
 		E179879A2B39221F00B072AD /* hqlist.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987992B39221F00B072AD /* hqlist.json */; };
 		E17987A62B3A6F1900B072AD /* FSStockDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */; };
 		E17987A92B3A7A8D00B072AD /* FSStockDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */; };
@@ -42,6 +40,12 @@
 		E17987AF2B3A819300B072AD /* FSStockDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AD2B3A819200B072AD /* FSStockDetailToolBarView.m */; };
 		E17987B22B3A81D400B072AD /* FSStockDetailToolBarVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */; };
 		E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B42B3AC7C300B072AD /* handicapRespJson.json */; };
+		E17987BC2B3AD17200B072AD /* kLineFiveDaysRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B62B3AD17100B072AD /* kLineFiveDaysRespJson.json */; };
+		E17987BD2B3AD17200B072AD /* kLineMonthsRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B72B3AD17200B072AD /* kLineMonthsRespJson.json */; };
+		E17987BE2B3AD17200B072AD /* kLineWeeksRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B82B3AD17200B072AD /* kLineWeeksRespJson.json */; };
+		E17987BF2B3AD17200B072AD /* kLineMinute1RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */; };
+		E17987C02B3AD17200B072AD /* kLineYearsRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */; };
+		E17987C12B3AD17200B072AD /* kLineDaysRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +107,6 @@
 		E179878F2B357B7A00B072AD /* EVCacheUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVCacheUtils.h; sourceTree = "<group>"; };
 		E17987902B357B7A00B072AD /* EVCacheUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVCacheUtils.m; sourceTree = "<group>"; };
 		E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineTimeShareRespJson.json; sourceTree = "<group>"; };
-		E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_1.json; sourceTree = "<group>"; };
-		E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_2.json; sourceTree = "<group>"; };
 		E17987992B39221F00B072AD /* hqlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hqlist.json; sourceTree = "<group>"; };
 		E17987A42B3A6F1900B072AD /* FSStockDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockDetailVM.h; sourceTree = "<group>"; };
 		E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailVM.m; sourceTree = "<group>"; };
@@ -118,6 +120,12 @@
 		E17987B12B3A81D300B072AD /* FSStockDetailToolBarVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailToolBarVM.m; sourceTree = "<group>"; };
 		E17987B32B3ABF5D00B072AD /* FSFontMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSFontMacro.h; sourceTree = "<group>"; };
 		E17987B42B3AC7C300B072AD /* handicapRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = handicapRespJson.json; sourceTree = "<group>"; };
+		E17987B62B3AD17100B072AD /* kLineFiveDaysRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineFiveDaysRespJson.json; sourceTree = "<group>"; };
+		E17987B72B3AD17200B072AD /* kLineMonthsRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMonthsRespJson.json; sourceTree = "<group>"; };
+		E17987B82B3AD17200B072AD /* kLineWeeksRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineWeeksRespJson.json; sourceTree = "<group>"; };
+		E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute1RespJson.json; sourceTree = "<group>"; };
+		E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineYearsRespJson.json; sourceTree = "<group>"; };
+		E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineDaysRespJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,8 +342,12 @@
 				E17987B42B3AC7C300B072AD /* handicapRespJson.json */,
 				E17987992B39221F00B072AD /* hqlist.json */,
 				E17987932B391F3500B072AD /* kLineTimeShareRespJson.json */,
-				E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */,
-				E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */,
+				E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */,
+				E17987B62B3AD17100B072AD /* kLineFiveDaysRespJson.json */,
+				E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */,
+				E17987B72B3AD17200B072AD /* kLineMonthsRespJson.json */,
+				E17987B82B3AD17200B072AD /* kLineWeeksRespJson.json */,
+				E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */,
 			);
 			path = MonitorData;
 			sourceTree = "<group>";
@@ -466,14 +478,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E179879A2B39221F00B072AD /* hqlist.json in Resources */,
+				E17987BE2B3AD17200B072AD /* kLineWeeksRespJson.json in Resources */,
+				E17987C02B3AD17200B072AD /* kLineYearsRespJson.json in Resources */,
+				E17987BD2B3AD17200B072AD /* kLineMonthsRespJson.json in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				E17987972B391F3600B072AD /* mqtt_pk_hk_1.json in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				E17987BC2B3AD17200B072AD /* kLineFiveDaysRespJson.json in Resources */,
 				E17987962B391F3500B072AD /* kLineTimeShareRespJson.json in Resources */,
-				E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */,
+				E17987BF2B3AD17200B072AD /* kLineMinute1RespJson.json in Resources */,
+				E17987C12B3AD17200B072AD /* kLineDaysRespJson.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
