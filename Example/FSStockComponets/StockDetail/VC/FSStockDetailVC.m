@@ -57,7 +57,7 @@
     [self.view addSubview:self.tableView];
     
 //    self.hideHeaderRefresh = YES; //不处理刷新
-//    self.navigationItem.titleView = self.titleView;
+    self.navigationItem.titleView = self.titleView;
 //    [self setNavigationRightBarButtonItemWithImage:[UIImage imageNamed:@"nav_search_icon"] target:self action:@selector(clickSearchButton)];
 //    [self.view addSubview:self.holdingView];
 //    [self.view addSubview:self.toolBarView];
