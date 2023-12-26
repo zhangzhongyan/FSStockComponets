@@ -1,7 +1,9 @@
 PODS:
   - "FSOCCategories/NSString+FSSize (1.0.5)"
+  - FSOCUtils/SizeScalieUtils (1.0.4)
   - FSStockComponets (0.1.0):
     - "FSOCCategories/NSString+FSSize"
+    - FSOCUtils/SizeScalieUtils
     - Masonry
     - MJExtension
     - YYCategories
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FSOCCategories
+    - FSOCUtils
   trunk:
     - Masonry
     - MJExtension
@@ -31,7 +34,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FSOCCategories: c91e043aad2517a24015f8fa94453141fe30d8a9
-  FSStockComponets: 5d5ac012e7fbf824e2d810f4513ac16bf8f17969
+  FSOCUtils: 4417a2494706bf7c5180f36f21fae87d7d7c9b1a
+  FSStockComponets: 36f46b8683c203ba1f6650ef3568a2684c662f2f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2

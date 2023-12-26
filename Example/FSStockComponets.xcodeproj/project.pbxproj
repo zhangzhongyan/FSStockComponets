@@ -485,6 +485,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FSStockComponets_Example/Pods-FSStockComponets_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FSOCCategories/FSOCCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/FSOCUtils/FSOCUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/FSStockComponets/FSStockComponets.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -494,6 +495,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSOCCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSOCUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSStockComponets.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
