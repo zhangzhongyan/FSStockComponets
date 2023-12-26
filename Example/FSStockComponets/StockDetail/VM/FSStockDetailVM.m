@@ -43,5 +43,18 @@
     return self;
 }
 
+#pragma mark - property
+
+- (FSStockDetailToolBarVM *)toolBarVM {
+    if (!_toolBarVM) {
+        _toolBarVM = [[FSStockDetailToolBarVM alloc] init];
+        _toolBarVM.enquiryRecord = YES;
+        _toolBarVM.orderRecord = YES;
+        _toolBarVM.addWatch = YES;
+        _toolBarVM.enquiry = YES;
+        _toolBarVM.order = YES;
+    }
+    return _toolBarVM;
+}
 
 @end

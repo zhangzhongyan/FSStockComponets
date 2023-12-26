@@ -10,6 +10,7 @@
 //View
 #import "FSStockDetailTitleView.h"
 #import "FSStockDetailCell.h"
+#import "FSStockDetailToolBarView.h"
 //Helper
 #import "FSColorMacro.h"
 #import <Masonry/Masonry.h>
@@ -17,6 +18,8 @@
 @interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) FSStockDetailTitleView *titleView;
+
+@property (nonatomic, strong) FSStockDetailToolBarView *toolBarView;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -43,6 +46,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self setupConstraints];
+    [self refleshToolBarView];
 }
 
 
@@ -60,16 +64,16 @@
     self.navigationItem.titleView = self.titleView;
 //    [self setNavigationRightBarButtonItemWithImage:[UIImage imageNamed:@"nav_search_icon"] target:self action:@selector(clickSearchButton)];
 //    [self.view addSubview:self.holdingView];
-//    [self.view addSubview:self.toolBarView];
+    [self.view addSubview:self.toolBarView];
 //    [self.view addSubview:self.holdingEmptyView];
 }
 
 - (void)setupConstraints
 {
-//    [self.toolBarView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.bottom.equalTo(self.view);
-//        make.height.equalTo(@([FSStockDetailToolBarView viewHeight]));
-//    }];
+    [self.toolBarView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@([FSStockDetailToolBarView viewHeight]));
+    }];
 //
 //    [self.holdingEmptyView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.left.right.equalTo(self.view);
@@ -77,14 +81,15 @@
 //        make.height.equalTo([EVStockDetailHoldingEmptyView viewHeight]);
 //    }];
     
-//    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.equalTo(self.view);
-//        make.bottom.equalTo(self.toolBarView.mas_top);
-//    }];
-    
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.bottom.equalTo(self.view);
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.toolBarView.mas_top);
     }];
+}
+
+- (void)refleshToolBarView
+{
+    [self.toolBarView setContentWithVM:self.viewModel.toolBarVM];
 }
 
 #pragma mark - Property
@@ -116,6 +121,20 @@
         }
     }
     return _tableView;
+}
+
+- (FSStockDetailToolBarView *)toolBarView {
+    if (!_toolBarView) {
+        _toolBarView = [[FSStockDetailToolBarView alloc] initWithFrame:CGRectZero];
+        _toolBarView.backgroundColor = UIColor.whiteColor;
+//        [_toolBarView.enquiryRecordButton addTarget:self action:@selector(clickEnquiryRecordButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [_toolBarView.orderRecordButton addTarget:self action:@selector(clickOrderRecordButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [_toolBarView.addWatchButton addTarget:self action:@selector(clickAddStockRecordButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [_toolBarView.unAddWatchButton addTarget:self action:@selector(clickAddStockRecordButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [_toolBarView.enquiryButton addTarget:self action:@selector(clickEnquiryButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [_toolBarView.orderButton addTarget:self action:@selector(clickOrderButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _toolBarView;
 }
 
 @end

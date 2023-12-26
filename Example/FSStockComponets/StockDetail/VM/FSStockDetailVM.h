@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <FSStockComponets/JMQuotationListModel.h>
+#import "FSStockDetailToolBarVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -62,6 +63,8 @@ typedef NS_ENUM(NSInteger, EVKLineWeightType) {
 @property (nonatomic, assign) EVKLineWeightType kLineWeightType;
 
 @property (nonatomic, strong) JMQuotationListModel *stockModel;
+
+@property (nonatomic, strong) FSStockDetailToolBarVM *toolBarVM;
 
 - (instancetype)initWithStockModel:(JMQuotationListModel *)stockModel kLineChartType:(EVKLineChartType)kLineChartType kLineWeightType:(EVKLineWeightType)kLineWeightType;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;

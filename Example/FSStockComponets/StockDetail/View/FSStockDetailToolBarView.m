@@ -116,13 +116,13 @@
 
 - (UIButton *)enquiryRecordButton {
     if (!_enquiryRecordButton) {
-        _enquiryRecordButton = S_FONT(10.0f);
+        _enquiryRecordButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _enquiryRecordButton.titleLabel.font = [UIFont systemFontOfSize:10];
         [_enquiryRecordButton setTitle:EVLanguage(@"询价记录") forState:UIControlStateNormal];
         [_enquiryRecordButton setTitleColor:HEX_RGB(0x7787A2) forState:UIControlStateNormal];
         [_enquiryRecordButton setTitleColor:HEX_RGB(0xBCC4D0) forState:UIControlStateSelected];
-        [_enquiryRecordButton setImage:[UIImage imageNamed:@"watchList_enquiryRecord"] forState:UIControlStateNormal];
-        [_enquiryRecordButton setImage:[UIImage imageNamed:@"watchList_enquiryRecordHL"] forState:UIControlStateSelected];
+//        [_enquiryRecordButton setImage:[UIImage imageNamed:@"watchList_enquiryRecord"] forState:UIControlStateNormal];
+//        [_enquiryRecordButton setImage:[UIImage imageNamed:@"watchList_enquiryRecordHL"] forState:UIControlStateSelected];
     }
     return _enquiryRecordButton;
 }
@@ -131,11 +131,11 @@
     if (!_orderRecordButton) {
         _orderRecordButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _orderRecordButton.titleLabel.font = S_FONT(10.0f);
-        [_orderRecordButton setTitle:EVLanguage(@"下单记录(自选股)") forState:UIControlStateNormal];
+        [_orderRecordButton setTitle:EVLanguage(@"下单记录") forState:UIControlStateNormal];
         [_orderRecordButton setTitleColor:HEX_RGB(0x7787A2) forState:UIControlStateNormal];
         [_orderRecordButton setTitleColor:HEX_RGB(0xBCC4D0) forState:UIControlStateSelected];
-        [_orderRecordButton setImage:[UIImage imageNamed:@"watchList_orderRecord"] forState:UIControlStateNormal];
-        [_orderRecordButton setImage:[UIImage imageNamed:@"watchList_orderRecordHL"] forState:UIControlStateSelected];
+//        [_orderRecordButton setImage:[UIImage imageNamed:@"watchList_orderRecord"] forState:UIControlStateNormal];
+//        [_orderRecordButton setImage:[UIImage imageNamed:@"watchList_orderRecordHL"] forState:UIControlStateSelected];
     }
     return _orderRecordButton;
 }
@@ -146,7 +146,7 @@
         _addWatchButton.titleLabel.font = S_FONT(10.0f);
         [_addWatchButton setTitle:EVLanguage(@"加自选") forState:UIControlStateNormal];
         [_addWatchButton setTitleColor:HEX_RGB(0x7787A2) forState:UIControlStateNormal];
-        [_addWatchButton setImage:[UIImage imageNamed:@"watchList_add"] forState:UIControlStateNormal];
+//        [_addWatchButton setImage:[UIImage imageNamed:@"watchList_add"] forState:UIControlStateNormal];
     }
     return _addWatchButton;
 }
@@ -157,7 +157,7 @@
         _unAddWatchButton.titleLabel.font = S_FONT(10.0f);
         [_unAddWatchButton setTitle:EVLanguage(@"已添加") forState:UIControlStateNormal];
         [_unAddWatchButton setTitleColor:HEX_RGB(0x7787A2) forState:UIControlStateNormal];
-        [_unAddWatchButton setImage:[UIImage imageNamed:@"watchList_delete"] forState:UIControlStateNormal];
+//        [_unAddWatchButton setImage:[UIImage imageNamed:@"watchList_delete"] forState:UIControlStateNormal];
         _unAddWatchButton.hidden = YES;
     }
     return _unAddWatchButton;
@@ -168,7 +168,7 @@
     if (!_enquiryButton) {
         _enquiryButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _enquiryButton.titleLabel.font = S_FONT(14.0f);
-        [_enquiryButton setTitle:EVLanguage(@"询价(股票)") forState:UIControlStateNormal];
+        [_enquiryButton setTitle:EVLanguage(@"询价") forState:UIControlStateNormal];
         [_enquiryButton setTitleColor:HEX_RGB(0x29477D) forState:UIControlStateNormal];
         [_enquiryButton setTitleColor:HEX_RGB(0xA0ADC5) forState:UIControlStateSelected];
         _enquiryButton.hitEdgeInsets = UIEdgeInsetsMake(-11.0f, -10.0f, -11.0f, -11.0f);
@@ -186,7 +186,7 @@
         _orderButton.titleLabel.font = S_FONT(14.0f);
         [_orderButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_orderButton setTitleColor:UIColor.whiteColor forState:UIControlStateSelected];
-        [_orderButton setTitle:EVLanguage(@"下单(股票)") forState:UIControlStateNormal];
+        [_orderButton setTitle:EVLanguage(@"下单") forState:UIControlStateNormal];
         _orderButton.hitEdgeInsets = UIEdgeInsetsMake(-11.0f, -11.0f, -11.0f, -10.0f);
         _orderButton.layer.cornerRadius = 17;
         _orderButton.layer.masksToBounds = YES;
