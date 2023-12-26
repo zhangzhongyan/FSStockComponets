@@ -46,9 +46,25 @@
     return self;
 }
 
+#pragma mark - Private Methods
+
 - (void)setupData
 {
-    
+    NSDictionary *jsonListDict = [FSStockDetailVM jsonObjectWithResource:@"handicapRespJson" type:@"json"];
+    NSArray *result = [jsonListDict objectForKey:@"result"];
+    self.handicapRespJson = [result.firstObject isKindOfClass:NSDictionary.class]? result.firstObject: @{};
+}
+
++ (nullable id)jsonObjectWithResource:(NSString *)resource type:(NSString *)type
+{
+    // 获取 JSON 文件的路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:resource ofType:type];
+    // 读取 JSON 文件数据
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    // 将 JSON 数据转换为 Objective-C 对象
+    NSError *error = nil;
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    return jsonObject;
 }
 
 #pragma mark - Public Methods
