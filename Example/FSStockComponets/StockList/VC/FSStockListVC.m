@@ -6,7 +6,9 @@
 //  Copyright (c) 2023 张忠燕. All rights reserved.
 //
 
+//VC
 #import "FSStockListVC.h"
+#import "FSStockDetailVC.h"
 //View
 #import "FSStockListCell.h"
 //Helper
@@ -87,26 +89,10 @@
  */
 - (void)quotationListDelegateWithSelectedModel:(JMQuotationListModel *)model
 {
-//    EVQuotationSubscribleStockModel *targetModel = nil;
-//    for (EVQuotationSubscribleStockModel *stock in self.viewModel.allStockModels) {
-//        if ([stock.assetId isEqualToString:model.assetId]) {
-//            targetModel = stock;
-//        }
-//    }
-//    if (!targetModel) {
-//        [EVHUDUtils showTextOnView:self.view text:EVLanguage(@"参数错误")];
-//        return;
-//    }
-//    if (targetModel.stockType == EVQuotationStockTypeCount) {
-//        [EVHUDUtils showTextOnView:self.view text:EVLanguage(@"暂不支持该股票")];
-//        return;
-//    }
-//
-//    EVStockDetailVM *vm = [[EVStockDetailVM alloc] initWithStockModel:targetModel kLineChartType:EVKLineChartTypeMinuteHour kLineWeightType:EVKLineWeightTypeFront];
-//    EVStockDetailVC *vc = [[EVStockDetailVC alloc] initWithVM:vm];
-//    [self pushVC:vc];
-//
-//    [self ev_reportClickEventWithClickName:targetModel.name eventContent:nil];
+    FSStockDetailVM *vm = [[FSStockDetailVM alloc] initWithStockModel:model kLineChartType:EVKLineChartTypeMinuteHour kLineWeightType:EVKLineWeightTypeFront];
+    FSStockDetailVC *vc = [[FSStockDetailVC alloc] initWithVM:vm];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /**

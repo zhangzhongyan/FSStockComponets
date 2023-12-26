@@ -36,6 +36,7 @@
 		E17987972B391F3600B072AD /* mqtt_pk_hk_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */; };
 		E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */; };
 		E179879A2B39221F00B072AD /* hqlist.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987992B39221F00B072AD /* hqlist.json */; };
+		E17987A62B3A6F1900B072AD /* FSStockDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		E17987942B391F3500B072AD /* mqtt_pk_hk_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_1.json; sourceTree = "<group>"; };
 		E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mqtt_pk_hk_2.json; sourceTree = "<group>"; };
 		E17987992B39221F00B072AD /* hqlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hqlist.json; sourceTree = "<group>"; };
+		E17987A42B3A6F1900B072AD /* FSStockDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockDetailVM.h; sourceTree = "<group>"; };
+		E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +229,9 @@
 		E179876C2B356B4F00B072AD /* StockDetail */ = {
 			isa = PBXGroup;
 			children = (
-				E17987712B356C3300B072AD /* FSStockDetailVC.h */,
-				E17987722B356C3300B072AD /* FSStockDetailVC.m */,
+				E17987A32B3A6EFE00B072AD /* View */,
+				E17987A22B3A6EF900B072AD /* VM */,
+				E17987A12B3A6EF500B072AD /* VC */,
 			);
 			path = StockDetail;
 			sourceTree = "<group>";
@@ -317,6 +321,31 @@
 				E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */,
 			);
 			path = MonitorData;
+			sourceTree = "<group>";
+		};
+		E17987A12B3A6EF500B072AD /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				E17987712B356C3300B072AD /* FSStockDetailVC.h */,
+				E17987722B356C3300B072AD /* FSStockDetailVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		E17987A22B3A6EF900B072AD /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				E17987A42B3A6F1900B072AD /* FSStockDetailVM.h */,
+				E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		E17987A32B3A6EFE00B072AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EADF3B2F1E2832FCAE5A9A8C /* Pods */ = {
@@ -525,6 +554,7 @@
 				E179877F2B3575F800B072AD /* FSStockListVM.m in Sources */,
 				E17987702B356B6700B072AD /* FSStockListVC.m in Sources */,
 				E179878C2B35791F00B072AD /* NSBundle+EVLanguage.m in Sources */,
+				E17987A62B3A6F1900B072AD /* FSStockDetailVM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
