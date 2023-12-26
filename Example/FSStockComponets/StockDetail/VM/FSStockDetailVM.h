@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FSStockComponets/JMQuotationListModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -52,7 +53,6 @@ typedef NS_ENUM(NSInteger, EVKLineWeightType) {
     EVKLineWeightTypeNote,
 };
 
-@class JMQuotationListModel;
 @interface FSStockDetailVM : NSObject
 
 @property (nonatomic, assign) BOOL allowLoadMore;

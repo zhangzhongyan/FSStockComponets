@@ -37,6 +37,8 @@
 		E17987982B391F3600B072AD /* mqtt_pk_hk_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987952B391F3500B072AD /* mqtt_pk_hk_2.json */; };
 		E179879A2B39221F00B072AD /* hqlist.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987992B39221F00B072AD /* hqlist.json */; };
 		E17987A62B3A6F1900B072AD /* FSStockDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */; };
+		E17987A92B3A7A8D00B072AD /* FSStockDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */; };
+		E17987AC2B3A7C5600B072AD /* FSStockDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,10 @@
 		E17987992B39221F00B072AD /* hqlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hqlist.json; sourceTree = "<group>"; };
 		E17987A42B3A6F1900B072AD /* FSStockDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSStockDetailVM.h; sourceTree = "<group>"; };
 		E17987A52B3A6F1900B072AD /* FSStockDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailVM.m; sourceTree = "<group>"; };
+		E17987A72B3A7A8C00B072AD /* FSStockDetailTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailTitleView.h; sourceTree = "<group>"; };
+		E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailTitleView.m; sourceTree = "<group>"; };
+		E17987AA2B3A7C5600B072AD /* FSStockDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStockDetailCell.h; sourceTree = "<group>"; };
+		E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStockDetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +350,10 @@
 		E17987A32B3A6EFE00B072AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E17987AA2B3A7C5600B072AD /* FSStockDetailCell.h */,
+				E17987AB2B3A7C5600B072AD /* FSStockDetailCell.m */,
+				E17987A72B3A7A8C00B072AD /* FSStockDetailTitleView.h */,
+				E17987A82B3A7A8D00B072AD /* FSStockDetailTitleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,9 +557,11 @@
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
 				E179878B2B35791F00B072AD /* EVBundle.m in Sources */,
 				E17987732B356C3300B072AD /* FSStockDetailVC.m in Sources */,
+				E17987A92B3A7A8D00B072AD /* FSStockDetailTitleView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E17987912B357B7A00B072AD /* EVCacheUtils.m in Sources */,
 				E17987762B356CFF00B072AD /* FSTabBarVC.m in Sources */,
+				E17987AC2B3A7C5600B072AD /* FSStockDetailCell.m in Sources */,
 				E179878D2B35791F00B072AD /* EVLanguage.m in Sources */,
 				E179877F2B3575F800B072AD /* FSStockListVM.m in Sources */,
 				E17987702B356B6700B072AD /* FSStockListVC.m in Sources */,

@@ -7,11 +7,16 @@
 //
 
 #import "FSStockDetailVC.h"
+//View
+#import "FSStockDetailTitleView.h"
+#import "FSStockDetailCell.h"
 //Helper
 #import "FSColorMacro.h"
 #import <Masonry/Masonry.h>
 
 @interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) FSStockDetailTitleView *titleView;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -83,6 +88,15 @@
 }
 
 #pragma mark - Property
+
+- (FSStockDetailTitleView *)titleView {
+    if (!_titleView) {
+        _titleView = [[FSStockDetailTitleView alloc] init];
+        _titleView.titleLabel.text = self.viewModel.stockModel.name.length? self.viewModel.stockModel.name: @"--";
+        _titleView.subTitleLabel.text = self.viewModel.stockModel.assetId.length? self.viewModel.stockModel.assetId: @"--";
+    }
+    return _titleView;
+}
 
 - (UITableView *)tableView {
     if (!_tableView) {
