@@ -81,13 +81,14 @@
 #import "JMQuotationListHeadView.h"
 #import "JMQuotationListTableViewCell.h"
 #import "JMQuotationListView.h"
+#import "FSStockDetailDefine.h"
 #import "FSStockDetailChartView.h"
+#import "FSStockDetailInfoView.h"
 #import "FSStockDetailView.h"
 #import "JMHandicapInfoCollectionViewCell.h"
-#import "JMStockInfoView.h"
-#import "FSStockDetailDefine.h"
+#import "FSStockDetailChartViewModel.h"
+#import "FSStockDetailInfoViewModel.h"
 #import "JMStockInfoModel.h"
-#import "JMStockInfoViewModel.h"
 #import "UIColor+JMColor.h"
 
 FOUNDATION_EXPORT double FSStockComponetsVersionNumber;

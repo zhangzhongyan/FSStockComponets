@@ -1,5 +1,5 @@
 //
-//  JMStockInfoView.h
+//  FSStockDetailInfoView.h
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JMStockInfoViewModel.h"
+#import "FSStockDetailInfoViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface JMStockInfoView : UIView
+@interface FSStockDetailInfoView : UIView
 
 /** 盘口信息 */
-@property (nonatomic, strong) JMStockInfoViewModel *stockInfoViewModel;
+@property (nonatomic, strong) FSStockDetailInfoViewModel *stockInfoViewModel;
 
 @property (nonatomic, weak) id<StockInfoViewDelegate> delegate;
 

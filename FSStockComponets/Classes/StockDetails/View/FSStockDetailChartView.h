@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FSStockDetailDefine.h"
+#import "FSStockDetailChartViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MiddleLayerViewDelegate <NSObject>
+@protocol FSStockDetailChartViewDelegate <NSObject>
 
 /**
  *  K线时间选择回调
@@ -32,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 数据源 */
 @property (nonatomic, strong) NSDictionary *dataSource;
 
-@property (nonatomic, weak) id<MiddleLayerViewDelegate> delegate;
+@property (nonatomic, weak) id<FSStockDetailChartViewDelegate> delegate;
 
 /** 是否展开 */
 @property(nonatomic, assign) BOOL isExpand;

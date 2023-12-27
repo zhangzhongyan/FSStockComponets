@@ -1,5 +1,5 @@
 //
-//  JMStockInfoViewModel.h
+//  FSStockDetailInfoViewModel.h
 //  JMQuotesComponets
 //
 //  Created by fargowealth on 2023/5/31.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JMStockInfoViewModel : NSObject
+@interface FSStockDetailInfoViewModel : NSObject
 
 /** 价格 */
 @property (nonatomic, copy) NSString *price;
@@ -43,34 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 //初始化方法
 - (instancetype)initWithModel:(JMStockInfoModel *)model;
-
-@end
-
-/// 中间层view
-@interface FSStockDetailChartViewModel : NSObject
-
-/** 股票代码 */
-@property (nonatomic, copy) NSString *assetID;
-
-/** K线图类型 */
-@property(nonatomic, assign) NSInteger chatType;
-
-/** 收盘价 */
-@property (nonatomic, strong) NSNumber *close;
-
-/** 是否收盘 */
-@property(nonatomic, assign) BOOL isClose;
-
-/** 市场类型 */
-@property (nonatomic, copy) NSString *marketType;
-
-/** 价格 */
-@property (nonatomic, strong) NSNumber *price;
-
-/** 分时数据 */
-@property(nonatomic, strong) NSArray<JMTimeChartModel *> *timeChartModels;
-
-+ (instancetype) objectWithTimeArray:(NSArray *)arr;
 
 @end
 

@@ -1,18 +1,18 @@
 //
-//  JMStockInfoView.m
+//  FSStockDetailInfoView.m
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
 //  Copyright © 2023 liyunlong1512. All rights reserved.
 //
 
-#import "JMStockInfoView.h"
+#import "FSStockDetailInfoView.h"
 #import "QuotationConstant.h"
 #import "JMHandicapInfoCollectionViewCell.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
 
-@interface JMStockInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FSStockDetailInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 /** 最新价格 */
 @property (nonatomic, strong) UILabel *latestPriceLab;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation JMStockInfoView
+@implementation FSStockDetailInfoView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -288,7 +288,7 @@
 
 #pragma mark - 数据重载
 
-- (void)setStockInfoViewModel:(JMStockInfoViewModel *)stockInfoViewModel {
+- (void)setStockInfoViewModel:(FSStockDetailInfoViewModel *)stockInfoViewModel {
     _stockInfoViewModel = stockInfoViewModel;
     
     self.latestPriceLab.text = stockInfoViewModel.price;

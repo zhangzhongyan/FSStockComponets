@@ -10,14 +10,13 @@
 
 #import "QuotationConstant.h"
 #import "JMDelayPromptView.h"
-#import "JMStockInfoView.h"
+#import "FSStockDetailInfoView.h"
 #import "FSStockDetailChartView.h"
 #import "JMStockInfoModel.h"
-#import "JMStockInfoViewModel.h"
 #import <MJExtension/MJExtension.h>
 #import "WOCrashProtectorManager.h"
 
-@interface FSStockDetailView ()<DelayPromptViewDelegate, MiddleLayerViewDelegate, StockInfoViewDelegate>
+@interface FSStockDetailView ()<DelayPromptViewDelegate, FSStockDetailChartViewDelegate, StockInfoViewDelegate>
 
 @property (nonatomic, assign) FSKLineChartType seletedKLineChartType;
 
@@ -28,7 +27,7 @@
 @property (nonatomic,strong) JMDelayPromptView *delayPromptView;
 
 /** 股票信息view */
-@property (nonatomic, strong) JMStockInfoView *stockInfoView;
+@property (nonatomic, strong) FSStockDetailInfoView *stockInfoView;
 
 /** K线图view */
 @property (nonatomic, strong) FSStockDetailChartView *middleLayerView;
@@ -401,7 +400,7 @@
     }
 }
 
-#pragma mark - MiddleLayerViewDelegate
+#pragma mark - FSStockDetailChartViewDelegate
 
 - (void)KLineWeightsSelectionWithType:(NSString *)type {
     NSLog(@"权重选择 %@", type);
@@ -459,9 +458,9 @@
     return  _middleLayerView;
 }
 
-- (JMStockInfoView *)stockInfoView {
+- (FSStockDetailInfoView *)stockInfoView {
     if (!_stockInfoView){
-        _stockInfoView = [[JMStockInfoView alloc] init];
+        _stockInfoView = [[FSStockDetailInfoView alloc] init];
         _stockInfoView.delegate = self;
     }
     return  _stockInfoView;
@@ -537,7 +536,7 @@
         model.hisHigh = array.lastObject[32];
         model.hisLow = array.lastObject[33];
         
-        self.stockInfoView.stockInfoViewModel = [[JMStockInfoViewModel alloc] initWithModel:model];
+        self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
         self.stockInfoModel = model;
         
     }
@@ -575,7 +574,7 @@
                       ChartTyep:(NSInteger)chartType {
     
     JMStockInfoModel *model = [JMStockInfoModel mj_objectWithKeyValues:handicapJson];
-    self.stockInfoView.stockInfoViewModel = [[JMStockInfoViewModel alloc] initWithModel:model];
+    self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
     self.stockInfoModel = model;
     
     NSArray * array = kLineJson[@"result"][@"data"];

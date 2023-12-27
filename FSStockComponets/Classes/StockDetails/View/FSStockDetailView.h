@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FSStockDetailDefine.h"
+#import "FSStockDetailInfoViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
