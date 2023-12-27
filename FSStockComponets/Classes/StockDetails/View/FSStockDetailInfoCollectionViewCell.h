@@ -1,5 +1,5 @@
 //
-//  JMHandicapInfoCollectionViewCell.h
+//  FSStockDetailInfoCollectionViewCell.h
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JMStockInfoModel.h"
+#import "FSStockDetailInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JMHandicapInfoCollectionViewCell : UICollectionViewCell
+@interface FSStockDetailInfoCollectionViewCell : UICollectionViewCell
 
 /** 盘口信息 */
-@property (nonatomic, strong) JMStockInfoModel *model;
+@property (nonatomic, strong) FSStockDetailInfoModel *model;
 
 @end
 

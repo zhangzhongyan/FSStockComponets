@@ -16,7 +16,7 @@
     NSInteger index = 0;
     for (NSInteger i = [arr count]-1; i>=0; i--) {
         NSArray *item = arr[i];
-        JMTimeChartModel *model = [JMTimeChartModel new];
+        FSStockTimeChartModel *model = [[FSStockTimeChartModel alloc] init];
         model.index = index;
         model.assetID = item[0];
         model.pushTime = item[1];

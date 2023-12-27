@@ -10,7 +10,7 @@
 
 @implementation FSStockDetailInfoViewModel
 
-- (instancetype)initWithModel:(JMStockInfoModel *)model {
+- (instancetype)initWithModel:(FSStockDetailInfoModel *)model {
     if (self = [super init]) {
         
         
@@ -69,7 +69,7 @@
             
             NSMutableArray *array = [[NSMutableArray alloc] init];
             [titleList enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                JMStockInfoModel *model = [[JMStockInfoModel alloc] init];
+                FSStockDetailInfoModel *model = [[FSStockDetailInfoModel alloc] init];
                 model.titleStr = titleList[idx];
                 model.describeStr = describeList[idx];
                 model.contentStr = contentList[idx];
@@ -209,7 +209,7 @@
             
             NSMutableArray *array = [[NSMutableArray alloc] init];
             [titleList enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                JMStockInfoModel *model = [[JMStockInfoModel alloc] init];
+                FSStockDetailInfoModel *model = [[FSStockDetailInfoModel alloc] init];
                 model.titleStr = titleList[idx];
                 model.describeStr = describeList[idx];
                 model.contentStr = contentList[idx];

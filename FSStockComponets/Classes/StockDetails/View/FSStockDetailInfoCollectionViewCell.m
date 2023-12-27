@@ -1,15 +1,15 @@
 //
-//  JMHandicapInfoCollectionViewCell.m
+//  FSStockDetailInfoCollectionViewCell.m
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
 //  Copyright © 2023 liyunlong1512. All rights reserved.
 //
 
-#import "JMHandicapInfoCollectionViewCell.h"
+#import "FSStockDetailInfoCollectionViewCell.h"
 #import "QuotationConstant.h"
 
-@interface JMHandicapInfoCollectionViewCell ()
+@interface FSStockDetailInfoCollectionViewCell ()
 
 /** 标题 */
 @property (nonatomic, strong) UILabel *titleLab;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation JMHandicapInfoCollectionViewCell
+@implementation FSStockDetailInfoCollectionViewCell
 
 #pragma mark — life cycle
 
@@ -93,7 +93,7 @@
 
 #pragma mark - 数据重载
 
-- (void)setModel:(JMStockInfoModel *)model {
+- (void)setModel:(FSStockDetailInfoModel *)model {
     _model = model;
     self.titleLab.text = model.titleStr;
     self.describeLab.text = model.describeStr;

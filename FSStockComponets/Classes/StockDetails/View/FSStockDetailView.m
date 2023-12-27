@@ -12,7 +12,6 @@
 #import "JMDelayPromptView.h"
 #import "FSStockDetailInfoView.h"
 #import "FSStockDetailChartView.h"
-#import "JMStockInfoModel.h"
 #import <MJExtension/MJExtension.h>
 #import "WOCrashProtectorManager.h"
 
@@ -33,7 +32,7 @@
 @property (nonatomic, strong) FSStockDetailChartView *middleLayerView;
 
 /** 盘口信息数据源 */
-@property (nonatomic, strong) JMStockInfoModel *stockInfoModel;
+@property (nonatomic, strong) FSStockDetailInfoModel *stockInfoModel;
 
 /** 初始K线信息数据 */
 //@property (nonatomic, strong) NSDictionary *kLineJson;
@@ -141,7 +140,7 @@
  */
 - (BOOL)getClosingStatusWithMarket:(NSString *)market
                  TimeSharingStatus:(NSInteger)status
-                    StockInfoModel:(JMStockInfoModel *)model {
+                    StockInfoModel:(FSStockDetailInfoModel *)model {
     
     if ([market isEqualToString:@"HK"]) {
         
@@ -201,7 +200,7 @@
  * chatType K线图类型
  */
 - (void)setKLineChartAPIRequestDataAssemblyWithKLineJson:(NSDictionary *)json
-                                          StockInfoModel:(JMStockInfoModel *)model
+                                          StockInfoModel:(FSStockDetailInfoModel *)model
                                                 ChatType:(NSInteger)chatType {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
@@ -225,7 +224,7 @@
  * chatType K线图类型
  */
 - (void)setKLineChartMQTTRequestDataAssemblyWithKLineJson:(NSDictionary *)json
-                                           StockInfoModel:(JMStockInfoModel *)model
+                                           StockInfoModel:(FSStockDetailInfoModel *)model
                                                  ChatType:(NSInteger)chatType {
     
     NSArray *array = json[@"data"];
@@ -238,7 +237,7 @@
     
     FSStockDetailChartViewModel *viewModel = [FSStockDetailChartViewModel objectWithTimeArray:array];
     
-    [viewModel.timeChartModels enumerateObjectsUsingBlock:^(JMTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [viewModel.timeChartModels enumerateObjectsUsingBlock:^(FSStockTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         viewModel.assetID = obj.assetID;
         viewModel.chatType = obj.addTo5DaysTimeSharing ? 4 : 3;
         viewModel.isClose = isClose;
@@ -273,7 +272,7 @@
 - (void)setEncapsulateKLineChartData:(FSStockDetailChartViewModel *)model {
     
     // ["分时时间戳", "最新价", "均价", "分钟成交量", "分钟成交额", "今开"]
-    [model.timeChartModels enumerateObjectsUsingBlock:^(JMTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [model.timeChartModels enumerateObjectsUsingBlock:^(FSStockTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         // 获取数组最后一个元素的时间
         NSArray *lastObjectArray = self.klineDataList.lastObject;
@@ -443,9 +442,9 @@
 
 #pragma mark — Lazy
 
-- (JMStockInfoModel *)stockInfoModel {
+- (FSStockDetailInfoModel *)stockInfoModel {
     if (!_stockInfoModel){
-        _stockInfoModel = [[JMStockInfoModel alloc] init];
+        _stockInfoModel = [[FSStockDetailInfoModel alloc] init];
     }
     return  _stockInfoModel;
 }
@@ -506,7 +505,7 @@
             return;
         }
         
-        JMStockInfoModel *model = self.stockInfoModel;
+        FSStockDetailInfoModel *model = self.stockInfoModel;
         model.assetId = array.lastObject[0];
         model.name = array.lastObject[1];
         model.status = [array.lastObject[3] intValue];
@@ -573,7 +572,7 @@
                       KLineJson:(NSDictionary *)kLineJson
                       ChartTyep:(NSInteger)chartType {
     
-    JMStockInfoModel *model = [JMStockInfoModel mj_objectWithKeyValues:handicapJson];
+    FSStockDetailInfoModel *model = [FSStockDetailInfoModel mj_objectWithKeyValues:handicapJson];
     self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
     self.stockInfoModel = model;
     

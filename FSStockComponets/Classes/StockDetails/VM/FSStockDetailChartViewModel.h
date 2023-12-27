@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JMStockInfoModel.h"
+#import "FSStockTimeChartModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *price;
 
 /** 分时数据 */
-@property(nonatomic, strong) NSArray<JMTimeChartModel *> *timeChartModels;
+@property(nonatomic, strong) NSArray<FSStockTimeChartModel *> *timeChartModels;
 
 + (instancetype) objectWithTimeArray:(NSArray *)arr;
 

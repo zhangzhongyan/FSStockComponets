@@ -8,7 +8,7 @@
 
 #import "FSStockDetailInfoView.h"
 #import "QuotationConstant.h"
-#import "JMHandicapInfoCollectionViewCell.h"
+#import "FSStockDetailInfoCollectionViewCell.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
 
@@ -196,7 +196,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    JMHandicapInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JMHandicapInfoCollectionViewCell" forIndexPath:indexPath];
+    FSStockDetailInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FSStockDetailInfoCollectionViewCell" forIndexPath:indexPath];
     cell.model = self.stockInfoViewModel.handicapInfoList[indexPath.row];
     return cell;
     
@@ -236,7 +236,7 @@
         _handicapInfoCollectionView.showsHorizontalScrollIndicator = NO;
         
         //默认cell
-        [_handicapInfoCollectionView registerClass:[JMHandicapInfoCollectionViewCell class] forCellWithReuseIdentifier:@"JMHandicapInfoCollectionViewCell"];
+        [_handicapInfoCollectionView registerClass:[FSStockDetailInfoCollectionViewCell class] forCellWithReuseIdentifier:@"FSStockDetailInfoCollectionViewCell"];
         //默认组头
         [_handicapInfoCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
         //默认组尾

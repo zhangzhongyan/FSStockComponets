@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JMStockInfoModel.h"
+#import "FSStockDetailInfoModel.h"
 #import "QuotationConstant.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) StockMarketType  stockMarketType;
 
 //初始化方法
-- (instancetype)initWithModel:(JMStockInfoModel *)model;
+- (instancetype)initWithModel:(FSStockDetailInfoModel *)model;
 
 @end
 
