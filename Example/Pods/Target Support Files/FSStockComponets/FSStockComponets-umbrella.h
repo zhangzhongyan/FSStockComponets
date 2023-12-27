@@ -83,6 +83,7 @@
 #import "JMQuotationListHeadView.h"
 #import "JMQuotationListTableViewCell.h"
 #import "JMQuotationListView.h"
+#import "FSStockDetailDefine.h"
 #import "FSStockDetailView.h"
 #import "JMHandicapInfoCollectionViewCell.h"
 #import "JMMiddleLayerView.h"

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FSStockDetailDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol FSStockDetailViewDelegate <NSObject>
+
+/// k线类型
+@property (readonly, nonatomic, assign, getter = theKLineChartType) FSKLineChartType kLineChartType;
 
 /**
  *  K线时间选择回调

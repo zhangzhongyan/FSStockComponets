@@ -19,6 +19,8 @@
 
 @interface FSStockDetailView ()<DelayPromptViewDelegate, MiddleLayerViewDelegate, StockInfoViewDelegate>
 
+@property (nonatomic, assign) FSKLineChartType seletedKLineChartType;
+
 /** 滚动视图 */
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -33,9 +35,6 @@
 
 /** 盘口信息数据源 */
 @property (nonatomic, strong) JMStockInfoModel *stockInfoModel;
-
-/** 时间tab选择 */
-@property(nonatomic, assign) NSInteger selectTimeIndex;
 
 /** 初始K线信息数据 */
 //@property (nonatomic, strong) NSDictionary *kLineJson;
@@ -55,7 +54,7 @@
         //开启防crash机制
         [WOCrashProtectorManager makeAllEffective];
         
-        self.selectTimeIndex = 3;
+        self.seletedKLineChartType = FSKLineChartTypeMinuteHour; //默认分时
         [self createUI];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kNoticeName_GetMoreData object:nil];
         
@@ -254,8 +253,9 @@
         return;
     }
     
+#warning 修改
     // 判断当前是否位于选择时间分类
-    if (viewModel.chatType != self.selectTimeIndex) {
+    if (viewModel.chatType != self.seletedKLineChartType) {
         return;
     }
     
@@ -411,9 +411,10 @@
 }
 
 - (void)KLineTimeSelectionWithIndex:(NSInteger)index {
+#warning 修改
     NSLog(@"图表时间 %ld", index);
     // 记录选中
-    self.selectTimeIndex = index;
+    self.seletedKLineChartType = index;
     if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithIndex:Type:)]) {
         [self.delegate KLineTimeSelectionWithIndex:index Type: [self getReturnKlineTypeWithAPIType:index]];
     }
@@ -543,9 +544,10 @@
     
     // 分时
     if (funId.intValue == 4) {
+#warning 修改
         [self setKLineChartMQTTRequestDataAssemblyWithKLineJson:json
                                                  StockInfoModel:self.stockInfoModel
-                                                       ChatType:self.selectTimeIndex];
+                                                       ChatType:self.seletedKLineChartType];
     }
     
 }
@@ -586,6 +588,12 @@
         [self closePrompt];
     }
     
+}
+
+#pragma mark - property
+
+- (KLineChartType)theKLineChartType {
+    return self.seletedKLineChartType;
 }
 
 @end
