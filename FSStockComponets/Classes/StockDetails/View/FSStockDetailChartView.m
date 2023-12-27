@@ -18,6 +18,9 @@
 //Helper
 #import "NSBundle+FSStockComponents.h"
 
+#define kButtonTag 1000
+#define kButtonTimesharingTag 8888
+
 @interface FSStockDetailChartView ()<PopTimeMenuViewDelegate>
 
 /** 分时按钮 */
@@ -62,7 +65,7 @@
 
 @implementation FSStockDetailChartView
 
-#pragma mark — life cycle
+#pragma mark - Life Cycle
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -70,6 +73,15 @@
         [self createUI];        
     }
     return self;
+}
+
+#pragma mark - Private Methods
+
+- (void)clickChartKLineWithType:(FSKLineChartType)type
+{
+    if ([self.delegate respondsToSelector:@selector(clickChartKLineWithType:)]) {
+        [self.delegate clickChartKLineWithType:type];
+    }
 }
 
 #pragma mark - PopTimeMenuViewDelegate
@@ -83,7 +95,7 @@
     
     [self.moreBtn setTitle:title forState:UIControlStateNormal];
     [self updateMoreBtnStateWithSelected:YES];
-    [self setKLineTimeSelectionWithIndex:index + 9];
+    [self clickChartKLineWithType:index + FSKLineChartTypeOneMinute];
     
     
     self.timeSelectionView.hidden = YES;
@@ -198,13 +210,6 @@
     }
 }
 
-/// 设置K线时间
-- (void)setKLineTimeSelectionWithIndex:(NSInteger)index {
-    if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithIndex:)]) {
-        [self.delegate KLineTimeSelectionWithIndex:index];
-    }
-}
-
 /**
  *  更新更多按钮状态
  *  selected 是否选中
@@ -265,7 +270,7 @@
 
 - (void)TimeSelectionButtonClick:(UIButton *)sender {
     
-    if (sender.tag == 8888){
+    if (sender.tag == kButtonTimesharingTag){
         self.selectedButton.selected = NO;
         self.timeBtn.selected = YES;
     } else {
@@ -289,7 +294,7 @@
     [self updateMoreBtnStateWithSelected:NO];
     
     /// 更新显示图表
-    if (sender.tag == 8888 || sender.tag == 1000) {
+    if (sender.tag == kButtonTimesharingTag || sender.tag == 1000) {
         self.lineChartView.hidden = NO;
         self.candlestickChartView.hidden = YES;
     } else {
@@ -297,18 +302,14 @@
         self.candlestickChartView.hidden = NO;
     }
     
-    NSInteger _chartType;
-    switch (sender.tag) {
-        case 8888:{
-            _chartType = [[JMChatManager sharedInstance].market containsString:@"US"] ? 2 : 3;
-        }
-            break;
-        default:
-            _chartType = sender.tag - 1000 + 4;
-            break;
+    FSKLineChartType charType = FSKLineChartTypeBefore;
+    if (sender.tag == kButtonTimesharingTag) {
+        //美股：盘中   其他：分时
+        charType = [[JMChatManager sharedInstance].market containsString:@"US"] ? FSKLineChartTypeBetween : FSKLineChartTypeMinuteHour;
+    } else {
+        charType = sender.tag - kButtonTag + FSKLineChartTypeFiveDay;
     }
-    [self setKLineTimeSelectionWithIndex:_chartType];
-    
+    [self clickChartKLineWithType:charType];
 }
 
 /** 创建时间选择按钮
@@ -465,7 +466,7 @@
     __block UIButton *lastBtn = nil;
     // Create buttons
     [self.buttonTitles enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        self.selectedButton = [self CreateTimeSelectionBtnWithText:obj Tag:idx + 1000];
+        self.selectedButton = [self CreateTimeSelectionBtnWithText:obj Tag:idx + kButtonTag];
         [self addSubview:self.selectedButton];
         [self.buttons addObject:self.selectedButton];
     }];
@@ -663,7 +664,7 @@
         [_timeBtn.layer setMasksToBounds:YES];
         [_timeBtn addTarget:self action:@selector(TimeSelectionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [_timeBtn setSelected:YES];
-        [_timeBtn setTag:8888];
+        [_timeBtn setTag:kButtonTimesharingTag];
     }
     return _timeBtn;
 }

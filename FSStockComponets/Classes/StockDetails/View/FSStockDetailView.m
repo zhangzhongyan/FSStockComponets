@@ -7,11 +7,11 @@
 //
 
 #import "FSStockDetailView.h"
+#import "FSStockDetailChartView.h"
 
 #import "QuotationConstant.h"
 #import "JMDelayPromptView.h"
 #import "FSStockDetailInfoView.h"
-#import "FSStockDetailChartView.h"
 #import <MJExtension/MJExtension.h>
 #import "WOCrashProtectorManager.h"
 
@@ -133,6 +133,54 @@
 #pragma mark - Private method
 
 /**
+ * K线图MQTT请求数据组装
+ * json K线数据
+ * model 盘口数据
+ * chatType K线图类型
+ */
+- (void)setKLineChartMQTTRequestDataAssemblyWithKLineJson:(NSDictionary *)json
+                                           StockInfoModel:(FSStockDetailInfoModel *)model
+                                                 ChatType:(NSInteger)chatType {
+    
+    NSArray *array = json[@"data"];
+    
+    if (array.count == 0) {
+        return;
+    }
+    
+    BOOL isClose = [self getClosingStatusWithMarket:model.marketType TimeSharingStatus:1 StockInfoModel:model];
+    
+    FSStockDetailChartViewModel *viewModel = [FSStockDetailChartViewModel objectWithTimeArray:array];
+    
+    [viewModel.timeChartModels enumerateObjectsUsingBlock:^(FSStockTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        viewModel.assetID = obj.assetID;
+        viewModel.chatType = obj.addTo5DaysTimeSharing ? 4 : 3;
+        viewModel.isClose = isClose;
+        viewModel.marketType = [self getMarketTypeWithMarket:model.marketType TimeSharingStatus:1];
+        viewModel.price = obj.currentPrice;
+        viewModel.close = obj.yesterdayClosePrice;
+    }];
+    
+    // 判断股票代码是否一样
+    if (![model.assetId isEqualToString:viewModel.assetID]) {
+        return;
+    }
+    
+#warning 修改
+    // 判断当前是否位于选择时间分类
+    if (viewModel.chatType != self.seletedKLineChartType) {
+        return;
+    }
+    
+    // 是否盘中
+    if (model.threeMarketStatus.intValue != 2) {
+        return;
+    }
+    
+    [self setEncapsulateKLineChartData:viewModel];
+}
+
+/**
  * 获取收盘状态
  * market 市场类型
  * status   US分时图类型 0/盘前 1/盘中 2/盘后
@@ -215,54 +263,6 @@
     [dic setObject:json[@"result"] forKey:@"result"];
     
     self.middleLayerView.dataSource = dic;
-}
-
-/**
- * K线图MQTT请求数据组装
- * json K线数据
- * model 盘口数据
- * chatType K线图类型
- */
-- (void)setKLineChartMQTTRequestDataAssemblyWithKLineJson:(NSDictionary *)json
-                                           StockInfoModel:(FSStockDetailInfoModel *)model
-                                                 ChatType:(NSInteger)chatType {
-    
-    NSArray *array = json[@"data"];
-    
-    if (array.count == 0) {
-        return;
-    }
-    
-    BOOL isClose = [self getClosingStatusWithMarket:model.marketType TimeSharingStatus:1 StockInfoModel:model];
-    
-    FSStockDetailChartViewModel *viewModel = [FSStockDetailChartViewModel objectWithTimeArray:array];
-    
-    [viewModel.timeChartModels enumerateObjectsUsingBlock:^(FSStockTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        viewModel.assetID = obj.assetID;
-        viewModel.chatType = obj.addTo5DaysTimeSharing ? 4 : 3;
-        viewModel.isClose = isClose;
-        viewModel.marketType = [self getMarketTypeWithMarket:model.marketType TimeSharingStatus:1];
-        viewModel.price = obj.currentPrice;
-        viewModel.close = obj.yesterdayClosePrice;
-    }];
-    
-    // 判断股票代码是否一样
-    if (![model.assetId isEqualToString:viewModel.assetID]) {
-        return;
-    }
-    
-#warning 修改
-    // 判断当前是否位于选择时间分类
-    if (viewModel.chatType != self.seletedKLineChartType) {
-        return;
-    }
-    
-    // 是否盘中
-    if (model.threeMarketStatus.intValue != 2) {
-        return;
-    }
-    
-    [self setEncapsulateKLineChartData:viewModel];
 }
 
 /**
@@ -396,25 +396,6 @@
 - (void)handleNotification:(NSNotification *)notification {
     if ([self.delegate respondsToSelector:@selector(GetMoreKLineDataWithTimestamp:)]) {
         [self.delegate GetMoreKLineDataWithTimestamp:[NSString stringWithFormat:@"%@",notification.object]];
-    }
-}
-
-#pragma mark - FSStockDetailChartViewDelegate
-
-- (void)KLineWeightsSelectionWithType:(NSString *)type {
-    NSLog(@"权重选择 %@", type);
-    if ([self.delegate respondsToSelector:@selector(KLineWeightsSelectionWithType:)]) {
-        [self.delegate KLineWeightsSelectionWithType:type];
-    }
-}
-
-- (void)KLineTimeSelectionWithIndex:(NSInteger)index {
-#warning 修改
-    NSLog(@"图表时间 %ld", index);
-    // 记录选中
-    self.seletedKLineChartType = index;
-    if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithIndex:Type:)]) {
-        [self.delegate KLineTimeSelectionWithIndex:index Type: [self getReturnKlineTypeWithAPIType:index]];
     }
 }
 
@@ -586,6 +567,22 @@
         [self closePrompt];
     }
     
+}
+
+#pragma mark - <FSStockDetailChartViewDelegate>
+
+- (void)KLineWeightsSelectionWithType:(NSString *)type {
+    NSLog(@"权重选择 %@", type);
+    if ([self.delegate respondsToSelector:@selector(KLineWeightsSelectionWithType:)]) {
+        [self.delegate KLineWeightsSelectionWithType:type];
+    }
+}
+
+- (void)clickChartKLineWithType:(FSKLineChartType)type {
+    self.seletedKLineChartType = type;
+    if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithIndex:Type:)]) {
+        [self.delegate KLineTimeSelectionWithIndex:index Type: [self getReturnKlineTypeWithAPIType:index]];
+    }
 }
 
 #pragma mark - property

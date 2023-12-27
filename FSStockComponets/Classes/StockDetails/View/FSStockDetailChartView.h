@@ -16,9 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  K线时间选择回调
- *  index: 时间周期
  */
-- (void)KLineTimeSelectionWithIndex:(NSInteger)index;
+- (void)clickChartKLineWithType:(FSKLineChartType)type;
 
 /**
  *  K线权重选择回调
