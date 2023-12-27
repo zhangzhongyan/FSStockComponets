@@ -354,11 +354,11 @@
 
 @end
 
-@implementation JMMiddleLayerViewModel
+@implementation FSStockDetailChartViewModel
 
 + (instancetype) objectWithTimeArray:(NSArray *)arr {
     NSAssert([arr isKindOfClass:[NSArray class]], @"arr不是一个数组，请检查返回数据类型并手动适配");
-    JMMiddleLayerViewModel *groupModel = [JMMiddleLayerViewModel new];
+    FSStockDetailChartViewModel *groupModel = [[FSStockDetailChartViewModel alloc] init];
     NSMutableArray *mArr = @[].mutableCopy;
     NSInteger index = 0;
     for (NSInteger i = [arr count]-1; i>=0; i--) {

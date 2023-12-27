@@ -1,12 +1,12 @@
 //
-//  JMMiddleLayerView.m
+//  FSStockDetailChartView.m
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
 //  Copyright © 2023 liyunlong1512. All rights reserved.
 //
 
-#import "JMMiddleLayerView.h"
+#import "FSStockDetailChartView.h"
 #import "QuotationConstant.h"
 #import "UIButton+KJContentLayout.h"
 #import "JMLineChartView.h"
@@ -18,7 +18,7 @@
 //Helper
 #import "NSBundle+FSStockComponents.h"
 
-@interface JMMiddleLayerView ()<PopTimeMenuViewDelegate>
+@interface FSStockDetailChartView ()<PopTimeMenuViewDelegate>
 
 /** 分时按钮 */
 @property (nonatomic, strong) UIButton *timeBtn;
@@ -60,7 +60,7 @@
 
 @end
 
-@implementation JMMiddleLayerView
+@implementation FSStockDetailChartView
 
 #pragma mark — life cycle
 

@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /// 中间层view
-@interface JMMiddleLayerViewModel : NSObject
+@interface FSStockDetailChartViewModel : NSObject
 
 /** 股票代码 */
 @property (nonatomic, copy) NSString *assetID;

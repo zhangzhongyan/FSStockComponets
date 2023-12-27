@@ -1,5 +1,5 @@
 //
-//  JMMiddleLayerView.h
+//  FSStockDetailChartView.h
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FSStockDetailDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JMMiddleLayerView : UIView
+@interface FSStockDetailChartView : UIView
 
 /** 数据源 */
 @property (nonatomic, strong) NSDictionary *dataSource;

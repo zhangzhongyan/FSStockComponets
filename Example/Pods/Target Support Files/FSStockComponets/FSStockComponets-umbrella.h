@@ -73,8 +73,6 @@
 #import "FSStockComponets.h"
 #import "JMChatManager.h"
 #import "JMQuotationListModel.h"
-#import "JMStockInfoModel.h"
-#import "JMStockInfoViewModel.h"
 #import "NSBundle+FSStockComponents.h"
 #import "JMDelayPromptView.h"
 #import "PopTimeMenuTableViewCell.h"
@@ -83,11 +81,13 @@
 #import "JMQuotationListHeadView.h"
 #import "JMQuotationListTableViewCell.h"
 #import "JMQuotationListView.h"
+#import "FSStockDetailChartView.h"
 #import "FSStockDetailView.h"
 #import "JMHandicapInfoCollectionViewCell.h"
-#import "JMMiddleLayerView.h"
 #import "JMStockInfoView.h"
 #import "FSStockDetailDefine.h"
+#import "JMStockInfoModel.h"
+#import "JMStockInfoViewModel.h"
 #import "UIColor+JMColor.h"
 
 FOUNDATION_EXPORT double FSStockComponetsVersionNumber;

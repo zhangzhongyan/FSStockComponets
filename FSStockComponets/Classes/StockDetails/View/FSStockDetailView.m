@@ -11,7 +11,7 @@
 #import "QuotationConstant.h"
 #import "JMDelayPromptView.h"
 #import "JMStockInfoView.h"
-#import "JMMiddleLayerView.h"
+#import "FSStockDetailChartView.h"
 #import "JMStockInfoModel.h"
 #import "JMStockInfoViewModel.h"
 #import <MJExtension/MJExtension.h>
@@ -31,7 +31,7 @@
 @property (nonatomic, strong) JMStockInfoView *stockInfoView;
 
 /** K线图view */
-@property (nonatomic, strong) JMMiddleLayerView *middleLayerView;
+@property (nonatomic, strong) FSStockDetailChartView *middleLayerView;
 
 /** 盘口信息数据源 */
 @property (nonatomic, strong) JMStockInfoModel *stockInfoModel;
@@ -237,7 +237,7 @@
     
     BOOL isClose = [self getClosingStatusWithMarket:model.marketType TimeSharingStatus:1 StockInfoModel:model];
     
-    JMMiddleLayerViewModel *viewModel = [JMMiddleLayerViewModel objectWithTimeArray:array];
+    FSStockDetailChartViewModel *viewModel = [FSStockDetailChartViewModel objectWithTimeArray:array];
     
     [viewModel.timeChartModels enumerateObjectsUsingBlock:^(JMTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         viewModel.assetID = obj.assetID;
@@ -271,7 +271,7 @@
  * 再次封装K线图数据
  * newData 新数据
  */
-- (void)setEncapsulateKLineChartData:(JMMiddleLayerViewModel *)model {
+- (void)setEncapsulateKLineChartData:(FSStockDetailChartViewModel *)model {
     
     // ["分时时间戳", "最新价", "均价", "分钟成交量", "分钟成交额", "今开"]
     [model.timeChartModels enumerateObjectsUsingBlock:^(JMTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -451,9 +451,9 @@
     return  _stockInfoModel;
 }
 
-- (JMMiddleLayerView *)middleLayerView {
+- (FSStockDetailChartView *)middleLayerView {
     if (!_middleLayerView){
-        _middleLayerView = [[JMMiddleLayerView alloc] init];
+        _middleLayerView = [[FSStockDetailChartView alloc] init];
         _middleLayerView.delegate = self;
     }
     return  _middleLayerView;
