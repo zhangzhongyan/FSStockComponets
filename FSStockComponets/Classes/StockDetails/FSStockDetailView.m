@@ -1,12 +1,12 @@
 //
-//  JMStockDetailsView.m
+//  FSStockDetailView.m
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
 //  Copyright © 2023 liyunlong1512. All rights reserved.
 //
 
-#import "JMStockDetailsView.h"
+#import "FSStockDetailView.h"
 
 #import "QuotationConstant.h"
 #import "JMDelayPromptView.h"
@@ -17,7 +17,7 @@
 #import <MJExtension/MJExtension.h>
 #import "WOCrashProtectorManager.h"
 
-@interface JMStockDetailsView ()<DelayPromptViewDelegate, MiddleLayerViewDelegate, StockInfoViewDelegate>
+@interface FSStockDetailView ()<DelayPromptViewDelegate, MiddleLayerViewDelegate, StockInfoViewDelegate>
 
 /** 滚动视图 */
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -47,7 +47,7 @@
 
 @end
 
-@implementation JMStockDetailsView
+@implementation FSStockDetailView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

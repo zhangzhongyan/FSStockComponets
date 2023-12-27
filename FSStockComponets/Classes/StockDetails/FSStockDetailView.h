@@ -1,5 +1,5 @@
 //
-//  JMStockDetailsView.h
+//  FSStockDetailView.h
 //  JMQuotesComponets_Example
 //
 //  Created by fargowealth on 2023/5/30.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol StockDetailsViewDelegate <NSObject>
+@protocol FSStockDetailViewDelegate <NSObject>
 
 /**
  *  K线时间选择回调
@@ -34,9 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JMStockDetailsView : UIView
+@interface FSStockDetailView : UIView
 
-@property (nonatomic, weak) id<StockDetailsViewDelegate> delegate;
+@property (nonatomic, weak) id<FSStockDetailViewDelegate> delegate;
 
 
 /**

@@ -83,9 +83,9 @@
 #import "JMQuotationListHeadView.h"
 #import "JMQuotationListTableViewCell.h"
 #import "JMQuotationListView.h"
+#import "FSStockDetailView.h"
 #import "JMHandicapInfoCollectionViewCell.h"
 #import "JMMiddleLayerView.h"
-#import "JMStockDetailsView.h"
 #import "JMStockInfoView.h"
 #import "UIColor+JMColor.h"
 

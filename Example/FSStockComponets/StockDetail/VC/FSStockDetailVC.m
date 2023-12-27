@@ -15,7 +15,7 @@
 #import "FSColorMacro.h"
 #import <Masonry/Masonry.h>
 
-@interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate, StockDetailsViewDelegate>
+@interface FSStockDetailVC ()<UITableViewDataSource, UITableViewDelegate, FSStockDetailViewDelegate>
 
 @property (nonatomic, strong) FSStockDetailTitleView *titleView;
 
@@ -103,7 +103,7 @@
     [self.toolBarView setContentWithVM:self.viewModel.toolBarVM];
 }
 
-#pragma mark - <StockDetailsViewDelegate>
+#pragma mark - <FSStockDetailViewDelegate>
 
 /**
  *  K线时间选择回调

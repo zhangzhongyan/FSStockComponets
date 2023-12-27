@@ -49,9 +49,9 @@
 #pragma mark - property
 
 // 初始化
-- (JMStockDetailsView *)stockDetailsView{
+- (FSStockDetailView *)stockDetailsView{
     if (!_stockDetailsView) {
-        _stockDetailsView = [[JMStockDetailsView alloc] init];
+        _stockDetailsView = [[FSStockDetailView alloc] init];
     }
     return _stockDetailsView;
 }

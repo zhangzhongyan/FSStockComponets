@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FSStockComponets/JMStockDetailsView.h>
+#import <FSStockComponets/FSStockDetailView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FSStockDetailCell : UITableViewCell
 
-@property (nonatomic, strong) JMStockDetailsView *stockDetailsView;
+@property (nonatomic, strong) FSStockDetailView *stockDetailsView;
 
 @end
 
