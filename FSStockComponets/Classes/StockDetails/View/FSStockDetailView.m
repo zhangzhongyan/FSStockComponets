@@ -130,6 +130,110 @@
     
 }
 
+#pragma mark - Public Methods
+
+- (void)setDataWithHandicapJson:(NSDictionary *)handicapJson
+                      KLineJson:(NSDictionary *)kLineJson
+                      ChartTyep:(NSInteger)chartType {
+    
+    FSStockDetailInfoModel *model = [FSStockDetailInfoModel mj_objectWithKeyValues:handicapJson];
+    self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
+    self.stockInfoModel = model;
+    
+    NSArray * array = kLineJson[@"result"][@"data"];
+    if (array.count <= 0) return;
+    
+    self.klineDataList = [[NSMutableArray alloc] initWithArray:array];
+    [self setKLineChartAPIRequestDataAssemblyWithKLineJson:kLineJson StockInfoModel:model ChatType:chartType];
+    
+    if ([model.marketType isEqualToString:@"US"]){
+        [self closePrompt];
+    }
+    
+}
+
+- (void)updateKLineDataWithJson:(NSDictionary *)json
+                      ChartTyep:(NSInteger)chartType
+                        Weights:(NSString *)weights
+                           More:(BOOL)more {
+    if (more) {
+        NSArray * arr = json[@"result"][@"data"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNoticeName_LoadMoreData object:arr];
+    } else {
+        NSArray * array = json[@"result"][@"data"];
+        if (array.count <= 0) return;
+        
+        self.klineDataList = [[NSMutableArray alloc] initWithArray:array];
+        [self setKLineChartAPIRequestDataAssemblyWithKLineJson:json StockInfoModel:self.stockInfoModel ChatType:chartType];
+    }
+}
+
+- (void)setMQTTDataWithJson:(NSDictionary *)json {
+    
+    NSString *funId = json[@"funId"];
+    
+    // 盘口
+    if (funId.intValue == 2) {
+        
+        NSArray *array = json[@"data"];
+        if (array.count == 0) return;
+        
+        // HK
+        // "资产ID","名称",资产类型,资产状态,"昨收","开盘","现价","最高","最低","成交量","成交额","涨跌额","涨跌幅","总市值","流通市值","换手率","动态市盈率","市净率","量比","委比","平均价","收益",净资产,"","静态市盈率",更新时间,"日期","时分秒","振幅",盘中状态值,"52周最高","52周最低","历史最高","历史最低","资产类别","交易货币","每股资产净值","溢价","杠杠比率","实际杠杠","牛熊溢价","打和点","距收回价","换股价"
+        
+        // US
+        // "资产ID","名称",资产类型,资产状态,"昨收","开盘","现价","最高","最低","成交量","成交额","涨跌额","涨跌幅","总市值","流通市值","换手率","动态市盈率","市净率","量比","委比","平均价","收益",净资产,"","静态市盈率",更新时间,"日期","时分秒","振幅",盘中状态值,"52周最高","52周最低","历史最高","历史最低"
+        NSString * assetIdStr = array.lastObject[0];
+        
+        if (![self.stockInfoModel.assetId isEqualToString:assetIdStr]) {
+            return;
+        }
+        
+        FSStockDetailInfoModel *model = self.stockInfoModel;
+        model.assetId = array.lastObject[0];
+        model.name = array.lastObject[1];
+        model.status = [array.lastObject[3] intValue];
+        model.preClose = array.lastObject[4];
+        model.open = array.lastObject[5];
+        model.price = array.lastObject[6];
+        model.high = array.lastObject[7];
+        model.low = array.lastObject[8];
+        model.volume = array.lastObject[9];
+        model.turnover = array.lastObject[10];
+        model.change = array.lastObject[11];
+        model.changePct = array.lastObject[12];
+        model.totalVal = array.lastObject[13];
+        model.fmktVal = array.lastObject[14];
+        model.turnRate = array.lastObject[15];
+        model.ttmPe = array.lastObject[16];
+        model.pb = array.lastObject[17];
+        model.volRate = array.lastObject[18];
+        model.avgPrice = array.lastObject[20];
+        model.epsp = array.lastObject[21];
+        model.pe = array.lastObject[24];
+        model.ts = array.lastObject[25];
+        model.ampLiTude = array.lastObject[28];
+        model.threeMarketStatus = array.lastObject[29];
+        model.week52High = array.lastObject[30];
+        model.week52Low = array.lastObject[31];
+        model.hisHigh = array.lastObject[32];
+        model.hisLow = array.lastObject[33];
+        
+        self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
+        self.stockInfoModel = model;
+        
+    }
+    
+    // 分时
+    if (funId.intValue == 4) {
+#warning 修改
+        [self setKLineChartMQTTRequestDataAssemblyWithKLineJson:json
+                                                 StockInfoModel:self.stockInfoModel
+                                                       ChatType:self.seletedKLineChartType];
+    }
+    
+}
+
 #pragma mark - Private method
 
 /**
@@ -461,112 +565,6 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
     }
     return  _scrollView;
-}
-
-#pragma mark - 数据重载
-
-- (void)setMQTTDataWithJson:(NSDictionary *)json {
-    
-    NSString *funId = json[@"funId"];
-    
-    // 盘口
-    if (funId.intValue == 2) {
-        
-        NSArray *array = json[@"data"];
-        if (array.count == 0) return;
-        
-        // HK
-        // "资产ID","名称",资产类型,资产状态,"昨收","开盘","现价","最高","最低","成交量","成交额","涨跌额","涨跌幅","总市值","流通市值","换手率","动态市盈率","市净率","量比","委比","平均价","收益",净资产,"","静态市盈率",更新时间,"日期","时分秒","振幅",盘中状态值,"52周最高","52周最低","历史最高","历史最低","资产类别","交易货币","每股资产净值","溢价","杠杠比率","实际杠杠","牛熊溢价","打和点","距收回价","换股价"
-        
-        // US
-        // "资产ID","名称",资产类型,资产状态,"昨收","开盘","现价","最高","最低","成交量","成交额","涨跌额","涨跌幅","总市值","流通市值","换手率","动态市盈率","市净率","量比","委比","平均价","收益",净资产,"","静态市盈率",更新时间,"日期","时分秒","振幅",盘中状态值,"52周最高","52周最低","历史最高","历史最低"
-        NSString * assetIdStr = array.lastObject[0];
-        
-        if (![self.stockInfoModel.assetId isEqualToString:assetIdStr]) {
-            return;
-        }
-        
-        FSStockDetailInfoModel *model = self.stockInfoModel;
-        model.assetId = array.lastObject[0];
-        model.name = array.lastObject[1];
-        model.status = [array.lastObject[3] intValue];
-        model.preClose = array.lastObject[4];
-        model.open = array.lastObject[5];
-        model.price = array.lastObject[6];
-        model.high = array.lastObject[7];
-        model.low = array.lastObject[8];
-        model.volume = array.lastObject[9];
-        model.turnover = array.lastObject[10];
-        model.change = array.lastObject[11];
-        model.changePct = array.lastObject[12];
-        model.totalVal = array.lastObject[13];
-        model.fmktVal = array.lastObject[14];
-        model.turnRate = array.lastObject[15];
-        model.ttmPe = array.lastObject[16];
-        model.pb = array.lastObject[17];
-        model.volRate = array.lastObject[18];
-        model.avgPrice = array.lastObject[20];
-        model.epsp = array.lastObject[21];
-        model.pe = array.lastObject[24];
-        model.ts = array.lastObject[25];
-        model.ampLiTude = array.lastObject[28];
-        model.threeMarketStatus = array.lastObject[29];
-        model.week52High = array.lastObject[30];
-        model.week52Low = array.lastObject[31];
-        model.hisHigh = array.lastObject[32];
-        model.hisLow = array.lastObject[33];
-        
-        self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
-        self.stockInfoModel = model;
-        
-    }
-    
-    // 分时
-    if (funId.intValue == 4) {
-#warning 修改
-        [self setKLineChartMQTTRequestDataAssemblyWithKLineJson:json
-                                                 StockInfoModel:self.stockInfoModel
-                                                       ChatType:self.seletedKLineChartType];
-    }
-    
-}
-
-- (void)updateKLineDataWithJson:(NSDictionary *)json
-                      ChartTyep:(NSInteger)chartType
-                        Weights:(NSString *)weights
-                           More:(BOOL)more {
-    
-    if (more) {
-        NSArray * arr = json[@"result"][@"data"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNoticeName_LoadMoreData object:arr];
-    } else {
-        NSArray * array = json[@"result"][@"data"];
-        if (array.count <= 0) return;
-        
-        self.klineDataList = [[NSMutableArray alloc] initWithArray:array];
-        [self setKLineChartAPIRequestDataAssemblyWithKLineJson:json StockInfoModel:self.stockInfoModel ChatType:chartType];
-    }
-    
-}
-
-- (void)setDataWithHandicapJson:(NSDictionary *)handicapJson
-                      KLineJson:(NSDictionary *)kLineJson
-                      ChartTyep:(NSInteger)chartType {
-    
-    FSStockDetailInfoModel *model = [FSStockDetailInfoModel mj_objectWithKeyValues:handicapJson];
-    self.stockInfoView.stockInfoViewModel = [[FSStockDetailInfoViewModel alloc] initWithModel:model];
-    self.stockInfoModel = model;
-    
-    NSArray * array = kLineJson[@"result"][@"data"];
-    if (array.count <= 0) return;
-    
-    self.klineDataList = [[NSMutableArray alloc] initWithArray:array];
-    [self setKLineChartAPIRequestDataAssemblyWithKLineJson:kLineJson StockInfoModel:model ChatType:chartType];
-    
-    if ([model.marketType isEqualToString:@"US"]){
-        [self closePrompt];
-    }
-    
 }
 
 #pragma mark - <FSStockDetailChartViewDelegate>
