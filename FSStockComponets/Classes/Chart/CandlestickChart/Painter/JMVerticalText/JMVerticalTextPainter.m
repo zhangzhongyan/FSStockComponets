@@ -89,7 +89,7 @@
     CGFloat decimalGap = minMaxModel.distance / (count-1);
     
     // 标题
-    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : @"成交量";
+    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : FSl@"成交量";
     // 单位
     NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股";
     

@@ -359,7 +359,7 @@
 - (UILabel *)highestPriceTitleLab {
     if (!_highestPriceTitleLab) {
         _highestPriceTitleLab = [[UILabel alloc] init];
-        _highestPriceTitleLab.text = @"最高";
+        _highestPriceTitleLab.text = FSLanguage(@"最高");
         _highestPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _highestPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -379,7 +379,7 @@
 - (UILabel *)minimumPriceTitleLab {
     if (!_minimumPriceTitleLab) {
         _minimumPriceTitleLab = [[UILabel alloc] init];
-        _minimumPriceTitleLab.text = @"最低";
+        _minimumPriceTitleLab.text = FSLanguage(@"最低");
         _minimumPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _minimumPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -439,7 +439,7 @@
 - (UILabel *)volumeTitleLab {
     if (!_volumeTitleLab) {
         _volumeTitleLab = [[UILabel alloc] init];
-        _volumeTitleLab.text = @"成交量";
+        _volumeTitleLab.text = FSLanguage(@"成交量");
         _volumeTitleLab.textColor = UIColor.secondaryTextColor;
         _volumeTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -459,7 +459,7 @@
 - (UILabel *)turnoverTitleLab {
     if (!_turnoverTitleLab) {
         _turnoverTitleLab = [[UILabel alloc] init];
-        _turnoverTitleLab.text = @"成交额";
+        _turnoverTitleLab.text = FSLanguage(@"成交额");
         _turnoverTitleLab.textColor = UIColor.secondaryTextColor;
         _turnoverTitleLab.font = [UIFont systemFontOfSize:9.f];
     }

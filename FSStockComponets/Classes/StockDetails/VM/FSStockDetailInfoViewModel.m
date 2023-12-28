@@ -6,7 +6,9 @@
 //
 
 #import "FSStockDetailInfoViewModel.h"
+//Helper
 #import "UIColor+JMColor.h"
+#import "NSBundle+FSStockComponents.h"
 
 @implementation FSStockDetailInfoViewModel
 
@@ -24,8 +26,8 @@
             self.changePctColor = UIColor.flatColor;
             
             NSArray *titleList = @[
-                @"最高", @"今开", @"成交量",
-                @"最低", @"昨收", @"成交额",
+                FSLanguage(@"最高"), FSLanguage(@"今开"), @"成交量",
+                FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
                 @"换手率", @"市盈率", @"总市值",
                 @"量比", @"市盈", @"总股本",
                 @"收益", @"市盈", @"流通市值",
@@ -124,8 +126,8 @@
             
             
             NSArray *titleList = @[
-                @"最高", @"今开", @"成交量",
-                @"最低", @"昨收", @"成交额",
+                FSLanguage(@"最高"), FSLanguage(@"今开"), @"成交量",
+                FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
                 @"换手率", @"市盈率", @"总市值",
                 @"量比", @"市盈", @"总股本",
                 @"收益", @"市盈", @"流通市值",
