@@ -34,7 +34,7 @@
 
 #pragma mark - Initialize Methods
 
-- (instancetype)initWithStockModel:(JMQuotationListModel *)stockModel kLineChartType:(FSKLineChartType)kLineChartType kLineWeightType:(EVKLineWeightType)kLineWeightType
+- (instancetype)initWithStockModel:(JMQuotationListModel *)stockModel kLineChartType:(FSKLineChartType)kLineChartType kLineWeightType:(FSKLineWeightType)kLineWeightType
 {
     self = [super init];
     if (self) {
@@ -150,13 +150,13 @@
 - (NSString *)currentWeightText
 {
     switch (self.kLineWeightType) {
-        case EVKLineWeightTypeBack: {
+        case FSKLineWeightTypeBack: {
             return @"B";
         }
-        case EVKLineWeightTypeFront: {
+        case FSKLineWeightTypeFront: {
             return @"F";
         }
-        case EVKLineWeightTypeNote: {
+        case FSKLineWeightTypeNote: {
             return @"N";
         }
     }

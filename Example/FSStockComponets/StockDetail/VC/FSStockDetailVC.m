@@ -130,13 +130,13 @@
 //    @weakify(self);
 //    self.viewModel.allowLoadMore = NO;
 //    if ([type isEqualToString:@"F"]) {
-//        [self.viewModel setKLineWeightType:EVKLineWeightTypeFront];
+//        [self.viewModel setKLineWeightType:FSKLineWeightTypeFront];
 //    }
 //    else if ([type isEqualToString:@"B"]) {
-//        [self.viewModel setKLineWeightType:EVKLineWeightTypeBack];
+//        [self.viewModel setKLineWeightType:FSKLineWeightTypeBack];
 //    }
 //    else if ([type isEqualToString:@"N"]) {
-//        [self.viewModel setKLineWeightType:EVKLineWeightTypeNote];
+//        [self.viewModel setKLineWeightType:FSKLineWeightTypeNote];
 //    }
 //    [EVHUDUtils showLoadingOnView:self.view];
 //    [self.viewModel sendKLineJsonRequestWithCompletionBlock:^(FSNetworkData * _Nonnull data, __kindof FSBaseRequest * _Nonnull request) {

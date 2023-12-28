@@ -14,9 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FSStockDetailViewDelegate <NSObject>
 
-/// k线类型
-@property (readonly, nonatomic, assign, getter = theKLineChartType) FSKLineChartType kLineChartType;
-
 /**
  *  K线时间选择回调
  */
@@ -37,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface FSStockDetailView : UIView
+
+/// k线类型
+@property (readonly, nonatomic, assign, getter = theKLineChartType) FSKLineChartType kLineChartType;
 
 @property (nonatomic, weak) id<FSStockDetailViewDelegate> delegate;
 

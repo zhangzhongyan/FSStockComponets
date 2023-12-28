@@ -84,7 +84,7 @@
  */
 - (void)quotationListDelegateWithSelectedModel:(JMQuotationListModel *)model
 {
-    FSStockDetailVM *vm = [[FSStockDetailVM alloc] initWithStockModel:model kLineChartType:FSKLineChartTypeMinuteHour kLineWeightType:EVKLineWeightTypeFront];
+    FSStockDetailVM *vm = [[FSStockDetailVM alloc] initWithStockModel:model kLineChartType:FSKLineChartTypeMinuteHour kLineWeightType:FSKLineWeightTypeFront];
     FSStockDetailVC *vc = [[FSStockDetailVC alloc] initWithVM:vm];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

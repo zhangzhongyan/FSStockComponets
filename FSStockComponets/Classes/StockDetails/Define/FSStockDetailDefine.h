@@ -41,4 +41,14 @@ typedef NS_ENUM(NSInteger, FSKLineChartType) {
 };
 
 
+// K线图类型
+typedef NS_ENUM(NSInteger, FSKLineWeightType) {
+    /** F: 前复权  */
+    FSKLineWeightTypeFront = 0,
+    /** B: 后复权 */
+    FSKLineWeightTypeBack,
+    /**  N: 除权 */
+    FSKLineWeightTypeNote,
+};
+
 #endif /* FSStockDetailDefine_h */
