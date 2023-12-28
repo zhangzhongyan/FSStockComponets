@@ -227,9 +227,7 @@
     // 分时
     if (funId.intValue == 4) {
 #warning 修改
-        [self setKLineChartMQTTRequestDataAssemblyWithKLineJson:json
-                                                 StockInfoModel:self.stockInfoModel
-                                                       ChatType:self.seletedKLineChartType];
+        [self setKLineChartWithMQTTJson:json stockInfoModel:self.stockInfoModel kLineChartType:self.seletedKLineChartType];
     }
     
 }
@@ -242,9 +240,7 @@
  * model 盘口数据
  * chatType K线图类型
  */
-- (void)setKLineChartMQTTRequestDataAssemblyWithKLineJson:(NSDictionary *)json
-                                           StockInfoModel:(FSStockDetailInfoModel *)model
-                                                 ChatType:(NSInteger)chatType {
+- (void)setKLineChartWithMQTTJson:(NSDictionary *)json stockInfoModel:(FSStockDetailInfoModel *)model kLineChartType:(FSKLineChartType)chatType {
     
     NSArray *array = json[@"data"];
     
@@ -258,7 +254,7 @@
     
     [viewModel.timeChartModels enumerateObjectsUsingBlock:^(FSStockTimeChartModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         viewModel.assetID = obj.assetID;
-        viewModel.chatType = obj.addTo5DaysTimeSharing ? 4 : 3;
+        viewModel.chatType = obj.addTo5DaysTimeSharing ? FSKLineChartTypeFiveDay: FSKLineChartTypeMinuteHour;
         viewModel.isClose = isClose;
         viewModel.marketType = [self getMarketTypeWithMarket:model.marketType TimeSharingStatus:1];
         viewModel.price = obj.currentPrice;

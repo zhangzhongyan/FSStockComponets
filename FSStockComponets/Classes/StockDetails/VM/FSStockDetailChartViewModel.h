@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FSStockTimeChartModel.h"
+#import "FSStockDetailDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *assetID;
 
 /** K线图类型 */
-@property(nonatomic, assign) NSInteger chatType;
+@property(nonatomic, assign) FSKLineChartType chatType;
 
 /** 收盘价 */
 @property (nonatomic, strong) NSNumber *close;
