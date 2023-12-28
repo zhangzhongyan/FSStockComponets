@@ -89,8 +89,8 @@
 "待上市"="To be listed";
 "退市"="Going Private";
 "停牌"="Halt";
-"跌停"="Limit Up";
-"涨停"="Limit Down";
+"跌停"="Limit Down";
+"涨停"="Limit Up";
 "盘前"="Pre-Market";
 "盘后"="After-Hours";
 "盘中"="Intraday";

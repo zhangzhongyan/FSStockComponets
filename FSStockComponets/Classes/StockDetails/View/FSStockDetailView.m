@@ -574,8 +574,8 @@
 
 - (void)clickChartKLineWithType:(FSKLineChartType)type {
     self.seletedKLineChartType = type;
-    if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithIndex:Type:)]) {
-        [self.delegate KLineTimeSelectionWithIndex:index Type: [self getReturnKlineTypeWithAPIType:index]];
+    if ([self.delegate respondsToSelector:@selector(KLineTimeSelectionWithType:)]) {
+        [self.delegate KLineTimeSelectionWithType:type];
     }
 }
 

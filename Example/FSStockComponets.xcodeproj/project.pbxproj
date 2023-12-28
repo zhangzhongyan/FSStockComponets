@@ -46,6 +46,10 @@
 		E17987BF2B3AD17200B072AD /* kLineMinute1RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */; };
 		E17987C02B3AD17200B072AD /* kLineYearsRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */; };
 		E17987C12B3AD17200B072AD /* kLineDaysRespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */; };
+		E1AABBE82B3D57E10069356B /* kLineMinute5RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E1AABBE42B3D57E10069356B /* kLineMinute5RespJson.json */; };
+		E1AABBE92B3D57E10069356B /* kLineMinute60RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E1AABBE52B3D57E10069356B /* kLineMinute60RespJson.json */; };
+		E1AABBEA2B3D57E10069356B /* kLineMinute15RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E1AABBE62B3D57E10069356B /* kLineMinute15RespJson.json */; };
+		E1AABBEB2B3D57E10069356B /* kLineMinute30RespJson.json in Resources */ = {isa = PBXBuildFile; fileRef = E1AABBE72B3D57E10069356B /* kLineMinute30RespJson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,10 @@
 		E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute1RespJson.json; sourceTree = "<group>"; };
 		E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineYearsRespJson.json; sourceTree = "<group>"; };
 		E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineDaysRespJson.json; sourceTree = "<group>"; };
+		E1AABBE42B3D57E10069356B /* kLineMinute5RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute5RespJson.json; sourceTree = "<group>"; };
+		E1AABBE52B3D57E10069356B /* kLineMinute60RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute60RespJson.json; sourceTree = "<group>"; };
+		E1AABBE62B3D57E10069356B /* kLineMinute15RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute15RespJson.json; sourceTree = "<group>"; };
+		E1AABBE72B3D57E10069356B /* kLineMinute30RespJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kLineMinute30RespJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +353,10 @@
 				E17987BB2B3AD17200B072AD /* kLineDaysRespJson.json */,
 				E17987B62B3AD17100B072AD /* kLineFiveDaysRespJson.json */,
 				E17987B92B3AD17200B072AD /* kLineMinute1RespJson.json */,
+				E1AABBE42B3D57E10069356B /* kLineMinute5RespJson.json */,
+				E1AABBE62B3D57E10069356B /* kLineMinute15RespJson.json */,
+				E1AABBE72B3D57E10069356B /* kLineMinute30RespJson.json */,
+				E1AABBE52B3D57E10069356B /* kLineMinute60RespJson.json */,
 				E17987B72B3AD17200B072AD /* kLineMonthsRespJson.json */,
 				E17987B82B3AD17200B072AD /* kLineWeeksRespJson.json */,
 				E17987BA2B3AD17200B072AD /* kLineYearsRespJson.json */,
@@ -477,9 +489,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AABBEB2B3D57E10069356B /* kLineMinute30RespJson.json in Resources */,
 				E179879A2B39221F00B072AD /* hqlist.json in Resources */,
 				E17987BE2B3AD17200B072AD /* kLineWeeksRespJson.json in Resources */,
 				E17987C02B3AD17200B072AD /* kLineYearsRespJson.json in Resources */,
+				E1AABBE82B3D57E10069356B /* kLineMinute5RespJson.json in Resources */,
+				E1AABBEA2B3D57E10069356B /* kLineMinute15RespJson.json in Resources */,
 				E17987BD2B3AD17200B072AD /* kLineMonthsRespJson.json in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
@@ -489,6 +504,7 @@
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				E17987B52B3AC7C400B072AD /* handicapRespJson.json in Resources */,
 				E17987BF2B3AD17200B072AD /* kLineMinute1RespJson.json in Resources */,
+				E1AABBE92B3D57E10069356B /* kLineMinute60RespJson.json in Resources */,
 				E17987C12B3AD17200B072AD /* kLineDaysRespJson.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

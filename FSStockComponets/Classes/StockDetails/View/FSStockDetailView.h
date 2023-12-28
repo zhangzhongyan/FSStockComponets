@@ -19,11 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  K线时间选择回调
- *  index: 时间周期 0.盘前 1.盘中 2.盘后 3.分时 4.五日 5.日K 6.周K 7.月K 8.年K 9.1分 10.5分 11.15分 12.30分 13.60分
- *  type: 接口需要                                                           5.D 6.W 7.M 8.Y 9.Minute1 10.Minute5 11.Minute15 12.Minute30 13.Minute60
  */
-- (void)KLineTimeSelectionWithIndex:(NSInteger)index
-                               Type:(NSString *)type;
+- (void)KLineTimeSelectionWithType:(FSKLineChartType)charType;
 
 /**
  *  K线权重选择回调
