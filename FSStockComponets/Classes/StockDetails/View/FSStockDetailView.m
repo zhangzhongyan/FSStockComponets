@@ -565,8 +565,8 @@
 
 #pragma mark - <FSStockDetailChartViewDelegate>
 
-- (void)KLineWeightsSelectionWithType:(NSString *)type {
-    NSLog(@"权重选择 %@", type);
+- (void)KLineWeightsSelectionWithType:(FSKLineWeightType)type {
+    NSLog(@"权重选择 %d", type);
     if ([self.delegate respondsToSelector:@selector(KLineWeightsSelectionWithType:)]) {
         [self.delegate KLineWeightsSelectionWithType:type];
     }

@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  K线权重选择回调
  *  type: 权重 F: 前复权 B: 后复权 N: 除权
  */
-- (void)KLineWeightsSelectionWithType:(NSString *)type;
+- (void)KLineWeightsSelectionWithType:(FSKLineWeightType)type;
 
 /**
  *  获取更多K线数据

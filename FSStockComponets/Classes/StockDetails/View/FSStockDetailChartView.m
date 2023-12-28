@@ -106,24 +106,23 @@
                                            Title:(NSString *)title {
     [self.resetBtn setTitle:title forState:UIControlStateNormal];
     
-    NSString * type = @"F";
+    FSKLineWeightType weightType = FSKLineWeightTypeFront;
     switch (index) {
-        case 0:
-            type = @"F";
+        case 1: {
+            weightType = FSKLineWeightTypeBack;
             break;
-        case 1:
-            type = @"B";
+        }
+        case 2: {
+            weightType = FSKLineWeightTypeNote;
             break;
-        case 2:
-            type = @"N";
+        }
+        default: {
             break;
-            
-        default:
-            break;
+        }
     }
     
     if ([self.delegate respondsToSelector:@selector(KLineWeightsSelectionWithType:)]) {
-        [self.delegate KLineWeightsSelectionWithType:type];
+        [self.delegate KLineWeightsSelectionWithType:weightType];
     }
     
     self.timeSelectionView.hidden = YES;
