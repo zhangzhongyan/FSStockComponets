@@ -71,6 +71,7 @@
 #import "YYVolPainter.h"
 #import "YYWRPainter.h"
 #import "FSStockComponets.h"
+#import "FSStockComponetsLanguage.h"
 #import "JMChatManager.h"
 #import "JMQuotationListModel.h"
 #import "NSBundle+FSStockComponents.h"

@@ -17,6 +17,7 @@
 #import "PopTimeMenuView.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 #define kButtonTag 1000
 #define kButtonTimesharingTag 8888
@@ -597,7 +598,7 @@
 - (UILabel *)nullDataLab {
     if (!_nullDataLab) {
         _nullDataLab = [[UILabel alloc] init];
-        _nullDataLab.text = FSLanguage(@"暂无数据(详情页)");
+        _nullDataLab.text = FSMacroLanguage(@"暂无数据(详情页)");
         _nullDataLab.textColor = UIColor.nullDataTextColor;
         _nullDataLab.font = kFont_Regular(14.f);
     }

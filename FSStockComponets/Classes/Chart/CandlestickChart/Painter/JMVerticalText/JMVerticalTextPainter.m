@@ -11,7 +11,7 @@
 #import "JMChatManager.h"
 //Helper
 #import "FSStockUnitUtils.h"
-#import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 @implementation JMVerticalTextPainter
 
@@ -82,17 +82,17 @@
     CGFloat decimalGap = minMaxModel.distance / (count-1);
     
     // 标题
-    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额") : FSLanguage(@"成交量(k线)");
+    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? FSMacroLanguage(@"成交额") : FSMacroLanguage(@"成交量(k线)");
     // 单位
-    NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
+    NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSMacroLanguage(@"手") : FSMacroLanguage(@"股");
     
     // 根据市场类型区分指数
     if ([[JMChatManager sharedInstance].market isEqualToString:@"ZH"] && [JMChatManager sharedInstance].isStockIndex) {
-        volStr = FSLanguage(@"成交量(k线)");
-        unitStr = FSLanguage(@"手");
+        volStr = FSMacroLanguage(@"成交量(k线)");
+        unitStr = FSMacroLanguage(@"手");
     } else {
-        volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额")  : FSLanguage(@"成交量(k线)");
-        unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
+        volStr = [JMChatManager sharedInstance].isStockIndex ? FSMacroLanguage(@"成交额")  : FSMacroLanguage(@"成交量(k线)");
+        unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSMacroLanguage(@"手") : FSMacroLanguage(@"股");
     }
     
     for (int i = 0; i < count; i++) {
@@ -101,10 +101,10 @@
         NSString * text = @"";
         
         if (number >= 1e8) {
-            text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSLanguage(@"亿")];
+            text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSMacroLanguage(@"亿")];
         } else if (number >= 1e4) {
-            number = ([NSBundle fsStockUI_isChineseLanguage])? number * 10: number;
-            text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSLanguage(@"万")];
+            number = ([FSStockComponetsLanguage isChineseLanguage])? number: number * 10;
+            text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSMacroLanguage(@"万")];
         } else if (number >= 10) {
             text = [NSString stringWithFormat:@"%.2f", number];
         } else {

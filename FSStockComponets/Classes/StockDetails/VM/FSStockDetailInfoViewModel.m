@@ -8,7 +8,7 @@
 #import "FSStockDetailInfoViewModel.h"
 //Helper
 #import "UIColor+JMColor.h"
-#import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 @implementation FSStockDetailInfoViewModel
 
@@ -26,22 +26,22 @@
             self.changePctColor = UIColor.flatColor;
             
             NSArray *titleList = @[
-                FSLanguage(@"最高"), FSLanguage(@"今开"), FSLanguage(@"成交量"),
-                FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
-                @"换手率", @"市盈率", @"总市值",
-                @"量比", @"市盈", @"总股本",
-                @"收益", @"市盈", @"流通市值",
-                @"52周高", @"市净率", @"流通股本",
-                @"52周低", @"均价", @"振幅",
-                @"股息率", @"股息", @"每手",
+                FSMacroLanguage(@"最高"), FSMacroLanguage(@"今开"), FSMacroLanguage(@"成交量"),
+                FSMacroLanguage(@"最低"), FSMacroLanguage(@"昨收"), FSMacroLanguage(@"成交额"),
+                FSMacroLanguage(@"换手率"), FSMacroLanguage(@"市盈率"), FSMacroLanguage(@"总市值"),
+                FSMacroLanguage(@"量比"), FSMacroLanguage(@"市盈"), FSMacroLanguage(@"总股本"),
+                FSMacroLanguage(@"收益"), FSMacroLanguage(@"市盈"), FSMacroLanguage(@"流通市值"),
+                FSMacroLanguage(@"52周高"), FSMacroLanguage(@"市净率"), FSMacroLanguage(@"流通股本"),
+                FSMacroLanguage(@"52周低"), FSMacroLanguage(@"均价"), FSMacroLanguage(@"振幅"),
+                FSMacroLanguage(@"股息率"), FSMacroLanguage(@"股息"), FSMacroLanguage(@"每手"),
             ];
             
             NSArray *describeList = @[
                 @"", @"", @"",
                 @"", @"", @"",
                 @"", @"TTM", @"",
-                @"", @"动", @"",
-                @"", @"静", @"",
+                @"", FSMacroLanguage(@"动"), @"",
+                @"", FSMacroLanguage(@"静"), @"",
                 @"", @"", @"",
                 @"", @"", @"",
                 @"", @"", @"",
@@ -126,22 +126,22 @@
             
             
             NSArray *titleList = @[
-                FSLanguage(@"最高"), FSLanguage(@"今开"), FSLanguage(@"成交量"),
-                FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
-                @"换手率", @"市盈率", @"总市值",
-                @"量比", @"市盈", @"总股本",
-                @"收益", @"市盈", @"流通市值",
-                @"52周高", @"市净率", @"流通股本",
-                @"52周低", @"均价", @"振幅",
-                @"股息率", @"股息", @"每手",
+                FSMacroLanguage(@"最高"), FSMacroLanguage(@"今开"), FSMacroLanguage(@"成交量"),
+                FSMacroLanguage(@"最低"), FSMacroLanguage(@"昨收"), FSMacroLanguage(@"成交额"),
+                FSMacroLanguage(@"换手率"), FSMacroLanguage(@"市盈率"), FSMacroLanguage(@"总市值"),
+                FSMacroLanguage(@"量比"), FSMacroLanguage(@"市盈"), FSMacroLanguage(@"总股本"),
+                FSMacroLanguage(@"收益"), FSMacroLanguage(@"市盈"), FSMacroLanguage(@"流通市值"),
+                FSMacroLanguage(@"52周高"), FSMacroLanguage(@"市净率"), FSMacroLanguage(@"流通股本"),
+                FSMacroLanguage(@"52周低"), FSMacroLanguage(@"均价"), FSMacroLanguage(@"振幅"),
+                FSMacroLanguage(@"股息率"), FSMacroLanguage(@"股息"), FSMacroLanguage(@"每手"),
             ];
             
             NSArray *describeList = @[
                 @"", @"", @"",
                 @"", @"", @"",
                 @"", @"TTM", @"",
-                @"", @"动", @"",
-                @"", @"静", @"",
+                @"", FSMacroLanguage(@"动"), @"",
+                @"", FSMacroLanguage(@"静"), @"",
                 @"", @"", @"",
                 @"", @"", @"",
                 @"", @"", @"",
@@ -196,7 +196,7 @@
             //股息
             [contentList addObject:model.ttmDps];
             //每手
-            [contentList addObject:[NSString stringWithFormat:@"%@股",model.lotSize]];
+            [contentList addObject:[NSString stringWithFormat:@"%@%@",model.lotSize, FSMacroLanguage(@"股(盘口)")]];
             
             NSArray *colorList = @[
                 [self getColorByCompareWithStr1:model.high Str2:model.preClose], [self getColorByCompareWithStr1:model.open Str2:model.preClose], UIColor.handicapInfoTextColor,
@@ -246,7 +246,7 @@
     formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
     NSString *dateStr = [formatter stringFromDate:date];
     
-    NSString *cityStr = [market isEqualToString:@"US"] ? @"美东时间" : @"北京时间";
+    NSString *cityStr = [market isEqualToString:@"US"] ? FSMacroLanguage(@"美东时间") : FSMacroLanguage(@"北京时间");
     
     return [NSString stringWithFormat:@"%@ %@ %@", statusStr, dateStr, cityStr];
 }
@@ -255,47 +255,47 @@
 - (NSString *)getTradingStatusText:(NSInteger)status {
     switch (status) {
         case 0:
-            return @"正常";
+            return FSMacroLanguage(@"正常");
         case 1:
-            return @"涨停";
+            return FSMacroLanguage(@"涨停");
         case 2:
-            return @"跌停";
+            return FSMacroLanguage(@"跌停");
         case 3:
-            return @"停牌";
+            return FSMacroLanguage(@"停牌");
         case 4:
-            return @"退市";
+            return FSMacroLanguage(@"退市");
         case 5:
-            return @"待上市";
+            return FSMacroLanguage(@"待上市");
         case 6:
-            return @"未开盘";
+            return FSMacroLanguage(@"未开盘");
         case 7:
-            return @"交易中";
+            return FSMacroLanguage(@"交易中");
         case 8:
-            return @"已收盘";
+            return FSMacroLanguage(@"已收盘");
         case 9:
-            return @"竞价中";
+            return FSMacroLanguage(@"竞价中");
         case 10:
-            return @"午间休市";
+            return FSMacroLanguage(@"午间休市");
         case 11:
-            return @"暗盘交易中";
+            return FSMacroLanguage(@"暗盘交易中");
         case 12:
-            return @"暗盘已收盘";
+            return FSMacroLanguage(@"暗盘已收盘");
         case 13:
-            return @"现场竞价中";
+            return FSMacroLanguage(@"现场竞价中");
         case 14:
-            return @"熔断";
+            return FSMacroLanguage(@"熔断");
         case 15:
-            return @"上市首日未开盘";
+            return FSMacroLanguage(@"上市首日未开盘");
         case 16:
-            return @"收盘竞价中";
+            return FSMacroLanguage(@"收盘竞价中");
         case 17:
-            return @"等待开盘";
+            return FSMacroLanguage(@"等待开盘");
         case 18:
             return @"--";
         case 19:
-            return @"终止交易";
+            return FSMacroLanguage(@"终止交易");
         case 20:
-            return @"等待上市";
+            return FSMacroLanguage(@"等待上市");
         default:
             return @"";
     }
@@ -336,11 +336,12 @@
     
     NSString * text = @"";
     if(number1 >= 1e12){
-        text = [NSString stringWithFormat:@"%@万亿", [formatter stringFromNumber:@(number.doubleValue/1e12)]];
+        text = [NSString stringWithFormat:@"%@%@", [formatter stringFromNumber:@(number.doubleValue/1e12)], FSMacroLanguage(@"万亿")];
     } else if (number1 >= 1e8) {
-        text = [NSString stringWithFormat:@"%@亿", [formatter stringFromNumber:@(number.doubleValue/1e8)]];
+        text = [NSString stringWithFormat:@"%@%@", [formatter stringFromNumber:@(number.doubleValue/1e8)], FSMacroLanguage(@"亿")];
     } else if (number1 >= 1e4) {
-        text = [NSString stringWithFormat:@"%@万", [formatter stringFromNumber:@(number.doubleValue/1e4)]];
+        number = [FSStockComponetsLanguage isChineseLanguage]? number: @(number.doubleValue * 10);
+        text = [NSString stringWithFormat:@"%@万", [formatter stringFromNumber:@(number.doubleValue/1e4)], FSMacroLanguage(@"万")];
     } else {
         text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:@(number.doubleValue)]];
     }

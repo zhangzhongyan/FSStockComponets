@@ -7,7 +7,7 @@
 
 #import "FSStockUnitUtils.h"
 //Helper
-#import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 @implementation FSStockUnitUtils
 
@@ -27,10 +27,10 @@
 {
     NSString * text = @"";
     if (number >= 1e8) {
-        text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSLanguage(@"亿")];
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSMacroLanguage(@"亿")];
     } else if (number >= 1e4) {
-        number = ([NSBundle fsStockUI_isChineseLanguage])? number * 10: number;
-        text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSLanguage(@"万")];
+        number = ([FSStockComponetsLanguage isChineseLanguage])? number: number * 10;
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSMacroLanguage(@"万")];
     } else if (number >= 10) {
         text = [NSString stringWithFormat:@"%.2f", number];
     } else {
@@ -46,10 +46,10 @@
     //类型 1.成交量 2.成交额
     NSString * text = @"";
     if (number >= 1e8) {
-        text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSLanguage(@"亿")];
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSMacroLanguage(@"亿")];
     } else if (number >= 1e4) {
-        number = ([NSBundle fsStockUI_isChineseLanguage])? number * 10: number;
-        text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSLanguage(@"万")];
+        number = ([FSStockComponetsLanguage isChineseLanguage])? number: number * 10;
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSMacroLanguage(@"万")];
     } else {
         if (type == 1) {
             text = [NSString stringWithFormat:@"%.0f", number];

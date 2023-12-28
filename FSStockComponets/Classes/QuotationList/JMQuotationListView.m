@@ -15,6 +15,7 @@
 #import "WOCrashProtectorManager.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 typedef NS_ENUM(NSInteger, SortState) {
     SortStateDefault,
@@ -720,7 +721,7 @@ typedef NS_ENUM(NSInteger, SortState) {
         _sortQuoteChangeBtn = [[UIButton alloc] init];
         
         [_sortQuoteChangeBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
-        [_sortQuoteChangeBtn setTitle:FSLanguage(@"涨跌幅") forState:UIControlStateNormal];
+        [_sortQuoteChangeBtn setTitle:FSMacroLanguage(@"涨跌幅") forState:UIControlStateNormal];
         [_sortQuoteChangeBtn setTitleColor:UIColor.quotesListHeadTitleColor forState:UIControlStateNormal];
         [_sortQuoteChangeBtn.titleLabel setFont:kFont_Regular(12)];
         [_sortQuoteChangeBtn setLayoutType:KJButtonContentLayoutStyleLeftImageRight];
@@ -735,7 +736,7 @@ typedef NS_ENUM(NSInteger, SortState) {
     if (!_sortPriceBtn) {
         _sortPriceBtn = [[UIButton alloc] init];
         [_sortPriceBtn setImage:[NSBundle fsStockUI_imageName:@"sort.png"] forState:UIControlStateNormal];
-        [_sortPriceBtn setTitle:FSLanguage(@"最新价格") forState:UIControlStateNormal];
+        [_sortPriceBtn setTitle:FSMacroLanguage(@"最新价格") forState:UIControlStateNormal];
         [_sortPriceBtn setTitleColor:UIColor.quotesListHeadTitleColor forState:UIControlStateNormal];
         [_sortPriceBtn.titleLabel setFont:kFont_Regular(12)];
         [_sortPriceBtn setLayoutType:KJButtonContentLayoutStyleLeftImageRight];
@@ -750,7 +751,7 @@ typedef NS_ENUM(NSInteger, SortState) {
     if (!_nameCodeLab){
         _nameCodeLab = [[UILabel alloc] init];
         _nameCodeLab.font = kFont_Regular(12);
-        _nameCodeLab.text = FSLanguage(@"名称代码");
+        _nameCodeLab.text = FSMacroLanguage(@"名称代码");
         _nameCodeLab.textColor = UIColor.quotesListHeadTitleColor;
     }
     return  _nameCodeLab;
@@ -775,7 +776,7 @@ typedef NS_ENUM(NSInteger, SortState) {
 - (UILabel *)nullDataLab {
     if (!_nullDataLab) {
         _nullDataLab = [[UILabel alloc] init];
-        _nullDataLab.text = FSLanguage(@"暂无数据(列表)");
+        _nullDataLab.text = FSMacroLanguage(@"暂无数据(列表)");
         _nullDataLab.textColor = UIColor.nullDataTextColor;
         _nullDataLab.font = kFont_Regular(14.f);
     }

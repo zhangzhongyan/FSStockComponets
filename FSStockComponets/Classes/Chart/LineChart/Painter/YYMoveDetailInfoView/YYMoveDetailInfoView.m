@@ -9,7 +9,7 @@
 #import "QuotationConstant.h"
 #import "JMChatManager.h"
 //Helper
-#import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 #import "FSStockUnitUtils.h"
 
 @interface YYMoveDetailInfoView ()
@@ -235,7 +235,7 @@
 - (UILabel *)openPriceTitleLab {
     if (!_openPriceTitleLab) {
         _openPriceTitleLab = [[UILabel alloc] init];
-        _openPriceTitleLab.text = FSLanguage(@"价格");
+        _openPriceTitleLab.text = FSMacroLanguage(@"价格");
         _openPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _openPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -255,7 +255,7 @@
 - (UILabel *)closPriceTitleLab {
     if (!_closPriceTitleLab) {
         _closPriceTitleLab = [[UILabel alloc] init];
-        _closPriceTitleLab.text = FSLanguage(@"均价");
+        _closPriceTitleLab.text = FSMacroLanguage(@"均价");
         _closPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _closPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -275,7 +275,7 @@
 - (UILabel *)upAndDownAmountTitleLab {
     if (!_upAndDownAmountTitleLab) {
         _upAndDownAmountTitleLab = [[UILabel alloc] init];
-        _upAndDownAmountTitleLab.text = FSLanguage(@"涨跌额");
+        _upAndDownAmountTitleLab.text = FSMacroLanguage(@"涨跌额");
         _upAndDownAmountTitleLab.textColor = UIColor.secondaryTextColor;
         _upAndDownAmountTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -295,7 +295,7 @@
 - (UILabel *)fluctuationRangeTitleLab {
     if (!_fluctuationRangeTitleLab) {
         _fluctuationRangeTitleLab = [[UILabel alloc] init];
-        _fluctuationRangeTitleLab.text = FSLanguage(@"涨跌幅");
+        _fluctuationRangeTitleLab.text = FSMacroLanguage(@"涨跌幅");
         _fluctuationRangeTitleLab.textColor = UIColor.secondaryTextColor;
         _fluctuationRangeTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -315,7 +315,7 @@
 - (UILabel *)volumeTitleLab {
     if (!_volumeTitleLab) {
         _volumeTitleLab = [[UILabel alloc] init];
-        _volumeTitleLab.text = FSLanguage(@"成交量");
+        _volumeTitleLab.text = FSMacroLanguage(@"成交量");
         _volumeTitleLab.textColor = UIColor.secondaryTextColor;
         _volumeTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -335,7 +335,7 @@
 - (UILabel *)turnoverTitleLab {
     if (!_turnoverTitleLab) {
         _turnoverTitleLab = [[UILabel alloc] init];
-        _turnoverTitleLab.text = FSLanguage(@"成交额");
+        _turnoverTitleLab.text = FSMacroLanguage(@"成交额");
         _turnoverTitleLab.textColor = UIColor.secondaryTextColor;
         _turnoverTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -425,7 +425,7 @@
     
     // 成交量
     NSString *volumeStr = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Volume.floatValue Type:1];
-    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股")];
+    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSMacroLanguage(@"手") : FSMacroLanguage(@"股")];
     
     // 成交额
     self.turnoverLab.text = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Turnover.floatValue Type:2];

@@ -10,6 +10,7 @@
 #import "QuotationConstant.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 #import <FSOCCategories/NSString+FSSize.h>
 
 @interface JMDelayPromptView ()
@@ -36,7 +37,7 @@
 
 + (CGFloat)viewHeight
 {
-    NSString *text = FSLanguage(@"应港交所要求，行情延时至少15分钟");
+    NSString *text = FSMacroLanguage(@"应港交所要求，行情延时至少15分钟");
     CGFloat height = [text getUICeilSize:kFont_Regular(12.f) limitWidth:kWidthScale(320)].height;
     return height + 8;
 }
@@ -85,7 +86,7 @@
 - (UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
-        _titleLab.text = FSLanguage(@"应港交所要求，行情延时至少15分钟");
+        _titleLab.text = FSMacroLanguage(@"应港交所要求，行情延时至少15分钟");
         _titleLab.font = kFont_Regular(12.f);
         _titleLab.textColor = UIColor.delayPromptTextColor;
         _titleLab.numberOfLines = 2;

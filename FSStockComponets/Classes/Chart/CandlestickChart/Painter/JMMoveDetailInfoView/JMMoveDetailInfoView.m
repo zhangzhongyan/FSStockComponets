@@ -12,7 +12,7 @@
 #import "JMChatManager.h"
 #import <YYCategories/YYCategories.h>
 //Helper
-#import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 #import "FSStockUnitUtils.h"
 
 @interface JMMoveDetailInfoView ()
@@ -91,25 +91,25 @@
 - (NSString *)dayFromWeekday:(NSDate *)date {
     switch([date weekday]) {
         case 1:
-            return FSLanguage(@"周日");
+            return FSMacroLanguage(@"周日");
             break;
         case 2:
-            return FSLanguage(@"周一");
+            return FSMacroLanguage(@"周一");
             break;
         case 3:
-            return FSLanguage(@"周二");
+            return FSMacroLanguage(@"周二");
             break;
         case 4:
-            return FSLanguage(@"周三");
+            return FSMacroLanguage(@"周三");
             break;
         case 5:
-            return FSLanguage(@"周四");
+            return FSMacroLanguage(@"周四");
             break;
         case 6:
-            return FSLanguage(@"周五");
+            return FSMacroLanguage(@"周五");
             break;
         case 7:
-            return FSLanguage(@"周六");
+            return FSMacroLanguage(@"周六");
             break;
         default:
             break;
@@ -310,7 +310,7 @@
 - (UILabel *)openPriceTitleLab {
     if (!_openPriceTitleLab) {
         _openPriceTitleLab = [[UILabel alloc] init];
-        _openPriceTitleLab.text = FSLanguage(@"开盘");
+        _openPriceTitleLab.text = FSMacroLanguage(@"开盘");
         _openPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _openPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -330,7 +330,7 @@
 - (UILabel *)closPriceTitleLab {
     if (!_closPriceTitleLab) {
         _closPriceTitleLab = [[UILabel alloc] init];
-        _closPriceTitleLab.text = FSLanguage(@"收盘");
+        _closPriceTitleLab.text = FSMacroLanguage(@"收盘");
         _closPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _closPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -350,7 +350,7 @@
 - (UILabel *)highestPriceTitleLab {
     if (!_highestPriceTitleLab) {
         _highestPriceTitleLab = [[UILabel alloc] init];
-        _highestPriceTitleLab.text = FSLanguage(@"最高");
+        _highestPriceTitleLab.text = FSMacroLanguage(@"最高");
         _highestPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _highestPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -370,7 +370,7 @@
 - (UILabel *)minimumPriceTitleLab {
     if (!_minimumPriceTitleLab) {
         _minimumPriceTitleLab = [[UILabel alloc] init];
-        _minimumPriceTitleLab.text = FSLanguage(@"最低");
+        _minimumPriceTitleLab.text = FSMacroLanguage(@"最低");
         _minimumPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _minimumPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -390,7 +390,7 @@
 - (UILabel *)upAndDownAmountTitleLab {
     if (!_upAndDownAmountTitleLab) {
         _upAndDownAmountTitleLab = [[UILabel alloc] init];
-        _upAndDownAmountTitleLab.text = FSLanguage(@"涨跌额");
+        _upAndDownAmountTitleLab.text = FSMacroLanguage(@"涨跌额");
         _upAndDownAmountTitleLab.textColor = UIColor.secondaryTextColor;
         _upAndDownAmountTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -410,7 +410,7 @@
 - (UILabel *)fluctuationRangeTitleLab {
     if (!_fluctuationRangeTitleLab) {
         _fluctuationRangeTitleLab = [[UILabel alloc] init];
-        _fluctuationRangeTitleLab.text = FSLanguage(@"涨跌幅");
+        _fluctuationRangeTitleLab.text = FSMacroLanguage(@"涨跌幅");
         _fluctuationRangeTitleLab.textColor = UIColor.secondaryTextColor;
         _fluctuationRangeTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -430,7 +430,7 @@
 - (UILabel *)volumeTitleLab {
     if (!_volumeTitleLab) {
         _volumeTitleLab = [[UILabel alloc] init];
-        _volumeTitleLab.text = FSLanguage(@"成交量(k线)");
+        _volumeTitleLab.text = FSMacroLanguage(@"成交量(k线)");
         _volumeTitleLab.textColor = UIColor.secondaryTextColor;
         _volumeTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -450,7 +450,7 @@
 - (UILabel *)turnoverTitleLab {
     if (!_turnoverTitleLab) {
         _turnoverTitleLab = [[UILabel alloc] init];
-        _turnoverTitleLab.text = FSLanguage(@"成交额");
+        _turnoverTitleLab.text = FSMacroLanguage(@"成交额");
         _turnoverTitleLab.textColor = UIColor.secondaryTextColor;
         _turnoverTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -565,7 +565,7 @@
     // 成交量
 #warning 未知
     NSString *volumeStr = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Volume.floatValue Type:1];
-    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股")];
+    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSMacroLanguage(@"手") : FSMacroLanguage(@"股")];
     
     // 成交额
     self.turnoverLab.text = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Turnover.floatValue Type:2];

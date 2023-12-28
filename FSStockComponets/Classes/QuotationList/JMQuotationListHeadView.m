@@ -8,6 +8,7 @@
 
 #import "JMQuotationListHeadView.h"
 #import "QuotationConstant.h"
+#import "FSStockComponetsLanguage.h"
 #import "NSBundle+FSStockComponents.h"
 
 @interface JMQuotationListHeadView ()
@@ -56,7 +57,7 @@
 
 - (void)createMarketCategoriesUI {
     
-    self.buttonTitles = @[FSLanguage(@"全部"), FSLanguage(@"港股"), FSLanguage(@"美股")];
+    self.buttonTitles = @[FSMacroLanguage(@"全部"), FSMacroLanguage(@"港股"), FSMacroLanguage(@"美股")];
     self.buttons = [[NSMutableArray alloc] init];
     
     
