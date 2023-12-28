@@ -13,6 +13,7 @@
 #import <YYCategories/YYCategories.h>
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockUnitUtils.h"
 
 @interface JMMoveDetailInfoView ()
 
@@ -90,25 +91,25 @@
 - (NSString *)dayFromWeekday:(NSDate *)date {
     switch([date weekday]) {
         case 1:
-            return @"周日";
+            return FSLanguage(@"周日");
             break;
         case 2:
-            return @"周一";
+            return FSLanguage(@"周一");
             break;
         case 3:
-            return @"周二";
+            return FSLanguage(@"周二");
             break;
         case 4:
-            return @"周三";
+            return FSLanguage(@"周三");
             break;
         case 5:
-            return @"周四";
+            return FSLanguage(@"周四");
             break;
         case 6:
-            return @"周五";
+            return FSLanguage(@"周五");
             break;
         case 7:
-            return @"周六";
+            return FSLanguage(@"周六");
             break;
         default:
             break;
@@ -138,21 +139,11 @@
  */
 - (NSString *)getCalculateTradingVolumeAndTurnoverWithNumber:(CGFloat)number
                                                         Type:(NSInteger)type {
-    
-    NSString * text = @"";
-    if (number >= 1e8) {
-        text = [NSString stringWithFormat:@"%.2f亿", number/1e8];
-    } else if (number >= 1e4) {
-        text = [NSString stringWithFormat:@"%.2f万", number/1e4];
+    if (type == 1) {
+        return [FSStockUnitUtils readbleVolumeWithNumber:number];
     } else {
-        if (type == 1) {
-            text = [NSString stringWithFormat:@"%.0f", number];
-        } else {
-            text = [NSString stringWithFormat:@"%.2f", number];
-        }
+        return [FSStockUnitUtils readbleDealAmoutWithNumber:number];
     }
-    
-    return text;
 }
 
 #pragma mark — bind
@@ -319,7 +310,7 @@
 - (UILabel *)openPriceTitleLab {
     if (!_openPriceTitleLab) {
         _openPriceTitleLab = [[UILabel alloc] init];
-        _openPriceTitleLab.text = @"开盘";
+        _openPriceTitleLab.text = FSLanguage(@"开盘");
         _openPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _openPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -339,7 +330,7 @@
 - (UILabel *)closPriceTitleLab {
     if (!_closPriceTitleLab) {
         _closPriceTitleLab = [[UILabel alloc] init];
-        _closPriceTitleLab.text = @"收盘";
+        _closPriceTitleLab.text = FSLanguage(@"收盘");
         _closPriceTitleLab.textColor = UIColor.secondaryTextColor;
         _closPriceTitleLab.font = [UIFont systemFontOfSize:10.f];
     }
@@ -399,7 +390,7 @@
 - (UILabel *)upAndDownAmountTitleLab {
     if (!_upAndDownAmountTitleLab) {
         _upAndDownAmountTitleLab = [[UILabel alloc] init];
-        _upAndDownAmountTitleLab.text = @"涨跌额";
+        _upAndDownAmountTitleLab.text = FSLanguage(@"涨跌额");
         _upAndDownAmountTitleLab.textColor = UIColor.secondaryTextColor;
         _upAndDownAmountTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -439,7 +430,7 @@
 - (UILabel *)volumeTitleLab {
     if (!_volumeTitleLab) {
         _volumeTitleLab = [[UILabel alloc] init];
-        _volumeTitleLab.text = FSLanguage(@"成交量");
+        _volumeTitleLab.text = FSLanguage(@"成交量(k线)");
         _volumeTitleLab.textColor = UIColor.secondaryTextColor;
         _volumeTitleLab.font = [UIFont systemFontOfSize:9.f];
     }
@@ -572,8 +563,9 @@
     }
     
     // 成交量
+#warning 未知
     NSString *volumeStr = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Volume.floatValue Type:1];
-    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股"];
+    self.volumeLab.text = [NSString stringWithFormat:@"%@%@",volumeStr, [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股")];
     
     // 成交额
     self.turnoverLab.text = [self getCalculateTradingVolumeAndTurnoverWithNumber:lineModel.Turnover.floatValue Type:2];

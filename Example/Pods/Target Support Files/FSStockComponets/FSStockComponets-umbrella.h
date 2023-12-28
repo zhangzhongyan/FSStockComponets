@@ -91,6 +91,7 @@
 #import "FSStockDetailInfoViewModel.h"
 #import "FSStockTimeChartModel.h"
 #import "UIColor+JMColor.h"
+#import "FSStockUnitUtils.h"
 
 FOUNDATION_EXPORT double FSStockComponetsVersionNumber;
 FOUNDATION_EXPORT const unsigned char FSStockComponetsVersionString[];
