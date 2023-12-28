@@ -26,7 +26,7 @@
             self.changePctColor = UIColor.flatColor;
             
             NSArray *titleList = @[
-                FSLanguage(@"最高"), FSLanguage(@"今开"), @"成交量",
+                FSLanguage(@"最高"), FSLanguage(@"今开"), FSLanguage(@"成交量"),
                 FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
                 @"换手率", @"市盈率", @"总市值",
                 @"量比", @"市盈", @"总股本",
@@ -126,7 +126,7 @@
             
             
             NSArray *titleList = @[
-                FSLanguage(@"最高"), FSLanguage(@"今开"), @"成交量",
+                FSLanguage(@"最高"), FSLanguage(@"今开"), FSLanguage(@"成交量"),
                 FSLanguage(@"最低"), FSLanguage(@"昨收"), @"成交额",
                 @"换手率", @"市盈率", @"总市值",
                 @"量比", @"市盈", @"总股本",

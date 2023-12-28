@@ -9,6 +9,8 @@
 #import "YYKlineGlobalVariable.h"
 #import "UIColor+JMColor.h"
 #import "JMChatManager.h"
+//Helper
+#import "NSBundle+FSStockComponents.h"
 
 @implementation YYVolPainter
 + (YYMinMaxModel *)getMinMaxValue:(NSArray <YYKlineModel *> *)data {
@@ -81,15 +83,15 @@
                 NSString * volumeString = @"";
                 CGFloat dif = 1.0f;
                 if (minMaxModel.max>100000000) {
-                    volumeString = [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"亿手" : @"亿股";
+                    volumeString = [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"亿手") : FSLanguage(@"亿股");
                     dif = 100000000.0f;
                 }else if(minMaxModel.max>10000){
-                    volumeString = [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"万手" : @"万股";
-                    dif = 10000.0f;
+                    volumeString = [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"万手") : FSLanguage(@"万股");
+                    dif = ([NSBundle fsStockUI_isChineseLanguage])? 10000.0f: 1000.0f;
                 }
                 
                 CATextLayer *textLayer = [CATextLayer layer];
-                textLayer.string = [NSString stringWithFormat:@"%@  %.3f%@",i==0?@"成交量":@"",(minMaxModel.max-i*unitValuePrice)/dif,i==0?volumeString:@""];
+                textLayer.string = [NSString stringWithFormat:@"%@  %.3f%@",i==0? FSLanguage(@"成交量(k线)"):@"",(minMaxModel.max-i*unitValuePrice)/dif,i==0?volumeString:@""];
                 textLayer.alignmentMode = kCAAlignmentLeft;
                 textLayer.fontSize = 8.f;
                 textLayer.foregroundColor = [UIColor volWordColor].CGColor;
@@ -161,17 +163,17 @@
         CGFloat   xEnd = CGRectGetWidth(area);
         
         // 标题
-        NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : @"成交量";
+        NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额") : FSLanguage(@"成交量(k线)");
         // 单位
-        NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股";
+        NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
         
         // 根据市场类型区分指数
         if ([[JMChatManager sharedInstance].market isEqualToString:@"ZH"] && [JMChatManager sharedInstance].isStockIndex) {
-            volStr = @"成交量";
-            unitStr = @"手";
+            volStr = FSLanguage(@"成交量(k线)");
+            unitStr = FSLanguage(@"手");
         } else {
-            volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : @"成交量";
-            unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股";
+            volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额") : FSLanguage(@"成交量(k线)");
+            unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
         }
         
         for (int i = 0; i<4; i++) {
@@ -186,11 +188,11 @@
                 NSString * volumeString = @"";
                 CGFloat dif = 1.0f;
                 if (minMaxModel.max>100000000) {
-                    volumeString = [NSString stringWithFormat:@"亿%@",unitStr];
+                    volumeString = [NSString stringWithFormat:@"%@%@", FSLanguage(@"亿"), unitStr];
                     dif = 100000000.0f;
                 } else if(minMaxModel.max>10000){
-                    volumeString = [NSString stringWithFormat:@"万%@",unitStr];
-                    dif = 10000.0f;
+                    volumeString = [NSString stringWithFormat:@"%@%@", FSLanguage(@"万"), unitStr];
+                    dif = ([NSBundle fsStockUI_isChineseLanguage])? 10000.0f: 1000.0f;
                 }
                 
                 // 向下取整，解决美股成交量有小数位

@@ -9,6 +9,9 @@
 #import "JMKlineGlobalVariable.h"
 #import "UIColor+JMColor.h"
 #import "JMChatManager.h"
+//Helper
+#import "FSStockUnitUtils.h"
+#import "NSBundle+FSStockComponents.h"
 
 @implementation JMVerticalTextPainter
 
@@ -42,17 +45,7 @@
     for (int i = 0; i < count; i++) {
         CATextLayer *layer = [CATextLayer layer];
         CGFloat number = minMaxModel.max - i * decimalGap;
-        NSString * text = @"";
-        if (number >= 1e8) {
-            text = [NSString stringWithFormat:@"%.2f亿", number/1e8];
-        } else if (number >= 1e4) {
-            text = [NSString stringWithFormat:@"%.2f万", number/1e4];
-        } else if (number >= 10) {
-            text = [NSString stringWithFormat:@"%.2f", number];
-        } else {
-            text = [NSString stringWithFormat:@"%.3f", number];
-        }
-        layer.string = text;
+        layer.string = [FSStockUnitUtils readbleKLineVerticalUnitWithNumber:number];
 //        layer.alignmentMode = kCAAlignmentCenter;
         layer.fontSize = 10.f;
         layer.foregroundColor = UIColor.secondaryTextColor.CGColor;
@@ -89,17 +82,17 @@
     CGFloat decimalGap = minMaxModel.distance / (count-1);
     
     // 标题
-    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : @"成交量";
+    NSString *volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额") : FSLanguage(@"成交量(k线)");
     // 单位
-    NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股";
+    NSString *unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
     
     // 根据市场类型区分指数
     if ([[JMChatManager sharedInstance].market isEqualToString:@"ZH"] && [JMChatManager sharedInstance].isStockIndex) {
-        volStr = @"成交量";
-        unitStr = @"手";
+        volStr = FSLanguage(@"成交量(k线)");
+        unitStr = FSLanguage(@"手");
     } else {
-        volStr = [JMChatManager sharedInstance].isStockIndex ? @"成交额" : @"成交量";
-        unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? @"手" : @"股";
+        volStr = [JMChatManager sharedInstance].isStockIndex ? FSLanguage(@"成交额")  : FSLanguage(@"成交量(k线)");
+        unitStr = [JMChatManager sharedInstance].isStockIndex ? @"" : [[JMChatManager sharedInstance].market isEqualToString:@"ZH"] ? FSLanguage(@"手") : FSLanguage(@"股");
     }
     
     for (int i = 0; i < count; i++) {
@@ -108,9 +101,10 @@
         NSString * text = @"";
         
         if (number >= 1e8) {
-            text = [NSString stringWithFormat:@"%.2f亿", number/1e8];
+            text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSLanguage(@"亿")];
         } else if (number >= 1e4) {
-            text = [NSString stringWithFormat:@"%.2f万", number/1e4];
+            number = ([NSBundle fsStockUI_isChineseLanguage])? number * 10: number;
+            text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSLanguage(@"万")];
         } else if (number >= 10) {
             text = [NSString stringWithFormat:@"%.2f", number];
         } else {

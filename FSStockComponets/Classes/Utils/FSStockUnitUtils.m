@@ -23,6 +23,22 @@
     return [FSStockUnitUtils readbleNumber:number type:2];
 }
 
++ (NSString *)readbleKLineVerticalUnitWithNumber:(CGFloat)number
+{
+    NSString * text = @"";
+    if (number >= 1e8) {
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e8, FSLanguage(@"亿")];
+    } else if (number >= 1e4) {
+        number = ([NSBundle fsStockUI_isChineseLanguage])? number * 10: number;
+        text = [NSString stringWithFormat:@"%.2f%@", number/1e4, FSLanguage(@"万")];
+    } else if (number >= 10) {
+        text = [NSString stringWithFormat:@"%.2f", number];
+    } else {
+        text = [NSString stringWithFormat:@"%.3f", number];
+    }
+    return text;
+}
+
 #pragma mark - Private Methods
 
 + (NSString *)readbleNumber:(CGFloat)number type:(NSInteger)type

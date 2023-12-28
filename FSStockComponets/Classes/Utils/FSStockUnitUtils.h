@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)readbleDealAmoutWithNumber:(CGFloat)number;
 
++ (NSString *)readbleKLineVerticalUnitWithNumber:(CGFloat)number;
+
 @end
 
 NS_ASSUME_NONNULL_END
