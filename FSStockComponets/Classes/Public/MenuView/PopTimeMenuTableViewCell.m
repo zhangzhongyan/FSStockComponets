@@ -9,6 +9,7 @@
 #import "QuotationConstant.h"
 #import <Masonry/Masonry.h>
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 
 @implementation PopTimeMenuTableViewCell
 
@@ -44,7 +45,7 @@
 - (UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
-        _titleLab.text = @"1分";
+        _titleLab.text = FSMacroLanguage(@"1分");
         _titleLab.font = kFont_Regular(12.f);
         _titleLab.textColor = UIColor.handicapInfoTextColor;
     }

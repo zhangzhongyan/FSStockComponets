@@ -9,6 +9,7 @@
 #import "QuotationConstant.h"
 #import <Masonry/Masonry.h>
 #import "PopTimeMenuTableViewCell.h"
+#import "FSStockComponetsLanguage.h"
 
 @interface PopTimeMenuView ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -105,7 +106,7 @@
 -(NSArray *)weightsArray
 {
     if (!_weightsArray) {
-        _weightsArray = @[@"前复权",@"后复权",@"除权"];
+        _weightsArray = @[FSMacroLanguage(@"前复权"), FSMacroLanguage(@"后复权"), FSMacroLanguage(@"除权")];
     }
     return _weightsArray;
 }
@@ -113,7 +114,7 @@
 -(NSArray *)timeArray
 {
     if (!_timeArray) {
-        _timeArray = @[@"1分",@"5分",@"15分",@"30分",@"60分"];
+        _timeArray = @[FSMacroLanguage(@"1分"), FSMacroLanguage(@"5分"), FSMacroLanguage(@"15分"), FSMacroLanguage(@"30分"), FSMacroLanguage(@"60分")];
     }
     return _timeArray;
 }

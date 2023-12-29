@@ -458,9 +458,9 @@
     
     self.backgroundColor = UIColor.backgroundColor;
     
-    self.buttonTitles = @[@"五日", @"日K", @"周K", @"月K", @"年K",];
+    self.buttonTitles = @[FSMacroLanguage(@"五日"), FSMacroLanguage(@"日K"), FSMacroLanguage(@"周K"), FSMacroLanguage(@"月K"), FSMacroLanguage(@"年K"),];
     self.buttons = [[NSMutableArray alloc] init];
-    self.selectedTime = @"1分";
+    self.selectedTime = FSMacroLanguage(@"1分");
     
     //规格选择
     __block UIButton *lastBtn = nil;
@@ -616,7 +616,7 @@
 - (UIButton *)resetBtn {
     if (!_resetBtn) {
         _resetBtn = [[UIButton alloc] init];
-        [_resetBtn setTitle:@"前复权" forState:UIControlStateNormal];
+        [_resetBtn setTitle:FSMacroLanguage(@"前复权") forState:UIControlStateNormal];
         [_resetBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_resetBtn.titleLabel setFont:kFont_Regular(14.f)];
         [_resetBtn addTarget:self action:@selector(ResetBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -627,7 +627,7 @@
 - (UIButton *)moreBtn {
     if (!_moreBtn) {
         _moreBtn = [[UIButton alloc] init];
-        [_moreBtn setTitle:@"1分" forState:UIControlStateNormal];
+        [_moreBtn setTitle:FSMacroLanguage(@"1分") forState:UIControlStateNormal];
         [_moreBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_moreBtn.titleLabel setFont:kFont_Regular(14.f)];
         [_moreBtn setImage:[NSBundle fsStockUI_imageName:@"expand_n.png"] forState:UIControlStateNormal];
@@ -653,7 +653,7 @@
 - (UIButton *)timeBtn {
     if (!_timeBtn) {
         _timeBtn = [[UIButton alloc] init];
-        [_timeBtn setTitle:@"分时" forState:UIControlStateNormal];
+        [_timeBtn setTitle:FSMacroLanguage(@"分时") forState:UIControlStateNormal];
         [_timeBtn.titleLabel setFont:kFont_Regular(14.f)];
         [_timeBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_timeBtn setTitleColor:UIColor.delayPromptTextColor forState:UIControlStateSelected];
