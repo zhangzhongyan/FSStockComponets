@@ -11,6 +11,7 @@
 #import "FSStockDetailInfoCollectionViewCell.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import "FSStockComponetsLanguage.h"
 #import <FSOCCategories/UIButton+FSHitEdgeInsets.h>
 
 @interface FSStockDetailInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -38,6 +39,8 @@
 
 @implementation FSStockDetailInfoView
 
+#pragma mark - Initialize Methods
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -47,6 +50,8 @@
     }
     return self;
 }
+
+#pragma mark - Private Methods
 
 - (void)createUI {
     
@@ -98,18 +103,38 @@
     
 }
 
++ (CGFloat)collectionCellHeight
+{
+    return [FSStockComponetsLanguage isChineseLanguage]? ceil(kHeightScale(20)): ceil(kHeightScale(32));
+}
+
++ (CGFloat)collectionCellHorizontalGap
+{
+    return 12;
+}
+
++ (CGFloat)collectionViewLeftOffset
+{
+    return 16;
+}
+
++ (CGFloat)collectionViewHorizontalCount
+{
+    return 3;
+}
+
 #pragma mark - ExpandBtnClick
 
 - (void)ExpandBtnClick:(UIButton *)sender {
     sender.selected = !sender.selected;
     if (sender.selected) {
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(kHeightScale(8*20));
+            make.height.mas_offset(kHeightScale(8*[FSStockDetailInfoView collectionCellHeight]));
         }];
         self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_s.png"];
     } else {
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(kHeightScale(3*20));
+            make.height.mas_offset(kHeightScale(3*[FSStockDetailInfoView collectionCellHeight]));
         }];
         self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
     }
@@ -185,14 +210,15 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     //cell宽
-    CGFloat width = (kSCREEN_WIDTH - 56) / 3;
-    return CGSizeMake(width, kHeightScale(20));
+    CGFloat totalHorizontalGap = [FSStockDetailInfoView collectionViewLeftOffset] * 2 + [FSStockDetailInfoView collectionCellHorizontalGap] * 2;
+    CGFloat width = (kSCREEN_WIDTH - totalHorizontalGap) / [FSStockDetailInfoView collectionViewHorizontalCount];
+    return CGSizeMake(width, [FSStockDetailInfoView collectionCellHeight]);
 }
 
 //  定义每个元素的margin(边缘 上-左-下-右)
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-    return UIEdgeInsetsMake(0, 16, 0, 16);
+    return UIEdgeInsetsMake(0, [FSStockDetailInfoView collectionViewLeftOffset], 0, [FSStockDetailInfoView collectionViewLeftOffset]);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
