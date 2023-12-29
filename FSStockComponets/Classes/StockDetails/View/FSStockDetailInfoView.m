@@ -11,6 +11,7 @@
 #import "FSStockDetailInfoCollectionViewCell.h"
 //Helper
 #import "NSBundle+FSStockComponents.h"
+#import <FSOCCategories/UIButton+FSHitEdgeInsets.h>
 
 @interface FSStockDetailInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -212,6 +213,7 @@
 //        [_expandBtn setBackgroundImage:[NSBundle fsStockUI_imageName:@"expand_s.png")] forState:UIControlStateSelected];
 //        [_expandBtn setTouchAreaInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
         [_expandBtn addTarget:self action:@selector(ExpandBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _expandBtn.hitEdgeInsets = UIEdgeInsetsMake(-10, -10, -10, -10);
     }
     return _expandBtn;
 }
