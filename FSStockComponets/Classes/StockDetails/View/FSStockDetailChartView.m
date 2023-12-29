@@ -18,6 +18,7 @@
 //Helper
 #import "NSBundle+FSStockComponents.h"
 #import "FSStockComponetsLanguage.h"
+#import <FSOCCategories/NSString+FSSize.h>
 
 #define kButtonTag 1000
 #define kButtonTimesharingTag 8888
@@ -321,7 +322,7 @@
     
     UIButton *btn = [[UIButton alloc] init];
     [btn setTitle:text forState:UIControlStateNormal];
-    [btn.titleLabel setFont:kFont_Regular(14.f)];
+    [btn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(12.f)];
     [btn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
     [btn setTitleColor:UIColor.delayPromptTextColor forState:UIControlStateSelected];
     [btn setBackgroundImage:[UIImage imageWithColor:UIColor.backgroundColor] forState:UIControlStateNormal];
@@ -476,13 +477,14 @@
     CGFloat buttonHeight = kHeightScale(24);
     CGFloat spacing = 2;
     CGFloat startX = 0;
-    CGFloat currentX = startX;
+    CGFloat currentX = 0;
     
     [self addSubview:self.timeBtn];
+    CGFloat todayBtnWidth = [self.timeBtn.titleLabel.text getUISize:self.timeBtn.titleLabel.font limitWidth:200].width;
     [self.timeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self).mas_offset(16);
         make.left.mas_equalTo(self).mas_offset(12);
-        make.width.mas_offset(buttonWidth);
+        make.width.equalTo(@(ceil(todayBtnWidth + 12)));
         make.height.mas_offset(buttonHeight);
     }];
     
@@ -490,7 +492,7 @@
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self).mas_offset(16);
             make.left.mas_equalTo(self.timeBtn.mas_right).mas_offset(currentX);
-            make.width.mas_offset(buttonWidth);
+            make.width.equalTo(@(buttonWidth));
             make.height.mas_offset(buttonHeight);
         }];
         currentX += buttonWidth + spacing;
@@ -617,6 +619,7 @@
     if (!_resetBtn) {
         _resetBtn = [[UIButton alloc] init];
         [_resetBtn setTitle:FSMacroLanguage(@"前复权") forState:UIControlStateNormal];
+        [_resetBtn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(12.f)];
         [_resetBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_resetBtn.titleLabel setFont:kFont_Regular(14.f)];
         [_resetBtn addTarget:self action:@selector(ResetBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -629,7 +632,7 @@
         _moreBtn = [[UIButton alloc] init];
         [_moreBtn setTitle:FSMacroLanguage(@"1分") forState:UIControlStateNormal];
         [_moreBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
-        [_moreBtn.titleLabel setFont:kFont_Regular(14.f)];
+        [_moreBtn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(12.f)];
         [_moreBtn setImage:[NSBundle fsStockUI_imageName:@"expand_n.png"] forState:UIControlStateNormal];
         [_moreBtn setImage:[NSBundle fsStockUI_imageName:@"expand_s.png"] forState:UIControlStateSelected];
         [_moreBtn setLayoutType:KJButtonContentLayoutStyleLeftImageRight];
@@ -652,10 +655,9 @@
 
 - (UIButton *)timeBtn {
     if (!_timeBtn) {
-#warning 调整大小
         _timeBtn = [[UIButton alloc] init];
         [_timeBtn setTitle:FSMacroLanguage(@"分时") forState:UIControlStateNormal];
-        [_timeBtn.titleLabel setFont:kFont_Regular(14.f)];
+        [_timeBtn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(12.f)];
         [_timeBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
         [_timeBtn setTitleColor:UIColor.delayPromptTextColor forState:UIControlStateSelected];
         [_timeBtn setBackgroundImage:[UIImage imageWithColor:UIColor.backgroundColor] forState:UIControlStateNormal];

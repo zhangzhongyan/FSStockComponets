@@ -100,7 +100,9 @@
         }
     }
     value = [bundle localizedStringForKey:key value:value table:nil];
-    return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
+    NSString *mainBudleValue = [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
+    //修复value=""，并且主bundle没有定义的情况下，使用""
+    return ([value isEqualToString:@""] && [mainBudleValue isEqualToString:key])? value: mainBudleValue;
 }
 
 #pragma mark - Private Methods
@@ -113,29 +115,29 @@
 
 + (NSBundle *)englishLanguageBundle
 {
-    static NSBundle *bundle = nil;
-    if (!bundle) {
-        bundle = [FSStockComponetsLanguage languageBundleWithResource:@"en"];
+    static NSBundle *bundle1 = nil;
+    if (!bundle1) {
+        bundle1 = [FSStockComponetsLanguage languageBundleWithResource:@"en"];
     }
-    return bundle;
+    return bundle1;
 }
 
 + (NSBundle *)simpleChineseLanguageBundle
 {
-    static NSBundle *bundle = nil;
-    if (!bundle) {
-        bundle = [FSStockComponetsLanguage languageBundleWithResource:@"zh-Hans"];
+    static NSBundle *bundle2 = nil;
+    if (!bundle2) {
+        bundle2 = [FSStockComponetsLanguage languageBundleWithResource:@"zh-Hans"];
     }
-    return bundle;
+    return bundle2;
 }
 
 + (NSBundle *)chineseLanguageBundle
 {
-    static NSBundle *bundle = nil;
-    if (!bundle) {
-        bundle = [FSStockComponetsLanguage languageBundleWithResource:@"zh-Hant"];
+    static NSBundle *bundle3 = nil;
+    if (!bundle3) {
+        bundle3 = [FSStockComponetsLanguage languageBundleWithResource:@"zh-Hant"];
     }
-    return bundle;
+    return bundle3;
 }
 
 @end

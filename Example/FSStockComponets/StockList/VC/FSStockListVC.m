@@ -14,6 +14,7 @@
 //Helper
 #import "FSColorMacro.h"
 #import "EVLanguage.h"
+#import <FSStockComponets/FSStockComponetsLanguage.h>
 
 @interface FSStockListVC ()<UITableViewDataSource, UITableViewDelegate, QuotationListDelegate>
 
@@ -32,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [FSStockComponetsLanguage setUserPreferredLanguage:FSStockComponetsLanguageTypeEnglish];
+
     [self setupData];
     [self setupSubviews];
     [self setupConstraints];

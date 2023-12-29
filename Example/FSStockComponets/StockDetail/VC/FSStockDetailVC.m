@@ -103,6 +103,18 @@
     [self.toolBarView setContentWithVM:self.viewModel.toolBarVM];
 }
 
+#pragma mark - Event
+
+- (void)clickEnquiryButton:(UIButton *)sender
+{
+}
+
+
+- (void)clickOrderButton:(UIButton *)sender
+{
+    
+}
+
 #pragma mark - <FSStockDetailViewDelegate>
 
 /**
@@ -238,8 +250,8 @@
 //        [_toolBarView.orderRecordButton addTarget:self action:@selector(clickOrderRecordButton:) forControlEvents:UIControlEventTouchUpInside];
 //        [_toolBarView.addWatchButton addTarget:self action:@selector(clickAddStockRecordButton:) forControlEvents:UIControlEventTouchUpInside];
 //        [_toolBarView.unAddWatchButton addTarget:self action:@selector(clickAddStockRecordButton:) forControlEvents:UIControlEventTouchUpInside];
-//        [_toolBarView.enquiryButton addTarget:self action:@selector(clickEnquiryButton:) forControlEvents:UIControlEventTouchUpInside];
-//        [_toolBarView.orderButton addTarget:self action:@selector(clickOrderButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_toolBarView.enquiryButton addTarget:self action:@selector(clickEnquiryButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_toolBarView.orderButton addTarget:self action:@selector(clickOrderButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _toolBarView;
 }
