@@ -11,6 +11,9 @@
 
 @interface FSStockDetailInfoCollectionViewCell ()
 
+/** 盘口信息 */
+@property (nonatomic, strong) FSStockDetailInfoModel *model;
+
 /** 标题 */
 @property (nonatomic, strong) UILabel *titleLab;
 
@@ -24,7 +27,7 @@
 
 @implementation FSStockDetailInfoCollectionViewCell
 
-#pragma mark — life cycle
+#pragma mark - Initialize Methods
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -35,7 +38,18 @@
     return self;
 }
 
-#pragma mark — UI
+#pragma mark - Public Methods
+
+- (void)setContentWithModel:(FSStockDetailInfoModel *)model indexPath:(NSIndexPath *)indexPath
+{
+    self.model = model;
+    self.titleLab.text = model.titleStr;
+    self.describeLab.text = model.describeStr;
+    self.contentLab.text = model.contentStr;
+    self.contentLab.textColor = model.myColor;
+}
+
+#pragma mark - Private Methods
 
 - (void)createUI {
     
@@ -59,7 +73,7 @@
     
 }
 
-#pragma mark — Lazy
+#pragma mark - property
 
 - (UILabel *)contentLab {
     if (!_contentLab) {
@@ -90,16 +104,5 @@
     }
     return _titleLab;
 }
-
-#pragma mark - 数据重载
-
-- (void)setModel:(FSStockDetailInfoModel *)model {
-    _model = model;
-    self.titleLab.text = model.titleStr;
-    self.describeLab.text = model.describeStr;
-    self.contentLab.text = model.contentStr;
-    self.contentLab.textColor = model.myColor;
-}
-
 
 @end

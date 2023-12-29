@@ -224,7 +224,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     FSStockDetailInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FSStockDetailInfoCollectionViewCell" forIndexPath:indexPath];
-    cell.model = self.stockInfoViewModel.handicapInfoList[indexPath.row];
+    [cell setContentWithModel:self.stockInfoViewModel.handicapInfoList[indexPath.row] indexPath:indexPath];
     return cell;
     
 }

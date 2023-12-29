@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSStockDetailInfoCollectionViewCell : UICollectionViewCell
 
-/** 盘口信息 */
-@property (nonatomic, strong) FSStockDetailInfoModel *model;
+- (void)setContentWithModel:(FSStockDetailInfoModel *)model indexPath:(NSIndexPath *)indexPath;
 
 @end
 
