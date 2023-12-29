@@ -86,6 +86,16 @@
     }
 }
 
+
++ (NSAttributedString *)resetButtonWithText:(NSString *)text
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 0;
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
 #pragma mark - PopTimeMenuViewDelegate
 
 - (void)popTimeMenuViewTimeSelectionWithIndex:(NSInteger)index
@@ -106,7 +116,8 @@
 
 - (void)popTimeMenuViewWeightsSelectionWithIndex:(NSInteger)index
                                            Title:(NSString *)title {
-    [self.resetBtn setTitle:title forState:UIControlStateNormal];
+    
+    [self.resetBtn setAttributedTitle:[FSStockDetailChartView resetButtonWithText:title] forState:UIControlStateNormal];
     
     FSKLineWeightType weightType = FSKLineWeightTypeFront;
     switch (index) {
@@ -479,20 +490,22 @@
     CGFloat startX = 0;
     CGFloat currentX = 0;
     
+    BOOL isChineseLanguage = [FSStockComponetsLanguage isChineseLanguage];
     [self addSubview:self.timeBtn];
-    CGFloat todayBtnWidth = [self.timeBtn.titleLabel.text getUISize:self.timeBtn.titleLabel.font limitWidth:200].width;
+    CGFloat todayBtnWidth = isChineseLanguage? kWidthScale(40): kWidthScale(50);
     [self.timeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self).mas_offset(16);
         make.left.mas_equalTo(self).mas_offset(12);
-        make.width.equalTo(@(ceil(todayBtnWidth + 12)));
+        make.width.equalTo(@(ceil(todayBtnWidth)));
         make.height.mas_offset(buttonHeight);
     }];
     
+    CGFloat kLineBtnWidth = isChineseLanguage? kWidthScale(40): kWidthScale(35);
     for (UIButton *button in self.buttons) {
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self).mas_offset(16);
             make.left.mas_equalTo(self.timeBtn.mas_right).mas_offset(currentX);
-            make.width.equalTo(@(buttonWidth));
+            make.width.equalTo(@(ceil(kLineBtnWidth)));
             make.height.mas_offset(buttonHeight);
         }];
         currentX += buttonWidth + spacing;
@@ -507,11 +520,12 @@
         make.height.mas_offset(buttonHeight);
     }];
     
+    CGFloat resetBtnWidth = isChineseLanguage? kWidthScale(40): kWidthScale(40);
     [self addSubview:self.resetBtn];
     [self.resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lastBtn);
+        make.centerY.equalTo(self.timeBtn);
         make.right.mas_equalTo(self.mas_right).mas_offset(-16);
-        make.height.mas_offset(buttonHeight);
+        make.width.equalTo(@(ceil(resetBtnWidth)));
     }];
     
     [self addSubview:self.nullDataImageView];
@@ -618,10 +632,10 @@
 - (UIButton *)resetBtn {
     if (!_resetBtn) {
         _resetBtn = [[UIButton alloc] init];
-        [_resetBtn setTitle:FSMacroLanguage(@"前复权") forState:UIControlStateNormal];
-        [_resetBtn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(12.f)];
+        _resetBtn.titleLabel.numberOfLines = [FSStockComponetsLanguage isChineseLanguage]? 1: 2;
+        [_resetBtn.titleLabel setFont:[FSStockComponetsLanguage isChineseLanguage]? kFont_Regular(14.f): kFont_Regular(11.f)];
         [_resetBtn setTitleColor:UIColor.handicapInfoTextColor forState:UIControlStateNormal];
-        [_resetBtn.titleLabel setFont:kFont_Regular(14.f)];
+        [_resetBtn setAttributedTitle:[FSStockDetailChartView resetButtonWithText:FSMacroLanguage(@"前复权")] forState:UIControlStateNormal];
         [_resetBtn addTarget:self action:@selector(ResetBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _resetBtn;
