@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [FSStockComponetsLanguage setUserPreferredLanguage:FSStockComponetsLanguageTypeEnglish];
+    [FSStockComponetsLanguage setUserPreferredLanguage:FSStockComponetsLanguageTypeSimpleChinese];
 
     [self setupData];
     [self setupSubviews];

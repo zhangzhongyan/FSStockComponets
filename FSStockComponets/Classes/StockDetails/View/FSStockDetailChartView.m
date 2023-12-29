@@ -256,10 +256,11 @@
     self.timeSelectionView.selectionTitle = self.resetBtn.titleLabel.text;
     self.BGView.hidden = NO;
     
+    CGFloat promptViewWidth = [FSStockComponetsLanguage isChineseLanguage]? kWidthScale(64): kWidthScale(74);
     [self.timeSelectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.resetBtn.mas_bottom).mas_offset(10);
-        make.centerX.mas_equalTo(self.resetBtn);
-        make.width.mas_offset(kWidthScale(64));
+        make.right.mas_equalTo(self.resetBtn).offset(16);
+        make.width.equalTo(@(ceil(promptViewWidth)));
         make.height.mas_offset(kHeightScale(120));
     }];
     
