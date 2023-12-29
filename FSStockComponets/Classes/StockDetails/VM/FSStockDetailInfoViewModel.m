@@ -253,6 +253,7 @@
 
 /// 获取交易状态文字
 - (NSString *)getTradingStatusText:(NSInteger)status {
+#warning 检查
     switch (status) {
         case 0:
             return FSMacroLanguage(@"正常");
@@ -341,7 +342,7 @@
         text = [NSString stringWithFormat:@"%@%@", [formatter stringFromNumber:@(number.doubleValue/1e8)], FSMacroLanguage(@"亿")];
     } else if (number1 >= 1e4) {
         number = [FSStockComponetsLanguage isChineseLanguage]? number: @(number.doubleValue * 10);
-        text = [NSString stringWithFormat:@"%@万", [formatter stringFromNumber:@(number.doubleValue/1e4)], FSMacroLanguage(@"万")];
+        text = [NSString stringWithFormat:@"%@%@", [formatter stringFromNumber:@(number.doubleValue/1e4)], FSMacroLanguage(@"万")];
     } else {
         text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:@(number.doubleValue)]];
     }
