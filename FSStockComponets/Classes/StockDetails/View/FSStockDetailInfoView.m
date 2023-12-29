@@ -35,6 +35,8 @@
 @property (nonatomic, strong) UIButton *expandBtn;
 @property (nonatomic, strong) UIImageView *expandImageView;
 
+@property (nonatomic, assign) FSStockDetailInfoCellType cellType;
+
 @end
 
 @implementation FSStockDetailInfoView
@@ -44,9 +46,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.cellType = [FSStockComponetsLanguage isChineseLanguage]? FSStockDetailInfoCellTypeChina: FSStockDetailInfoCellTypeEnglish;
         [self createUI];
-        
     }
     return self;
 }
@@ -116,11 +117,6 @@
 + (CGFloat)collectionViewLeftOffset
 {
     return 16;
-}
-
-+ (CGFloat)collectionViewHorizontalCount
-{
-    return 3;
 }
 
 #pragma mark - ExpandBtnClick
@@ -211,7 +207,7 @@
     
     //cell宽
     CGFloat totalHorizontalGap = [FSStockDetailInfoView collectionViewLeftOffset] * 2 + [FSStockDetailInfoView collectionCellHorizontalGap] * 2;
-    CGFloat width = (kSCREEN_WIDTH - totalHorizontalGap) / [FSStockDetailInfoView collectionViewHorizontalCount];
+    CGFloat width = (kSCREEN_WIDTH - totalHorizontalGap) / [FSStockDetailInfoCollectionViewCell columnsCount];
     return CGSizeMake(width, [FSStockDetailInfoView collectionCellHeight]);
 }
 
@@ -224,7 +220,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     FSStockDetailInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FSStockDetailInfoCollectionViewCell" forIndexPath:indexPath];
-    [cell setContentWithModel:self.stockInfoViewModel.handicapInfoList[indexPath.row] indexPath:indexPath];
+    [cell setContentWithModel:self.stockInfoViewModel.handicapInfoList[indexPath.row] indexPath:indexPath type:self.cellType];
     return cell;
     
 }
