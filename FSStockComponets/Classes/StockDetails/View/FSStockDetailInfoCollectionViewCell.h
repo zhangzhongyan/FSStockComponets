@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, FSStockDetailInfoCellType) {
 
 + (NSInteger)columnsCount;
 
++ (CGFloat)cellHeightWithType:(FSStockDetailInfoCellType)type;
+
 @end
 
 NS_ASSUME_NONNULL_END

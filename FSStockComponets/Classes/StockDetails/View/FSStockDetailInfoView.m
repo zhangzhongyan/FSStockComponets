@@ -104,11 +104,6 @@
     
 }
 
-+ (CGFloat)collectionCellHeight
-{
-    return [FSStockComponetsLanguage isChineseLanguage]? ceil(kHeightScale(20)): ceil(kHeightScale(32));
-}
-
 + (CGFloat)collectionCellHorizontalGap
 {
     return 12;
@@ -125,12 +120,12 @@
     sender.selected = !sender.selected;
     if (sender.selected) {
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(kHeightScale(8*[FSStockDetailInfoView collectionCellHeight]));
+            make.height.mas_offset(kHeightScale(8*[FSStockDetailInfoCollectionViewCell cellHeightWithType:self.cellType]));
         }];
         self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_s.png"];
     } else {
         [self.handicapInfoCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_offset(kHeightScale(3*[FSStockDetailInfoView collectionCellHeight]));
+            make.height.mas_offset(kHeightScale(3*[FSStockDetailInfoCollectionViewCell cellHeightWithType:self.cellType]));
         }];
         self.expandImageView.image = [NSBundle fsStockUI_imageName:@"expand_n.png"];
     }
@@ -208,7 +203,7 @@
     //cell宽
     CGFloat totalHorizontalGap = [FSStockDetailInfoView collectionViewLeftOffset] * 2 + [FSStockDetailInfoView collectionCellHorizontalGap] * 2;
     CGFloat width = (kSCREEN_WIDTH - totalHorizontalGap) / [FSStockDetailInfoCollectionViewCell columnsCount];
-    return CGSizeMake(width, [FSStockDetailInfoView collectionCellHeight]);
+    return CGSizeMake(width, [FSStockDetailInfoCollectionViewCell cellHeightWithType:self.cellType]);
 }
 
 //  定义每个元素的margin(边缘 上-左-下-右)
