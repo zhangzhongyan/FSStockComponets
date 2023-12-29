@@ -85,7 +85,7 @@
     [self.handicapInfoCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.tradingStatusLab.mas_bottom).mas_offset(16);
         make.left.right.mas_equalTo(self);
-        make.height.mas_offset(kHeightScale(60));
+        make.height.mas_offset(kHeightScale(3*[FSStockDetailInfoCollectionViewCell cellHeightWithType:self.cellType]));
     }];
     
     [self addSubview:self.expandImageView];
