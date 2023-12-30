@@ -25,7 +25,6 @@
 #import "NSString+WOCrash.h"
 #import "WOCrashLog.h"
 #import "WOCrashProtectorManager.h"
-#import "NSString+DecimalsCalculation.h"
 #import "UIButton+KJContentLayout.h"
 #import "JMKlineConstant.h"
 #import "JMKlineGlobalVariable.h"

@@ -29,7 +29,6 @@
 #import "JMVolPainter.h"
 #import "JMWRPainter.h"
 #import "UIButton+KJContentLayout.h"
-#import "NSString+DecimalsCalculation.h"
 #import "UIColor+JMColor.h"
 
 /**

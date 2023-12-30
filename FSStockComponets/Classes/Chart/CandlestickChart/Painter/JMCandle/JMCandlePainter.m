@@ -7,7 +7,6 @@
 
 #import "JMCandlePainter.h"
 #import "JMKlineGlobalVariable.h"
-#import "NSString+DecimalsCalculation.h"
 #import "JMChatManager.h"
 #import "UIColor+JMColor.h"
 
