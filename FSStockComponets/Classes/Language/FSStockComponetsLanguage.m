@@ -75,8 +75,9 @@
     }
 }
 
-+ (NSString *)localizedStringForKey:(NSString *)key
++ (NSString *)FSLocalizedStringForKey:(NSString *)key
 {
+    key = [NSString stringWithFormat:@"%@(FS)", key];
     return [self localizedStringForKey:key value:nil];
 }
 

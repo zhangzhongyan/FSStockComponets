@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, FSStockComponetsLanguageType) {
     FSStockComponetsLanguageTypeChinese,
 };
 
-#define FSMacroLanguage(key) [FSStockComponetsLanguage localizedStringForKey:key]
+#define FSMacroLanguage(key) [FSStockComponetsLanguage FSLocalizedStringForKey:key]
 
 @interface FSStockComponetsLanguage : NSObject
 
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, FSStockComponetsLanguageType) {
 
 + (BOOL)isChineseLanguage;
 
-+ (NSString *)localizedStringForKey:(NSString *)key;
++ (NSString *)FSLocalizedStringForKey:(NSString *)key;
 
 + (NSString *)localizedStringForKey:(NSString *)key value:(nullable NSString *)value;
 
