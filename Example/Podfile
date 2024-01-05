@@ -8,7 +8,6 @@ target 'FSStockComponets_Example' do
   
   pod 'FSStockComponets', :path => '../'
   pod 'FSOCCategories/UIButton+FSHitEdgeInsets'
-  pod 'FSOCUtils/DeviceUtils'
   pod 'PINCache', '2.3'
 
   target 'FSStockComponets_Tests' do

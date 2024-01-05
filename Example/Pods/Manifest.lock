@@ -5,6 +5,7 @@ PODS:
   - FSOCUtils/SizeScalieUtils (1.0.6)
   - FSStockComponets (0.1.0):
     - "FSOCCategories/NSString+FSSize"
+    - FSOCUtils/DeviceUtils
     - FSOCUtils/SizeScalieUtils
     - Masonry
     - MJExtension
@@ -18,7 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - "FSOCCategories/UIButton+FSHitEdgeInsets"
-  - FSOCUtils/DeviceUtils
   - FSStockComponets (from `../`)
   - PINCache (= 2.3)
 
@@ -39,12 +39,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FSOCCategories: c91e043aad2517a24015f8fa94453141fe30d8a9
   FSOCUtils: 80d1bb4b6ec7c749841fb60e2d0188f4c78b8609
-  FSStockComponets: 36f46b8683c203ba1f6650ef3568a2684c662f2f
+  FSStockComponets: 09924316cfe9e7ed978d7b5ba4adca7c5f779590
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: d4715406675ebcf547adc6e843fc041bb27b13e8
+PODFILE CHECKSUM: 4ed6e7367871def44914f2add73ee2f5824975b6
 
 COCOAPODS: 1.12.1

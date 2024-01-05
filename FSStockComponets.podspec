@@ -43,5 +43,6 @@ TODO: Add long description of the pod here.
   s.dependency 'MJExtension'
   s.dependency 'FSOCCategories/NSString+FSSize'
   s.dependency 'FSOCUtils/SizeScalieUtils'
+  s.dependency 'FSOCUtils/DeviceUtils'
 
 end
