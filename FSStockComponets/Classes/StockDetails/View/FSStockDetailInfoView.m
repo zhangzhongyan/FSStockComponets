@@ -13,6 +13,7 @@
 #import "NSBundle+FSStockComponents.h"
 #import "FSStockComponetsLanguage.h"
 #import <FSOCCategories/UIButton+FSHitEdgeInsets.h>
+#import <FSOCUtils/FSDeviceUtils.h>
 
 @interface FSStockDetailInfoView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -164,13 +165,13 @@
 //  设置页脚(水平滑动的时候设置width,垂直滑动的时候设置height)
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     
-    return CGSizeMake(kSCREEN_WIDTH, 0);
+    return CGSizeMake(kFS_ScreenWidth, 0);
 }
 
 //  设置页眉(水平滑动的时候设置width,垂直滑动的时候设置height)
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
-    return CGSizeMake(kSCREEN_WIDTH, 0);
+    return CGSizeMake(kFS_ScreenWidth, 0);
 }
 
 //  定义每个单元格相互之间的距离
@@ -202,7 +203,7 @@
     
     //cell宽
     CGFloat totalHorizontalGap = [FSStockDetailInfoView collectionViewLeftOffset] * 2 + [FSStockDetailInfoView collectionCellHorizontalGap] * 2;
-    CGFloat width = (kSCREEN_WIDTH - totalHorizontalGap) / [FSStockDetailInfoCollectionViewCell columnsCount];
+    CGFloat width = (kFS_ScreenWidth - totalHorizontalGap) / [FSStockDetailInfoCollectionViewCell columnsCount];
     return CGSizeMake(width, [FSStockDetailInfoCollectionViewCell cellHeightWithType:self.cellType]);
 }
 
