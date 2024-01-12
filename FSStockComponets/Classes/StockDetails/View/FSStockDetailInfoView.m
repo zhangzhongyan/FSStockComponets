@@ -311,16 +311,16 @@
 - (void)setStockInfoViewModel:(FSStockDetailInfoViewModel *)stockInfoViewModel {
     _stockInfoViewModel = stockInfoViewModel;
     
-    self.latestPriceLab.text = stockInfoViewModel.price;
+    self.latestPriceLab.text = stockInfoViewModel.price.length? stockInfoViewModel.price: @"--";
     self.latestPriceLab.textColor = stockInfoViewModel.priceColor;
     
-    self.changeAmountLab.text = stockInfoViewModel.change;
+    self.changeAmountLab.text = stockInfoViewModel.change.length? stockInfoViewModel.change: @"--";
     self.changeAmountLab.textColor = stockInfoViewModel.changeColor;
     
-    self.quoteChangeLab.text = stockInfoViewModel.changePct;
+    self.quoteChangeLab.text = stockInfoViewModel.changePct.length? stockInfoViewModel.changePct: @"--";
     self.quoteChangeLab.textColor = stockInfoViewModel.changePctColor;
     
-    self.tradingStatusLab.text = stockInfoViewModel.tradingStatus;
+    self.tradingStatusLab.text = stockInfoViewModel.tradingStatus.length? stockInfoViewModel.tradingStatus: @"--";
     
     [self.handicapInfoCollectionView reloadData];
     
